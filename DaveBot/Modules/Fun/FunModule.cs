@@ -24,7 +24,7 @@ namespace DaveBot.Modules
         [Summary("Ask the 8ball a question!")]
         public async Task EightBall([Remainder] [Summary("The question")] string question)
         {
-            Random random = new Random();
+            DaveRNG random = new DaveRNG();
             string answer = (_config.EightBallResponses.Length > 0)?
                 _config.EightBallResponses[random.Next(_config.EightBallResponses.Length)]:
                 DefaultEightBallResponses[random.Next(DefaultEightBallResponses.Length)];
@@ -37,7 +37,7 @@ namespace DaveBot.Modules
         [Summary("Choose an option from a given set")]
         public async Task Choose([Remainder] [Summary("Options (seperate with `;`)")] string options)
         {
-            Random random = new Random();
+            DaveRNG random = new DaveRNG();
             string[] optionsIndiv = options.Split(';');
             string choice = optionsIndiv[random.Next(optionsIndiv.Length)];
             await ReplyAsync("", false, new EmbedBuilder()

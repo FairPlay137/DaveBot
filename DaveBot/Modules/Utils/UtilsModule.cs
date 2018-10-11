@@ -31,7 +31,7 @@ namespace DaveBot.Modules
             var sw = Stopwatch.StartNew();
             await msg.DeleteAsync();
             sw.Stop();
-            Random random = new Random();
+            DaveRNG random = new DaveRNG();
             string subtitleText = StringResourceHandler.GetTextStatic("Utils", "ping_subtitle" + random.Next(1, 5));
             string footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer1");
             if(sw.ElapsedMilliseconds > 200)

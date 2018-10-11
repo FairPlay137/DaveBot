@@ -60,6 +60,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AkiNet, Version=1.0.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AkiNet.1.0.1.3\lib\net461\AkiNet.dll</HintPath>
+    </Reference>
     <Reference Include="Discord.Net.Commands, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Discord.Net.Commands.2.0.0-beta2-01000\lib\net46\Discord.Net.Commands.dll</HintPath>
     </Reference>
@@ -380,10 +383,12 @@
     <Compile Include="Common\ModuleBehaviors\IPreXBlockerExecutor.cs" />
     <Compile Include="Common\ModuleBehaviors\IPreXExecutor.cs" />
     <Compile Include="Common\ServerJsonStructure.cs" />
+    <Compile Include="Modules\Akinator\Services\AkinatorService.cs" />
     <Compile Include="Modules\DaveBotModuleBase.cs" />
     <Compile Include="Modules\Admin\AdminModule.cs" />
     <Compile Include="Modules\Akinator\AkinatorModule.cs" />
     <Compile Include="Modules\CustomReactions\CustomReactionsModule.cs" />
+    <Compile Include="Modules\DaveFun\DaveFunModule.cs" />
     <Compile Include="Modules\Fun\FunModule.cs" />
     <Compile Include="Modules\Moderation\ModerationModule.cs" />
     <Compile Include="Modules\Davemadson\DavemadsonModule.cs" />

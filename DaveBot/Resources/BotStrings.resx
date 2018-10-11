@@ -338,7 +338,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Bravo!</value>
   </data>
   <data name="Akinator_EmbedFooter" xml:space="preserve">
-    <value>Powered by Akinator.NET - Akinator.NET is a WIP implementation of the Akinator API</value>
+    <value>Powered by AkiNet by davidsl4; PaletteBot/DaveBot implementation currently in beta</value>
   </data>
   <data name="Akinator_ErrorTitle" xml:space="preserve">
     <value>Error!</value>

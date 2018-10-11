@@ -250,7 +250,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Powered by Akinator.NET - Akinator.NET is a WIP implementation of the Akinator API.
+        ///   Looks up a localized string similar to Powered by AkiNet by davidsl4; PaletteBot/DaveBot implementation currently in beta.
         /// </summary>
         public static string Akinator_EmbedFooter {
             get {

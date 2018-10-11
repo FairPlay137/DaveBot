@@ -2,10 +2,11 @@
 using System.Threading.Tasks;
 using Discord.Commands;
 using DaveBot.Common;
+using DaveBot.Modules.Akinator.Services;
 
 namespace DaveBot.Modules
 {
-    public class Akinator : DaveBotModuleBase<SocketCommandContext>
+    public class AkinatorGame : DaveBotModuleBase<AkinatorService>
     {
         [Command("akinator")]
         [Summary("Starts an Akinator game (COMING SOON)")]
