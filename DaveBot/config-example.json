@@ -1,0 +1,17 @@
+{
+  "token": "",
+  "prefix": "db!",
+  "defaultplaying": "Type db!help for help!",
+  "ownerid": 0,
+  "botname": "DaveBot",
+  "verboseerrors": false,
+  "8ballResponses": [
+
+  ],
+  "customReactions": {
+    
+  },
+  "playingStatuses": [
+    "Type db!help for help!"
+  ]
+}

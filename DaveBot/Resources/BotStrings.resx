@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Admin_restart" xml:space="preserve">
+    <value>Restarting... I'll be back in a moment!</value>
+  </data>
+  <data name="Admin_shutdown" xml:space="preserve">
+    <value>Shutting down...</value>
+  </data>
+  <data name="err_exception" xml:space="preserve">
+    <value>An error occurred while processing this command: {0}</value>
+  </data>
+  <data name="err_notBotOwner" xml:space="preserve">
+    <value>Sorry, you must be the bot owner to do that!</value>
+  </data>
+  <data name="err_tooFewArgs" xml:space="preserve">
+    <value>Not enough arguments have been given.</value>
+  </data>
+  <data name="err_tooManyArgs" xml:space="preserve">
+    <value>Too many arguments have been given.</value>
+  </data>
+  <data name="err_unknownCommand" xml:space="preserve">
+    <value>Unknown command. Be sure you typed it correctly, or type "{0}help" for help.</value>
+  </data>
+  <data name="Help_commands_header" xml:space="preserve">
+    <value>📃 Commands in module "{0}":</value>
+  </data>
+  <data name="Help_modules_header" xml:space="preserve">
+    <value>📃 Modules:</value>
+  </data>
+  <data name="Utils_invite" xml:space="preserve">
+    <value>**So you want to add me to your server? Here's my invite link:**</value>
+  </data>
+  <data name="Utils_ping_title" xml:space="preserve">
+    <value>**Pong!**</value>
+  </data>
+  <data name="Utils_stats_botID" xml:space="preserve">
+    <value>Bot ID:</value>
+  </data>
+  <data name="Utils_stats_botOwner" xml:space="preserve">
+    <value>Owner:</value>
+  </data>
+  <data name="Utils_stats_commandsExecuted" xml:space="preserve">
+    <value>Commands executed this session:</value>
+  </data>
+  <data name="Utils_stats_descriptionPublic" xml:space="preserve">
+    <value>Hi! I'm DaveBot; an open-source, davemadson-themed bot, based off of PaletteBot! I'm still under construction, so expect missing features, along with a few regressions.</value>
+  </data>
+  <data name="Utils_stats_guilds" xml:space="preserve">
+    <value>Servers:</value>
+  </data>
+  <data name="Utils_stats_textChannels" xml:space="preserve">
+    <value>Text Channels:</value>
+  </data>
+  <data name="Utils_stats_title" xml:space="preserve">
+    <value>About {0}</value>
+  </data>
+  <data name="Utils_stats_uptime" xml:space="preserve">
+    <value>Uptime:</value>
+  </data>
+  <data name="Utils_stats_voiceChannels" xml:space="preserve">
+    <value>Voice Channels:</value>
+  </data>
+  <data name="err_roleNotFound" xml:space="preserve">
+    <value>I couldn't find a role in this server with that ID.</value>
+  </data>
+  <data name="err_notAdmin" xml:space="preserve">
+    <value>You don't have permission to use this command. (Administrator permission required)</value>
+  </data>
+  <data name="err_multipleCommandDefs" xml:space="preserve">
+    <value>This command cannot be used due to either:
+1: The `NO_MCDS` flag being passed to the compiler, or...
+2: Something went wrong during the parsing routine.`
+Details: `{0}</value>
+  </data>
+  <data name="err_noBotOwner" xml:space="preserve">
+    <value>This command cannot be used because this bot's `config.json` does not specify a bot owner ID.</value>
+  </data>
+  <data name="err_nonexistentModule" xml:space="preserve">
+    <value>I couldn't find that module. (Did you type it wrong?)</value>
+  </data>
+  <data name="err_botMissingPermission" xml:space="preserve">
+    <value>This action requires the bot to have the "{0}" permission.</value>
+  </data>
+  <data name="Help_modules_commandcount" xml:space="preserve">
+    <value>*{0} command(s)*</value>
+  </data>
+  <data name="Help_DMContent" xml:space="preserve">
+    <value>Hi there! {1}
+
+__**Here's what you can try:**__
+
+Type `{0}modules` to view all available modules.
+
+Type `{0}commands (module name)` to view all commands in a module.
+
+Type `{0}invite` to get the invite link for this bot!
+
+
+GitHub: https://github.com/FairPlay137/Discord-PaletteBot
+This DaveBot rewrite is a work-in-progress, so expect missing features, along with a few regressions.</value>
+    <comment>I might revise this in the future.</comment>
+  </data>
+  <data name="Help_DMContentContactBotOwner" xml:space="preserve">
+    <value>If you encounter an issue, please contact {0} (@{1}#{2}).</value>
+  </data>
+  <data name="Help_DMContentNoBotOwner" xml:space="preserve">
+    <value>If you encounter an issue, please tell whoever the bot owner is.</value>
+  </data>
+  <data name="Help_DMedHelp" xml:space="preserve">
+    <value>:mailbox: **Check your DMs!** I have sent some helpful information over.</value>
+  </data>
+  <data name="CustomReactions_ShowCustomReaction" xml:space="preserve">
+    <value>Custom Reaction entry:</value>
+  </data>
+  <data name="CustomReactions_DeleteCustomReaction" xml:space="preserve">
+    <value>Custom Reaction deleted!</value>
+  </data>
+  <data name="CustomReactions_EditCustomReaction" xml:space="preserve">
+    <value>Custom Reaction edited!</value>
+  </data>
+  <data name="CustomReactions_NewCustomReaction" xml:space="preserve">
+    <value>Custom Reaction created!</value>
+  </data>
+  <data name="CustomReactions_response" xml:space="preserve">
+    <value>Response #{0}:</value>
+  </data>
+  <data name="CustomReactions_trigger" xml:space="preserve">
+    <value>Trigger:</value>
+  </data>
+  <data name="err_cooldownRequired" xml:space="preserve">
+    <value>Whoa there, slow down! You can execute another command in {0} second(s)!</value>
+  </data>
+  <data name="err_DMCommandError" xml:space="preserve">
+    <value>I couldn't quite get that. Type `{0}help` for help.</value>
+  </data>
+  <data name="Fun_8ball_answer" xml:space="preserve">
+    <value>8-Ball's response:</value>
+  </data>
+  <data name="Fun_8ball_question" xml:space="preserve">
+    <value>Question:</value>
+  </data>
+  <data name="Admin_changeGlobalPrefix" xml:space="preserve">
+    <value>Okay, my default prefix is now `{0}`.</value>
+  </data>
+  <data name="Admin_changeServerPrefix" xml:space="preserve">
+    <value>Alright, my prefix on this server is now `{0}`.</value>
+  </data>
+  <data name="Admin_setGame" xml:space="preserve">
+    <value>Okay, I will now be playing "{0}".</value>
+  </data>
+  <data name="Admin_setStatus" xml:space="preserve">
+    <value>Successfully updated status.</value>
+  </data>
+  <data name="err_userMissingPermission" xml:space="preserve">
+    <value>This action requires you to have the "{0}" permission.</value>
+  </data>
+  <data name="err_DMCommandsDisabled" xml:space="preserve">
+    <value>Commands in DMs are currently disabled. Try again later.</value>
+  </data>
+  <data name="err_invalidStatus" xml:space="preserve">
+    <value>You have specified an invalid status. Valid types are: "online", "idle", "dnd", and "invisible"</value>
+  </data>
+  <data name="Help_aliasList" xml:space="preserve">
+    <value>Aliases:</value>
+  </data>
+  <data name="Help_commandListEmpty" xml:space="preserve">
+    <value>There seem to be no commands in this module.</value>
+  </data>
+  <data name="Moderation_banWithReason" xml:space="preserve">
+    <value>Successfully banned {0} from the server for reason: {1}</value>
+  </data>
+  <data name="Moderation_banFailed" xml:space="preserve">
+    <value>Couldn't ban {0} due to them having a higher role.</value>
+  </data>
+  <data name="Moderation_kick" xml:space="preserve">
+    <value>Successfully kicked {0} from the server.</value>
+  </data>
+  <data name="Moderation_kickFailed" xml:space="preserve">
+    <value>Couldn't kick {0} due to them having a higher role.</value>
+  </data>
+  <data name="Moderation_softban" xml:space="preserve">
+    <value>Successfully kicked {0} from the server and deleted {1} day(s) of messages.</value>
+  </data>
+  <data name="Admin_setName" xml:space="preserve">
+    <value>Okay, my username is now "{0}".</value>
+  </data>
+  <data name="Admin_setNick" xml:space="preserve">
+    <value>Okay, I will now be referred to as "{0}" on this server.</value>
+  </data>
+  <data name="Help_intro" xml:space="preserve">
+    <value>I'm **{0}**; a Discord bot based off of DaveBot!</value>
+  </data>
+  <data name="Help_introPublic" xml:space="preserve">
+    <value>I'm **DaveBot**; a public bot written by FairPlay137-TTS!</value>
+  </data>
+  <data name="Utils_stats_description" xml:space="preserve">
+    <value>Hi! I'm **{0}**! I'm based off of DaveBot, an open-source, davemadson-themed bot, which in turn is based off of PaletteBot!</value>
+  </data>
+  <data name="Akinator_AgainPrompt" xml:space="preserve">
+    <value>Type `{0}aki` to play again!</value>
+  </data>
+  <data name="Akinator_akianswer_NoGameRunning" xml:space="preserve">
+    <value>No Akinator game is running. Therefore, this command cannot be used.</value>
+  </data>
+  <data name="Akinator_akianswer_InvalidAnswerG" xml:space="preserve">
+    <value>Invalid answer. Valid answers are "yes" or "no".</value>
+  </data>
+  <data name="Akinator_akianswer_InvalidAnswerQ" xml:space="preserve">
+    <value>Invalid answer. Valid answers are "yes", "no", "dunno", "probably", or "probably not".</value>
+  </data>
+  <data name="Akinator_akiregion_invalidRegion" xml:space="preserve">
+    <value>Invalid region!</value>
+  </data>
+  <data name="Akinator_akiregion_success" xml:space="preserve">
+    <value>Successfully set your Akinator region to `{0}`</value>
+  </data>
+  <data name="Akinator_DefeatedDesc" xml:space="preserve">
+    <value>You have defeated me!</value>
+  </data>
+  <data name="Akinator_DefeatedTitle" xml:space="preserve">
+    <value>Bravo!</value>
+  </data>
+  <data name="Akinator_EmbedFooter" xml:space="preserve">
+    <value>Powered by Akinator.NET - Akinator.NET is a WIP implementation of the Akinator API</value>
+  </data>
+  <data name="Akinator_ErrorTitle" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="Akinator_FinalGuess" xml:space="preserve">
+    <value>**FINAL GUESS**</value>
+  </data>
+  <data name="Akinator_GuessCorrectDesc" xml:space="preserve">
+    <value>I love playing with you!</value>
+  </data>
+  <data name="Akinator_GuessCorrectTitle" xml:space="preserve">
+    <value>Great! Guessed right one more time.</value>
+  </data>
+  <data name="Akinator_CharacterPlayedTimes" xml:space="preserve">
+    <value>This character has been played {0} times before.</value>
+  </data>
+  <data name="Akinator_GuessPrompt" xml:space="preserve">
+    <value>Type `{0}aa [answer]` where `[answer]` is "yes" or "no".</value>
+  </data>
+  <data name="Akinator_GuessRank" xml:space="preserve">
+    <value>Ranking as **#{0}**</value>
+  </data>
+  <data name="Akinator_GuessTitle" xml:space="preserve">
+    <value>Here's my guess:</value>
+  </data>
+  <data name="Akinator_IntroDesc" xml:space="preserve">
+    <value>Hello, I am Akinator! Think about a real or fictional character. I will try to guess who it is.</value>
+  </data>
+  <data name="Akinator_IntroTitle" xml:space="preserve">
+    <value>Akinator</value>
+  </data>
+  <data name="Akinator_QuestionPromptInstructions" xml:space="preserve">
+    <value>Type `{0}aa [answer]` where `[answer]` is "yes", "no", "dunno", "probably", or "probably not".</value>
+  </data>
+  <data name="Akinator_QuestionPromptTitle" xml:space="preserve">
+    <value>**Question {0}**</value>
+  </data>
+  <data name="Akinator_ServersDown" xml:space="preserve">
+    <value>Sorry; Akinator's `{0}` region servers are down at the moment! Try again later!</value>
+  </data>
+  <data name="Akinator_TechnicalError" xml:space="preserve">
+    <value>Sorry; Akinator's `{0}` region servers have experienced a technical error! Try again later!</value>
+  </data>
+  <data name="Akinator_Rejected" xml:space="preserve">
+    <value>Hmm... Akinator rejected the connection... This error has been logged.</value>
+  </data>
+  <data name="Akinator_UnknownError" xml:space="preserve">
+    <value>An unknown error has occurred! The error has been logged, and hopefully it should be resolved soon.</value>
+  </data>
+  <data name="Help_modules_moreInfo" xml:space="preserve">
+    <value>To list a module's commands, just type `{0}cmds ModuleName`</value>
+  </data>
+  <data name="Akinator_comingSoon" xml:space="preserve">
+    <value>Sorry, the Akinator module is not ready yet! Check back later!</value>
+  </data>
+  <data name="Akinator_akiEnd" xml:space="preserve">
+    <value>Your Akinator game has been stopped.</value>
+  </data>
+  <data name="Utils_ping_footer1" xml:space="preserve">
+    <value>The ball came back so fast I nearly missed it!</value>
+  </data>
+  <data name="Utils_ping_footer2" xml:space="preserve">
+    <value>Damn, that's fast!</value>
+  </data>
+  <data name="Utils_ping_footer3" xml:space="preserve">
+    <value>Connection is OK.</value>
+  </data>
+  <data name="Utils_ping_footer4" xml:space="preserve">
+    <value>Hmm...seems a bit slow...</value>
+  </data>
+  <data name="Utils_ping_footer5" xml:space="preserve">
+    <value>I've been waiting ages for the ball to come back!</value>
+  </data>
+  <data name="Utils_ping_pingtime" xml:space="preserve">
+    <value>API Ping time was `{0}ms`!</value>
+  </data>
+  <data name="Utils_ping_subtitle1" xml:space="preserve">
+    <value>Oh, uh, my paddle seems to be turning red...</value>
+  </data>
+  <data name="Utils_ping_subtitle2" xml:space="preserve">
+    <value>Right back at ya!</value>
+  </data>
+  <data name="Utils_ping_subtitle3" xml:space="preserve">
+    <value>To be honest, that was fun!</value>
+  </data>
+  <data name="Utils_ping_wait" xml:space="preserve">
+    <value>Waiting for Discord API to return the ball...</value>
+  </data>
+  <data name="CustomReactions_lcr_noCustomReactions" xml:space="preserve">
+    <value>*There are no custom reactions.*</value>
+  </data>
+  <data name="CustomReactions_lcr_TotalCountMultiple" xml:space="preserve">
+    <value>**There are {0} custom reactions in total.**</value>
+  </data>
+  <data name="CustomReactions_lcr_TotalCountOne" xml:space="preserve">
+    <value>**There is one custom reaction in total.**</value>
+  </data>
+  <data name="CustomReactions_ListCustomReactions" xml:space="preserve">
+    <value>Custom reactions:</value>
+  </data>
+  <data name="CustomReactions_restartPrompt" xml:space="preserve">
+    <value>Please restart the bot for this change to take effect.</value>
+  </data>
+  <data name="err_malformedConfig" xml:space="preserve">
+    <value>The configuration file appears to be corrupt! Please report this to the bot owner.</value>
+  </data>
+  <data name="Moderation_lockdown" xml:space="preserve">
+    <value>This channel has been placed on lockdown for {0}.</value>
+  </data>
+  <data name="Moderation_lockdown_fail" xml:space="preserve">
+    <value>Failed to lock down channel.</value>
+  </data>
+  <data name="Moderation_lockdown_lift" xml:space="preserve">
+    <value>The lockdown on this channel has been lifted.</value>
+  </data>
+  <data name="Utils_ping_subtitle4" xml:space="preserve">
+    <value>Play again?</value>
+  </data>
+  <data name="Utils_ping_subtitle5" xml:space="preserve">
+    <value>Right back at ya!</value>
+  </data>
+  <data name="Utils_verboseErrors_off" xml:space="preserve">
+    <value>Alright, incorrectly used commands will no longer show errors.</value>
+  </data>
+  <data name="Utils_verboseErrors_on" xml:space="preserve">
+    <value>Okay, incorrectly used commands will now show errors.</value>
+  </data>
+  <data name="CustomReactions_ShowCustomReaction_noResults_desc" xml:space="preserve">
+    <value>No custom reactions with the trigger "{0}" were found.</value>
+  </data>
+  <data name="CustomReactions_ShowCustomReaction_multipleResults" xml:space="preserve">
+    <value>Multiple entries found. Results:</value>
+  </data>
+  <data name="CustomReactions_ShowCustomReaction_noResults" xml:space="preserve">
+    <value>Custom Reaction not found</value>
+  </data>
+  <data name="err_unavailableInDMs" xml:space="preserve">
+    <value>This command cannot be executed in DMs.</value>
+  </data>
+  <data name="Fun_textportal" xml:space="preserve">
+    <value>A text portal has been created!</value>
+  </data>
+  <data name="Fun_textportal_connectionEstablished" xml:space="preserve">
+    <value>The text portal has opened! Say hello to the other end! :wave:</value>
+  </data>
+  <data name="Fun_textportal_connectionLost_deletedChannel" xml:space="preserve">
+    <value>The text portal has been closed since the other end has deleted the channel it was leading to.</value>
+    <comment>I doubt anyone's gonna see this message, if it ever gets implemented</comment>
+  </data>
+  <data name="Fun_textportal_connectionLost_generic" xml:space="preserve">
+    <value>The text portal has closed.</value>
+  </data>
+  <data name="Fun_textportal_connectionLost_noResponse" xml:space="preserve">
+    <value>The text portal failed to open since no other text portals were found.</value>
+  </data>
+  <data name="Fun_textportal_connectionLost_otherSideClose" xml:space="preserve">
+    <value>The other end has closed the text portal...</value>
+  </data>
+  <data name="Fun_textportal_connectionLost_overload" xml:space="preserve">
+    <value>The text portal has closed itself due to overload!</value>
+  </data>
+  <data name="Fun_textportal_connectionLost_timeout" xml:space="preserve">
+    <value>The text portal has closed itself due to {0} seconds of inactivity.</value>
+  </data>
+  <data name="Fun_textportal_error_featureDisabled" xml:space="preserve">
+    <value>Sorry, text portals have been disabled by the bot owner!</value>
+  </data>
+  <data name="Fun_textportal_error_limitReached" xml:space="preserve">
+    <value>Cannot create a text portal due to the {0} portal limit on this bot being hit! Please try again later!</value>
+  </data>
+  <data name="Fun_textportal_waiting" xml:space="preserve">
+    <value>Waiting for another text portal...</value>
+  </data>
+  <data name="Fun_textportal_wordBlacklisted_otherSide" xml:space="preserve">
+    <value>{0}, your message hasn't been sent to the other end due to one or more of the words in your message being blacklisted on the other end.</value>
+  </data>
+  <data name="Fun_textportal_wordBlacklisted_yourSide" xml:space="preserve">
+    <value>{0}, your message hasn't been sent to the other end due to the word blacklist in effect on this server.</value>
+  </data>
+  <data name="Help_unableToDM" xml:space="preserve">
+    <value>:mailbox: I would've DMed you some helpful information, but I can't DM you! Please enable DMs and try this command again.</value>
+  </data>
+  <data name="Moderation_hackban" xml:space="preserve">
+    <value>Successfully hackbanned user ID {0}.</value>
+  </data>
+  <data name="Moderation_ban" xml:space="preserve">
+    <value>Successfully banned {0} from the server.</value>
+  </data>
+  <data name="Moderation_DMFailed" xml:space="preserve">
+    <value>:no_entry_sign: **Couldn't DM the target: `{0}`**</value>
+  </data>
+  <data name="Moderation_dm_banned" xml:space="preserve">
+    <value>Banned</value>
+  </data>
+  <data name="Moderation_dm_ban_header" xml:space="preserve">
+    <value>You've been banned from `{0}`!</value>
+  </data>
+  <data name="Moderation_dm_by" xml:space="preserve">
+    <value>**{0} by:**</value>
+  </data>
+  <data name="Moderation_dm_kicked" xml:space="preserve">
+    <value>Kicked</value>
+  </data>
+  <data name="Moderation_dm_kick_header" xml:space="preserve">
+    <value>You've been kicked from `{0}`!</value>
+  </data>
+  <data name="Moderation_dm_reason" xml:space="preserve">
+    <value>Reason:</value>
+  </data>
+  <data name="Moderation_dm_NoReasonSpecified" xml:space="preserve">
+    <value>(no reason specified)</value>
+  </data>
+  <data name="Admin_defaultUserByeText" xml:space="preserve">
+    <value>Well, looks like %user% left...</value>
+  </data>
+  <data name="Admin_defaultUserGreetText" xml:space="preserve">
+    <value>Welcome, %mention%! Hope you enjoy your time here!</value>
+  </data>
+  <data name="CustomReactions_ShowCustomReaction_more" xml:space="preserve">
+    <value>`Plus {0} more...`</value>
+  </data>
+  <data name="generic_PleaseWait" xml:space="preserve">
+    <value>Please wait...</value>
+  </data>
+  <data name="Utils_sinfo_categories" xml:space="preserve">
+    <value>Categories:</value>
+  </data>
+  <data name="Utils_sinfo_created" xml:space="preserve">
+    <value>Created:</value>
+  </data>
+  <data name="Utils_sinfo_customemotes" xml:space="preserve">
+    <value>Emojis:</value>
+  </data>
+  <data name="Utils_sinfo_features" xml:space="preserve">
+    <value>VIP Features:</value>
+  </data>
+  <data name="Utils_sinfo_feature_INVITE_SPLASH" xml:space="preserve">
+    <value>Custom invite background</value>
+  </data>
+  <data name="Utils_sinfo_id" xml:space="preserve">
+    <value>Server ID:</value>
+  </data>
+  <data name="Utils_sinfo_invites" xml:space="preserve">
+    <value>Active invite links:</value>
+  </data>
+  <data name="Utils_sinfo_noFeatures" xml:space="preserve">
+    <value>(none enabled)</value>
+  </data>
+  <data name="Utils_sinfo_owner" xml:space="preserve">
+    <value>Owner:</value>
+  </data>
+  <data name="Utils_sinfo_roles" xml:space="preserve">
+    <value>Roles:</value>
+  </data>
+  <data name="Utils_sinfo_textchannels" xml:space="preserve">
+    <value>Text channels:</value>
+  </data>
+  <data name="Utils_sinfo_userbotratio" xml:space="preserve">
+    <value>({0} user(s)/{1} bot(s))</value>
+  </data>
+  <data name="Utils_sinfo_users" xml:space="preserve">
+    <value>Members:</value>
+  </data>
+  <data name="Utils_sinfo_verificationlevel" xml:space="preserve">
+    <value>Verification level:</value>
+  </data>
+  <data name="Utils_sinfo_verificationlevel_0" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Utils_sinfo_verificationlevel_1" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="Utils_sinfo_verificationlevel_2" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="Utils_sinfo_verificationlevel_3" xml:space="preserve">
+    <value>(╯°□°）╯︵ ┻━┻</value>
+  </data>
+  <data name="Utils_sinfo_verificationlevel_4" xml:space="preserve">
+    <value>┻━┻ミヽ(ಠ益ಠ)ﾉ彡┻━┻</value>
+  </data>
+  <data name="Utils_sinfo_voicechannels" xml:space="preserve">
+    <value>Voice channels:</value>
+  </data>
+  <data name="Utils_sinfo_shard" xml:space="preserve">
+    <value>Shard:</value>
+  </data>
+  <data name="Help_intro2" xml:space="preserve">
+    <value>I'm **{0}**; a davemadson-themed bot written by FairPlay137-TTS!</value>
+  </data>
+  <data name="DaveFun_crotchkick" xml:space="preserve">
+    <value>Take this, {0}! **[CROTCH KICK]**</value>
+  </data>
+  <data name="DaveFun_crotchkick_easteregg" xml:space="preserve">
+    <value>Take this, {0}! **[CROW'S NEST KICK]**</value>
+  </data>
+  <data name="DaveFun_crotchkick_kickedSelf" xml:space="preserve">
+    <value>***OW-UCH!***</value>
+  </data>
+  <data name="DaveFun_crotchkick_leadPantsOn" xml:space="preserve">
+    <value>***OWWWWWW! LEAD PANTS SHOULD BE DECLARED ILLEGAL! OH, MY BUSTED FOOT! OWWWWWWWWWW!***</value>
+  </data>
+  <data name="DaveFun_fire" xml:space="preserve">
+    <value>***{0}! YOOOOOOOOOOU'RE FIRED!***</value>
+  </data>
+  <data name="DaveFun_fire_cannotFireYourself" xml:space="preserve">
+    <value>You can't just fire yourself! That's not how it works!</value>
+  </data>
+  <data name="DaveFun_fire_easteregg1" xml:space="preserve">
+    <value>***YOOOOOOOOOOU'RE FIRED! YOOOOOOOOOOU'RE FIRED! YOOOOOOOOOOU'RE FIRED! YOOOOOOOOOOU'RE FIRED! YOOOOOOOOOOU'RE FIRED! YOOOOOOO--[glitches]***</value>
+  </data>
+  <data name="DaveFun_fire_easteregg2" xml:space="preserve">
+    <value>***FIRE! YOOOOOOOOOOU'RE WATERED!***</value>
+  </data>
+  <data name="DaveFun_fire_easteregg3" xml:space="preserve">
+    <value>***Nice try! Try THIS on for size:***</value>
+  </data>
+  <data name="DaveFun_fire_egg1trigger" xml:space="preserve">
+    <value>YOOOOOOOOOOU'RE FIRED</value>
+  </data>
+  <data name="DaveFun_fire_egg2trigger" xml:space="preserve">
+    <value>FIRE</value>
+  </data>
+  <data name="Davemadson_davemadson" xml:space="preserve">
+    <value>**Link to davemadson's YouTube:** https://www.youtube.com/channel/UCGBiNqgNTsNUgRkUvAr4jWA</value>
+  </data>
+  <data name="Davemadson_funnysigns" xml:space="preserve">
+    <value>**Here's a link to Angus McTavish's playlist of the original run of davemadson's Funny Signs:** https://www.youtube.com/playlist?list=PL6Wcr6NPTjmEJQpM4qhIIQGxsL2pyq_BF</value>
+  </data>
+  <data name="Davemadson_ltbloopers" xml:space="preserve">
+    <value>**Link to File Preserver's LT Bloopers playlist:** https://www.youtube.com/playlist?list=PLgN-B1Cy8AZ5bHrcnGkXz4Yh9CkLuPwnC</value>
+  </data>
+  <data name="err_noGoogleAPIKey" xml:space="preserve">
+    <value>The bot owner hasn't specified a valid Google API key in `config.json`. Therefore, this command cannot be used.</value>
+  </data>
+  <data name="Fun_ship_compatibility" xml:space="preserve">
+    <value>💗 COMPATIBILITY 💗</value>
+  </data>
+  <data name="Fun_ship_result_0" xml:space="preserve">
+    <value>No match! 😒</value>
+  </data>
+  <data name="Fun_ship_result_1" xml:space="preserve">
+    <value>Awful... 😭</value>
+  </data>
+  <data name="Fun_ship_result_2" xml:space="preserve">
+    <value>Terrible... 😢</value>
+  </data>
+  <data name="Fun_ship_result_3" xml:space="preserve">
+    <value>Bad... 🙁</value>
+  </data>
+  <data name="Fun_ship_result_4" xml:space="preserve">
+    <value>Meh. 😐</value>
+  </data>
+  <data name="Fun_ship_result_5" xml:space="preserve">
+    <value>Good. 🙂</value>
+  </data>
+  <data name="Fun_ship_result_6" xml:space="preserve">
+    <value>Great! 😀</value>
+  </data>
+  <data name="Fun_ship_result_7" xml:space="preserve">
+    <value>Awesome! 😍</value>
+  </data>
+  <data name="Fun_ship_result_8" xml:space="preserve">
+    <value>Perfect!!! 💞</value>
+  </data>
+  <data name="Fun_ship_result_9" xml:space="preserve">
+    <value>( ͡° ͜ʖ ͡°)</value>
+  </data>
+  <data name="Fun_ship_title" xml:space="preserve">
+    <value>💕 __**MATCHMAKING**__ 💕</value>
+  </data>
+  <data name="Utils_stats_description2" xml:space="preserve">
+    <value>Hi! I'm {0}; an open-source, davemadson-themed bot, based off of PaletteBot! I'm still under construction, so expect missing features, along with a few regressions.</value>
+  </data>
+</root>
