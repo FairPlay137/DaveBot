@@ -673,6 +673,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, that command is for DaveBot Elite users ONLY. Want to become a DaveBot Elite user? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Elite for one whole server if you pledge!.
+        /// </summary>
+        public static string err_davebotEliteOnly {
+            get {
+                return ResourceManager.GetString("err_davebotEliteOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to I couldn&apos;t quite get that. Type `{0}help` for help..
         /// </summary>
         public static string err_DMCommandError {

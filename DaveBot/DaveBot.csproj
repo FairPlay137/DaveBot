@@ -383,6 +383,7 @@
     <Compile Include="Common\ModuleBehaviors\IPreXBlockerExecutor.cs" />
     <Compile Include="Common\ModuleBehaviors\IPreXExecutor.cs" />
     <Compile Include="Common\ServerJsonStructure.cs" />
+    <Compile Include="Modules\Akinator\Common\AkinatorGame.cs" />
     <Compile Include="Modules\Akinator\Services\AkinatorService.cs" />
     <Compile Include="Modules\DaveBotModuleBase.cs" />
     <Compile Include="Modules\Admin\AdminModule.cs" />

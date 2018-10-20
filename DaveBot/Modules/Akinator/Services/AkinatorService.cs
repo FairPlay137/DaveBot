@@ -4,7 +4,6 @@ using Discord;
 using Discord.WebSocket;
 using DaveBot.Services;
 using DaveBot.Common.ModuleBehaviors;
-using AkiNet;
 
 namespace DaveBot.Modules.Akinator.Services
 {
@@ -14,12 +13,12 @@ namespace DaveBot.Modules.Akinator.Services
 
         private readonly IBotConfiguration _config;
 
-        private Client _akiClient;
-
         public AkinatorService(DiscordShardedClient client, IBotConfiguration config)
         {
             _client = client;
             _config = config;
         }
+
+         
     }
 }

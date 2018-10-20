@@ -713,4 +713,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="Utils_stats_description2" xml:space="preserve">
     <value>Hi! I'm {0}; an open-source, davemadson-themed bot, based off of PaletteBot! I'm still under construction, so expect missing features, along with a few regressions.</value>
   </data>
+  <data name="err_davebotEliteOnly" xml:space="preserve">
+    <value>Sorry, that command is for DaveBot Elite users ONLY. Want to become a DaveBot Elite user? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Elite for one whole server if you pledge!</value>
+  </data>
 </root>
