@@ -373,6 +373,7 @@
   <ItemGroup>
     <Compile Include="Common\Attributes\CannotUseInDMsAttribute.cs" />
     <Compile Include="Common\Attributes\OwnerOnlyAttribute.cs" />
+    <Compile Include="Common\CommandUnsuccessfulException.cs" />
     <Compile Include="Common\ConfigJsonStructure.cs" />
     <Compile Include="Common\DaveRNG.cs" />
     <Compile Include="Common\ModuleBehaviors\IInputOverrider.cs" />
@@ -391,6 +392,7 @@
     <Compile Include="Modules\CustomReactions\CustomReactionsModule.cs" />
     <Compile Include="Modules\DaveFun\DaveFunModule.cs" />
     <Compile Include="Modules\Fun\FunModule.cs" />
+    <Compile Include="Modules\Fun\Services\CleverbotService.cs" />
     <Compile Include="Modules\Moderation\ModerationModule.cs" />
     <Compile Include="Modules\Davemadson\DavemadsonModule.cs" />
     <Compile Include="Modules\Help\HelpModule.cs" />

@@ -3,15 +3,16 @@ using Discord;
 using Discord.Commands;
 using DaveBot.Common;
 using DaveBot.Services;
+using System.Collections.Generic;
 
 namespace DaveBot.Modules
 {
-    public class Help : DaveBotModuleBase<SocketCommandContext>
+    public class HelpModule : DaveBotModuleBase<SocketCommandContext>
     {
         private readonly DaveBot _bot;
         private readonly IBotConfiguration _config;
 
-        public Help(DaveBot bot)
+        public HelpModule(DaveBot bot)
         {
             _bot = bot;
             _config = bot.Configuration;
@@ -46,7 +47,8 @@ namespace DaveBot.Modules
         public async Task Modules()
         {
             var moduleseb = new EmbedBuilder().WithTitle(StringResourceHandler.GetTextStatic("Help", "modules_header")).WithColor(Color.Orange);
-            foreach (var module in _bot.CommandService.Modules)
+            List<ModuleInfo> moduleList = (List<ModuleInfo>)_bot.CommandService.Modules;
+            foreach (var module in moduleList)
                 moduleseb.AddField("» " + module.Name, StringResourceHandler.GetTextStatic("Help", "modules_commandcount",module.Commands.Count));
             await ReplyAsync(Context.User.Mention, false, moduleseb.Build());
             await ReplyAsync("", false, new EmbedBuilder().WithDescription(StringResourceHandler.GetTextStatic("Help", "modules_moreInfo", _config.DefaultPrefix)).WithColor(Color.Orange).Build());
@@ -54,14 +56,14 @@ namespace DaveBot.Modules
         [Command("commands")]
         [Summary("Lists all commands in a module.")]
         [Alias("cmds")]
-        public Task Commands(string modulename)
+        public async Task Commands(string modulename)
         {
             ModuleInfo targetmodule = null;
             foreach (var module in _bot.CommandService.Modules)
                 if (module.Name.ToLower() == modulename.ToLower())
                     targetmodule = module;
             if(targetmodule == null)
-                return Task.FromResult(ExecuteResult.FromError(CommandError.Unsuccessful, StringResourceHandler.GetTextStatic("err", "nonexistentModule")));
+                throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("err", "nonexistentModule"));
             else
             {
                 var commandseb = new EmbedBuilder().WithTitle(StringResourceHandler.GetTextStatic("Help", "commands_header",targetmodule.Name)).WithColor(Color.Orange);
@@ -74,16 +76,15 @@ namespace DaveBot.Modules
                 {
                     commandseb.WithDescription(StringResourceHandler.GetTextStatic("Help", "commandListEmpty"));
                 }
-                ReplyAsync(Context.User.Mention, false, commandseb.Build());
+                await ReplyAsync(Context.User.Mention, false, commandseb.Build());
             }
-            return Task.FromResult(ExecuteResult.FromSuccess());
         }
         /*[Command("help")]
         [Summary("Shows detailed help for a specific command.")]
         [Alias("h")]
-        public async Task CommandHelp(string commandName)
+        public Task CommandHelp([Remainder] string commandName)
         {
-
+            return Task.FromResult(ExecuteResult.FromError(CommandError.Unsuccessful, StringResourceHandler.GetTextStatic("err", "unimplementedCommand")));
         }*/
     }
 }

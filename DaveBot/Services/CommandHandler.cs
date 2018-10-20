@@ -197,9 +197,9 @@ namespace DaveBot.Services
                         case CommandError.MultipleMatches:
                             errtext = StringResourceHandler.GetTextStatic("err", "multipleCommandDefs", result.ErrorReason);
                             break;
-                        case CommandError.Exception: //Exception during command processing
-                            errtext = StringResourceHandler.GetTextStatic("err", "exception", result.ErrorReason);
-                            break;
+                        //case CommandError.Exception: //Exception during command processing
+                        //    errtext = StringResourceHandler.GetTextStatic("err", "exception", result.ErrorReason);
+                        //    break;
                         default:
                             errtext = result.ErrorReason;
                             break;

@@ -5,6 +5,7 @@
   "ownerid": 0,
   "botname": "DaveBot",
   "verboseerrors": false,
+  "enablecleverbot": false,
   "8ballResponses": [
 
   ],

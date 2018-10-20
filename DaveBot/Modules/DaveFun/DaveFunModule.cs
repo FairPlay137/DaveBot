@@ -3,7 +3,7 @@ using DaveBot.Common;
 
 namespace DaveBot.Modules
 {
-    public class DaveFun : DaveBotModuleBase<SocketCommandContext>
+    public class DaveFunModule : DaveBotModuleBase<SocketCommandContext>
     {
         //TODO: Add in commands
     }

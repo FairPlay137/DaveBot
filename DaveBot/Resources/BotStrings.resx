@@ -716,4 +716,22 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="err_davebotEliteOnly" xml:space="preserve">
     <value>Sorry, that command is for DaveBot Elite users ONLY. Want to become a DaveBot Elite user? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Elite for one whole server if you pledge!</value>
   </data>
+  <data name="err_commandUnimplemented" xml:space="preserve">
+    <value>This command currently is not implemented. Try again later.</value>
+  </data>
+  <data name="err_generic" xml:space="preserve">
+    <value>An error has occurred...</value>
+  </data>
+  <data name="Fun_cleverbot_connectionError" xml:space="preserve">
+    <value>Couldn't establish a connection to the Cleverbot or Program-O servers!</value>
+  </data>
+  <data name="Fun_cleverbot_disabled" xml:space="preserve">
+    <value>Cleverbot has been disabled!</value>
+  </data>
+  <data name="Fun_cleverbot_enabled" xml:space="preserve">
+    <value>Cleverbot has been enabled! Begin any message with my mention and I'll respond to you!</value>
+  </data>
+  <data name="Fun_cleverbot_limited" xml:space="preserve">
+    <value>The bot is currently using the Program-O servers due to a problem with the Cleverbot servers.</value>
+  </data>
 </root>

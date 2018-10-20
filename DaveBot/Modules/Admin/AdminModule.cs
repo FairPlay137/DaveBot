@@ -12,7 +12,7 @@ using DaveBot.Services;
 
 namespace DaveBot.Modules
 {
-    public class Admin : DaveBotModuleBase<CommandContext>
+    public class AdminModule : DaveBotModuleBase<CommandContext>
     {
         private readonly IBotConfiguration _config;
 
@@ -54,7 +54,7 @@ namespace DaveBot.Modules
         [Command("setgame")]
         [Summary("Sets the bot's game. **BOT OWNER ONLY**")]
         [OwnerOnly]
-        public Task SetGame(string atype, [Remainder] [Summary("Game to show on status")] string game)
+        public async Task SetGame(string atype, [Remainder] [Summary("Game to show on status")] string game)
         {
             ActivityType acttype;
             switch(atype.ToLowerInvariant())
@@ -69,39 +69,38 @@ namespace DaveBot.Modules
                     acttype = ActivityType.Listening;
                     break;
                 default:
-                    return Task.FromResult(ExecuteResult.FromError(CommandError.Unsuccessful, StringResourceHandler.GetTextStatic("err", "invalidActivityType")));
+                    throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("err", "invalidActivityType"));
             }
-            Context.Client.SetGameAsync(game, null, acttype);
-            ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Admin", "setGame",game)}`");
-            return Task.FromResult(ExecuteResult.FromSuccess());
+            await Context.Client.SetGameAsync(game, null, acttype).ConfigureAwait(false);
+            await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Admin", "setGame",game)}`").ConfigureAwait(false);
         }
         [Command("setstatus")]
         [Summary("Sets the bot's status. **BOT OWNER ONLY**")]
         [OwnerOnly]
-        public Task SetStatus([Summary("Status (Online/Idle/DnD/Invisible)")] string status)
+        public async Task SetStatus([Summary("Status (Online/Idle/DnD/Invisible)")] string status)
         {
             switch (status.ToLowerInvariant())
             {
                 case "online":
-                    Context.Client.SetStatusAsync(UserStatus.Online);
+                    await Context.Client.SetStatusAsync(UserStatus.Online);
                     break;
                 case "idle":
-                    Context.Client.SetStatusAsync(UserStatus.Idle);
+                    await Context.Client.SetStatusAsync(UserStatus.Idle);
                     break;
                 case "dnd":
-                    Context.Client.SetStatusAsync(UserStatus.DoNotDisturb);
+                    await Context.Client.SetStatusAsync(UserStatus.DoNotDisturb);
                     break;
                 case "invisible":
-                    Context.Client.SetStatusAsync(UserStatus.Invisible);
+                    await Context.Client.SetStatusAsync(UserStatus.Invisible);
                     break;
                 default:
-                    return Task.FromResult(ExecuteResult.FromError(CommandError.Unsuccessful, StringResourceHandler.GetTextStatic("err", "invalidStatus")));
+                    throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("err", "invalidStatus"));
             }
-            ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Admin", "setStatus")}`");
-            return Task.FromResult(ExecuteResult.FromSuccess());
+            await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Admin", "setStatus")}`");
         }
         [Command("verboseerrors")]
         [Summary("Enables/disables verbose error messages **BOT OWNER ONLY**")]
+        [Alias("ve")]
         [OwnerOnly]
         public async Task ToggleVerboseErrors()
         {

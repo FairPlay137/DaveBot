@@ -664,6 +664,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This command currently is not implemented. Try again later..
+        /// </summary>
+        public static string err_commandUnimplemented {
+            get {
+                return ResourceManager.GetString("err_commandUnimplemented", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Whoa there, slow down! You can execute another command in {0} second(s)!.
         /// </summary>
         public static string err_cooldownRequired {
@@ -705,6 +714,15 @@ namespace DaveBot.Resources {
         public static string err_exception {
             get {
                 return ResourceManager.GetString("err_exception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error has occurred....
+        /// </summary>
+        public static string err_generic {
+            get {
+                return ResourceManager.GetString("err_generic", resourceCulture);
             }
         }
         
@@ -852,6 +870,42 @@ namespace DaveBot.Resources {
         public static string Fun_8ball_question {
             get {
                 return ResourceManager.GetString("Fun_8ball_question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Couldn&apos;t establish a connection to the Cleverbot or Program-O servers!.
+        /// </summary>
+        public static string Fun_cleverbot_connectionError {
+            get {
+                return ResourceManager.GetString("Fun_cleverbot_connectionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleverbot has been disabled!.
+        /// </summary>
+        public static string Fun_cleverbot_disabled {
+            get {
+                return ResourceManager.GetString("Fun_cleverbot_disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleverbot has been enabled! Begin any message with my mention and I&apos;ll respond to you!.
+        /// </summary>
+        public static string Fun_cleverbot_enabled {
+            get {
+                return ResourceManager.GetString("Fun_cleverbot_enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The bot is currently using the Program-O servers due to a problem with the Cleverbot servers..
+        /// </summary>
+        public static string Fun_cleverbot_limited {
+            get {
+                return ResourceManager.GetString("Fun_cleverbot_limited", resourceCulture);
             }
         }
         

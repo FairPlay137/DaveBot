@@ -9,7 +9,7 @@ using DaveBot.Common.Attributes;
 
 namespace DaveBot.Modules.CustomReactions
 {
-    public class CustomReactions : DaveBotModuleBase<CustomReactionService>
+    public class CustomReactionsModule : DaveBotModuleBase<CustomReactionService>
     {
 
         private readonly IBotConfiguration _config;

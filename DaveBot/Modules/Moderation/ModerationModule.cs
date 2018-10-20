@@ -7,7 +7,7 @@ using DaveBot.Common.Attributes;
 
 namespace DaveBot.Modules
 {
-    public class Moderation : DaveBotModuleBase<SocketCommandContext>
+    public class ModerationModule : DaveBotModuleBase<SocketCommandContext>
     {
         [Command("kick")]
         [Summary("Kicks a specified user from the server.")]
