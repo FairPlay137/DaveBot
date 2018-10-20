@@ -54,14 +54,14 @@ namespace DaveBot.Modules
         [Command("commands")]
         [Summary("Lists all commands in a module.")]
         [Alias("cmds")]
-        public async Task<ExecuteResult> Commands(string modulename)
+        public Task Commands(string modulename)
         {
             ModuleInfo targetmodule = null;
             foreach (var module in _bot.CommandService.Modules)
                 if (module.Name.ToLower() == modulename.ToLower())
                     targetmodule = module;
             if(targetmodule == null)
-                return ExecuteResult.FromError(CommandError.Unsuccessful, StringResourceHandler.GetTextStatic("err", "nonexistentModule"));
+                return Task.FromResult(ExecuteResult.FromError(CommandError.Unsuccessful, StringResourceHandler.GetTextStatic("err", "nonexistentModule")));
             else
             {
                 var commandseb = new EmbedBuilder().WithTitle(StringResourceHandler.GetTextStatic("Help", "commands_header",targetmodule.Name)).WithColor(Color.Orange);
@@ -74,9 +74,9 @@ namespace DaveBot.Modules
                 {
                     commandseb.WithDescription(StringResourceHandler.GetTextStatic("Help", "commandListEmpty"));
                 }
-                await ReplyAsync(Context.User.Mention, false, commandseb.Build());
+                ReplyAsync(Context.User.Mention, false, commandseb.Build());
             }
-            return ExecuteResult.FromSuccess();
+            return Task.FromResult(ExecuteResult.FromSuccess());
         }
         /*[Command("help")]
         [Summary("Shows detailed help for a specific command.")]
