@@ -47,7 +47,7 @@ namespace DaveBot.Modules
         public async Task Modules()
         {
             var moduleseb = new EmbedBuilder().WithTitle(StringResourceHandler.GetTextStatic("Help", "modules_header")).WithColor(Color.Orange);
-            List<ModuleInfo> moduleList = (List<ModuleInfo>)_bot.CommandService.Modules;
+            var moduleList = _bot.CommandService.Modules;
             foreach (var module in moduleList)
                 moduleseb.AddField("» " + module.Name, StringResourceHandler.GetTextStatic("Help", "modules_commandcount",module.Commands.Count));
             await ReplyAsync(Context.User.Mention, false, moduleseb.Build());
