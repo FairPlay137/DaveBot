@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
-using Discord.Commands.Builders;
 using System.Diagnostics;
 using System.Reflection;
 using NLog;
@@ -16,7 +15,7 @@ namespace DaveBot.Modules
     {
         private readonly IBotConfiguration _config;
 
-        public Admin(IBotConfiguration config)
+        public AdminModule(IBotConfiguration config)
         {
             _config = config;
         }

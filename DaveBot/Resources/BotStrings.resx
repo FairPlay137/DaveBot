@@ -723,7 +723,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>An error has occurred...</value>
   </data>
   <data name="Fun_cleverbot_connectionError" xml:space="preserve">
-    <value>Couldn't establish a connection to the Cleverbot or Program-O servers!</value>
+    <value>Couldn't establish a connection to the Cleverbot or Program O servers!</value>
   </data>
   <data name="Fun_cleverbot_disabled" xml:space="preserve">
     <value>Cleverbot has been disabled!</value>
@@ -732,6 +732,15 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Cleverbot has been enabled! Begin any message with my mention and I'll respond to you!</value>
   </data>
   <data name="Fun_cleverbot_limited" xml:space="preserve">
-    <value>The bot is currently using the Program-O servers due to a problem with the Cleverbot servers.</value>
+    <value>This bot is currently using the Program O servers due to a problem with the Cleverbot servers.</value>
+  </data>
+  <data name="Fun_cleverbot_limited2" xml:space="preserve">
+    <value>This bot is currently using the Program O servers due to Cleverbot server support not being implemented yet.</value>
+  </data>
+  <data name="Fun_cleverbot_wait" xml:space="preserve">
+    <value>:thinking: Thinking of a response...</value>
+  </data>
+  <data name="Fun_cleverbot_waitProgramO2" xml:space="preserve">
+    <value>:thinking: Thinking of a response... (This may take a while, since Program O v2 can get a little slow)</value>
   </data>
 </root>

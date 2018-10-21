@@ -15,7 +15,7 @@ namespace DaveBot.Modules
 
         private readonly IBotConfiguration _config;
 
-        public Utils(DaveBot bot)
+        public UtilsModule(DaveBot bot)
         {
             _bot = bot;
             _config = bot.Configuration;

@@ -874,7 +874,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Couldn&apos;t establish a connection to the Cleverbot or Program-O servers!.
+        ///   Looks up a localized string similar to Couldn&apos;t establish a connection to the Cleverbot or Program O servers!.
         /// </summary>
         public static string Fun_cleverbot_connectionError {
             get {
@@ -901,11 +901,38 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The bot is currently using the Program-O servers due to a problem with the Cleverbot servers..
+        ///   Looks up a localized string similar to This bot is currently using the Program O servers due to a problem with the Cleverbot servers..
         /// </summary>
         public static string Fun_cleverbot_limited {
             get {
                 return ResourceManager.GetString("Fun_cleverbot_limited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This bot is currently using the Program O servers due to Cleverbot server support not being implemented yet..
+        /// </summary>
+        public static string Fun_cleverbot_limited2 {
+            get {
+                return ResourceManager.GetString("Fun_cleverbot_limited2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to :thinking: Thinking of a response....
+        /// </summary>
+        public static string Fun_cleverbot_wait {
+            get {
+                return ResourceManager.GetString("Fun_cleverbot_wait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to :thinking: Thinking of a response... (This may take a while, since Program O v2 can get a little slow).
+        /// </summary>
+        public static string Fun_cleverbot_waitProgramO2 {
+            get {
+                return ResourceManager.GetString("Fun_cleverbot_waitProgramO2", resourceCulture);
             }
         }
         

@@ -14,7 +14,7 @@ namespace DaveBot.Modules.CustomReactions
 
         private readonly IBotConfiguration _config;
 
-        public CustomReactions(IBotConfiguration config)
+        public CustomReactionsModule(IBotConfiguration config)
         {
             _config = config;
         }
