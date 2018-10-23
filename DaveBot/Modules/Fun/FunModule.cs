@@ -4,6 +4,7 @@ using Discord;
 using Discord.Commands;
 using DaveBot.Common;
 using DaveBot.Services;
+using DaveBot.Modules.Fun.Common;
 
 namespace DaveBot.Modules
 {
@@ -33,6 +34,7 @@ namespace DaveBot.Modules
             await ReplyAsync("", false, new EmbedBuilder()
                 .AddField($":question: {StringResourceHandler.GetTextStatic("Fun", "8ball_question")}", question)
                 .AddField($":8ball: {StringResourceHandler.GetTextStatic("Fun", "8ball_answer")}", answer)
+                .WithColor(Color.Blue)
                 .Build());
         }
         [Command("choose")]
@@ -44,7 +46,53 @@ namespace DaveBot.Modules
             string choice = optionsIndiv[random.Next(optionsIndiv.Length)];
             await ReplyAsync("", false, new EmbedBuilder()
                 .AddField(":thinking:", choice)
+                .WithColor(Color.Blue)
                 .Build());
+        }
+        [Command("ship")]
+        [Summary("Command description TBD")]
+        public async Task Ship([Remainder] [Summary("Two targets, separated by `;`")] string targets)
+        {
+            string[] args = targets.Split(';');
+            if (args.Length == 2)
+            {
+                var msg = await ReplyAsync(StringResourceHandler.GetTextStatic("generic", "PleaseWait")).ConfigureAwait(false);
+                var tstate = Context.Channel.EnterTypingState();
+                int percentage = MatchmakingLogic.CalculateMatchmakingPercentage(args[0], args[1]);
+                string commenttext = percentage == 100
+                    ? StringResourceHandler.GetTextStatic("Fun", "ship_result_8")
+                    : percentage > 85
+                    ? StringResourceHandler.GetTextStatic("Fun", "ship_result_7")
+                    : percentage > 70
+                    ? StringResourceHandler.GetTextStatic("Fun", "ship_result_6")
+                    : percentage > 55
+                    ? StringResourceHandler.GetTextStatic("Fun", "ship_result_5")
+                    : percentage > 40
+                    ? StringResourceHandler.GetTextStatic("Fun", "ship_result_4")
+                    : percentage > 25
+                    ? StringResourceHandler.GetTextStatic("Fun", "ship_result_3")
+                    : percentage > 10
+                    ? StringResourceHandler.GetTextStatic("Fun", "ship_result_2")
+                    : percentage > 0
+                    ? StringResourceHandler.GetTextStatic("Fun", "ship_result_1")
+                    : StringResourceHandler.GetTextStatic("Fun", "ship_result_0");
+                if (percentage == 69) // Lenny Face
+                    commenttext = StringResourceHandler.GetTextStatic("Fun", "ship_result_9");
+                tstate.Dispose();
+                await msg.DeleteAsync().ConfigureAwait(false);
+
+                string progressbar = MatchmakingLogic.GenerateProgressBar(percentage, 100, 10);
+
+                var resultembed = new EmbedBuilder()
+                    .WithColor(Color.Magenta)
+                    .AddField(StringResourceHandler.GetTextStatic("Fun", "ship_compatibility"), $"**{percentage}%** `{progressbar}` {commenttext}")
+                    .Build();
+                await ReplyAsync($"{StringResourceHandler.GetTextStatic("Fun", "ship_title")}\n{args[0]} :x: {args[1]}", false, resultembed);
+            }
+            else
+            {
+                
+            }
         }
     }
 }

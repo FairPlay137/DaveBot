@@ -391,6 +391,7 @@
     <Compile Include="Modules\Akinator\AkinatorModule.cs" />
     <Compile Include="Modules\CustomReactions\CustomReactionsModule.cs" />
     <Compile Include="Modules\DaveFun\DaveFunModule.cs" />
+    <Compile Include="Modules\Fun\Common\MatchmakingLogic.cs" />
     <Compile Include="Modules\Fun\FunModule.cs" />
     <Compile Include="Modules\Fun\Services\CleverbotService.cs" />
     <Compile Include="Modules\Moderation\ModerationModule.cs" />

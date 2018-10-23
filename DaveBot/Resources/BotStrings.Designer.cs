@@ -1579,7 +1579,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Right back at ya!.
+        ///   Looks up a localized string similar to I love doing this!.
         /// </summary>
         public static string Utils_ping_subtitle5 {
             get {

@@ -458,7 +458,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Play again?</value>
   </data>
   <data name="Utils_ping_subtitle5" xml:space="preserve">
-    <value>Right back at ya!</value>
+    <value>I love doing this!</value>
   </data>
   <data name="Utils_verboseErrors_off" xml:space="preserve">
     <value>Alright, incorrectly used commands will no longer show errors.</value>
