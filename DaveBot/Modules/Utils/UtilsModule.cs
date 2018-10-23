@@ -48,6 +48,7 @@ namespace DaveBot.Modules
                 .WithTitle("🏓 " + StringResourceHandler.GetTextStatic("Utils", "ping_title"))
                 .WithDescription(subtitleText+'\n'+StringResourceHandler.GetTextStatic("Utils", "ping_pingtime", sw.ElapsedMilliseconds))
                 .WithFooter(footerText)
+                .WithColor(Color.Blue)
                 .Build());
         }
         [Command("invite")]
@@ -73,6 +74,7 @@ namespace DaveBot.Modules
                 .WithAuthor($"{Context.Client.CurrentUser.Username} v{typeof(Program).Assembly.GetName().Version}",Context.Client.CurrentUser.GetAvatarUrl())
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "stats_guilds"),Context.Client.Guilds.Count,true)
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "stats_uptime"), uptime.ToString(), true)
+                .WithColor(Color.Blue)
                 .Build());
         }
         [Command("serverinfo")]
@@ -113,6 +115,7 @@ namespace DaveBot.Modules
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_invites"), inviteLinks.Count, true)
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_customemotes"), Context.Guild.Emotes.Count, true)
                 .WithThumbnailUrl(Context.Guild.IconUrl)
+                .WithColor(Color.Blue)
                 .Build());
         }
     }

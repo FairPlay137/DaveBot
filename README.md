@@ -8,15 +8,13 @@ This is DaveBot. What is DaveBot, you ask? Well, DaveBot is a Discord chatbot wh
 
 ## Features that have been ported over already
 
-* (TBD)
+* The `db!ship` command
 
 ## Features that have yet to be ported over
 
-* The `db!ship` command
 * Most of the davemadson-related commands (`db!davemadson`, `db!ltbloopers`, `db!funnysigns`, etc.)
 * The davemadson activity notifications
 * The other davemadson-themed fun commands (`db!crotchkick`, `db!fire`, `db!wedgie`, etc.)
-* The `db!quote`, `db!funfact`, and `db!wherearemyrequests` commands
 
 ## Planned new features
 
