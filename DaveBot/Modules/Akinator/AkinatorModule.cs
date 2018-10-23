@@ -6,6 +6,7 @@ using DaveBot.Modules.Akinator.Services;
 
 namespace DaveBot.Modules
 {
+    [Name("Akinator")]
     public class AkinatorModule : DaveBotModuleBase<AkinatorService>
     {
         [Command("akinator")]

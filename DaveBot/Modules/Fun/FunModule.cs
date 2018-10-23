@@ -7,11 +7,13 @@ using DaveBot.Services;
 
 namespace DaveBot.Modules
 {
+    [Name("Fun")]
     public class FunModule : DaveBotModuleBase<SocketCommandContext>
     {
-        string[] DefaultEightBallResponses = { "Yes.", "No.", "Ask again later.", "Maybe???", "It is certain", "Very doubtful",
-                                        "NO - It'll cause a time paradox.", "Chances are as high as the sky.", "lolnope",
-                                        "Obviously.", "Don't count on it.", "I'd say so.", "Received interference; try again."};
+        string[] DefaultEightBallResponses = { "It is certain.", "Without a doubt.", "You may rely on it.", "Most likely.", "Outlook good.",
+                                        "Yes.", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.",
+                                        "Very doubtful.", "Reply hazy; try again.", "Ask again later.", "Better not tell you now.",
+                                        "Cannot predict now.", "Concentrate and ask again."};
 
         private readonly IBotConfiguration _config;
 

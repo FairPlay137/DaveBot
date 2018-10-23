@@ -9,6 +9,7 @@ using DaveBot.Common.Attributes;
 
 namespace DaveBot.Modules
 {
+    [Name("Utilities")]
     public class UtilsModule : DaveBotModuleBase<SocketCommandContext>
     {
         private readonly DaveBot _bot;

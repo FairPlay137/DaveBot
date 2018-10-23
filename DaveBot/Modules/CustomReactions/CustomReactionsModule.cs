@@ -9,6 +9,7 @@ using DaveBot.Common.Attributes;
 
 namespace DaveBot.Modules.CustomReactions
 {
+    [Name("Custom Reactions")]
     public class CustomReactionsModule : DaveBotModuleBase<CustomReactionService>
     {
 

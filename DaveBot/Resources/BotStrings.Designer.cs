@@ -1282,6 +1282,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to *(empty)*.
+        /// </summary>
+        public static string Help_modules_emptymodule {
+            get {
+                return ResourceManager.GetString("Help_modules_emptymodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 📃 Modules:.
         /// </summary>
         public static string Help_modules_header {

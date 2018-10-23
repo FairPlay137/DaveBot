@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace DaveBot.Modules
 {
+    [Name("Help")]
     public class HelpModule : DaveBotModuleBase<SocketCommandContext>
     {
         private readonly DaveBot _bot;
@@ -49,14 +50,17 @@ namespace DaveBot.Modules
             var moduleseb = new EmbedBuilder().WithTitle(StringResourceHandler.GetTextStatic("Help", "modules_header")).WithColor(Color.Orange);
             var moduleList = _bot.CommandService.Modules;
             foreach (var module in moduleList)
-                moduleseb.AddField("» " + module.Name, StringResourceHandler.GetTextStatic("Help", "modules_commandcount",module.Commands.Count));
+                moduleseb.AddField("» " + module.Name, (module.Commands.Count > 0)?
+                    StringResourceHandler.GetTextStatic("Help", "modules_commandcount",module.Commands.Count)
+                    :
+                    StringResourceHandler.GetTextStatic("Help", "modules_emptymodule"));
             await ReplyAsync(Context.User.Mention, false, moduleseb.Build());
             await ReplyAsync("", false, new EmbedBuilder().WithDescription(StringResourceHandler.GetTextStatic("Help", "modules_moreInfo", _config.DefaultPrefix)).WithColor(Color.Orange).Build());
         }
         [Command("commands")]
         [Summary("Lists all commands in a module.")]
         [Alias("cmds")]
-        public async Task Commands(string modulename)
+        public async Task Commands([Remainder]string modulename)
         {
             ModuleInfo targetmodule = null;
             foreach (var module in _bot.CommandService.Modules)

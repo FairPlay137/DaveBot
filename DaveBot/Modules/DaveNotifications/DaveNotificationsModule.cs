@@ -4,6 +4,7 @@ using DaveBot.Common;
 
 namespace DaveBot.Modules
 {
+    [Name("DaveBot Notifications")]
     public class DaveNotificationsModule : DaveBotModuleBase<SocketCommandContext>
     {
         //TODO: Start this feature

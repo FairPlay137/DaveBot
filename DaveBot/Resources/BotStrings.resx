@@ -743,4 +743,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="Fun_cleverbot_waitProgramO2" xml:space="preserve">
     <value>:thinking: Thinking of a response... (This may take a while, since Program O v2 can get a little slow)</value>
   </data>
+  <data name="Help_modules_emptymodule" xml:space="preserve">
+    <value>*(empty)*</value>
+  </data>
 </root>

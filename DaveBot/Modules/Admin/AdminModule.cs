@@ -11,6 +11,7 @@ using DaveBot.Services;
 
 namespace DaveBot.Modules
 {
+    [Name("Admin")]
     public class AdminModule : DaveBotModuleBase<CommandContext>
     {
         private readonly IBotConfiguration _config;
