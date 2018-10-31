@@ -107,6 +107,7 @@ namespace DaveBot
             Client.ShardReady += SetClientReady;
             await clientReady.Task.ConfigureAwait(false);
             Client.ShardReady -= SetClientReady;
+            Client.ShardReady += ShardReady;
             Client.JoinedGuild += GuildJoin;
             Client.LeftGuild += GuildLeave;
             Client.ShardConnected += ShardConnect;
@@ -136,6 +137,7 @@ namespace DaveBot
             var _ = await CommandService.AddModulesAsync(GetType().GetTypeInfo().Assembly, Services);
 
             Ready.TrySetResult(true);
+            
             ConnectedAtTime = DateTime.Now;
             _log.Info($"Booted in {new TimeSpan(ConnectedAtTime.Ticks - StartTime.Ticks).TotalSeconds} seconds.");
         }
@@ -232,6 +234,14 @@ namespace DaveBot
         {
             _log.Info($"Shard #{client.ShardId} has lost connection!");
             return Task.CompletedTask;
+        }
+
+        private async Task ShardReady(DiscordSocketClient client)
+        {
+            _log.Info($"Shard #{client.ShardId} is ready!");
+            int recShard = await Client.GetRecommendedShardCountAsync();
+            if (Configuration.TotalShards != recShard)
+                _log.Warn($"It is recommended that you use {recShard} shard(s). Please consider changing the config.json to reflect this.");
         }
 
         protected virtual void Dispose(bool disposing)

@@ -16,7 +16,7 @@ namespace DaveBot.Services.Impl
         public string BotToken { get; private set; }
         public ulong BotOwnerID { get; private set; }
 
-        public int TotalShards { get; private set; }
+        public int TotalShards { get; set; }
 
         public string DefaultPlayingString { get; private set; }
         public string DefaultPrefix { get; set; }

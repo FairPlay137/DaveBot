@@ -106,11 +106,56 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Okay, I will now be playing &quot;{0}&quot;..
+        ///   Looks up a localized string similar to Alright; disabled rotating statuses!.
+        /// </summary>
+        public static string Admin_rotatingPlaying_off {
+            get {
+                return ResourceManager.GetString("Admin_rotatingPlaying_off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Okay; enabled rotating statuses!.
+        /// </summary>
+        public static string Admin_rotatingPlaying_on {
+            get {
+                return ResourceManager.GetString("Admin_rotatingPlaying_on", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Okay, I will now be {1} &quot;{0}&quot;..
         /// </summary>
         public static string Admin_setGame {
             get {
                 return ResourceManager.GetString("Admin_setGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to listening to.
+        /// </summary>
+        public static string Admin_setGame_listeningTo {
+            get {
+                return ResourceManager.GetString("Admin_setGame_listeningTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to playing.
+        /// </summary>
+        public static string Admin_setGame_playing {
+            get {
+                return ResourceManager.GetString("Admin_setGame_playing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to watching.
+        /// </summary>
+        public static string Admin_setGame_watching {
+            get {
+                return ResourceManager.GetString("Admin_setGame_watching", resourceCulture);
             }
         }
         
@@ -138,6 +183,15 @@ namespace DaveBot.Resources {
         public static string Admin_setStatus {
             get {
                 return ResourceManager.GetString("Admin_setStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alright, the total shard count has been set to {0} shard(s). The bot will now restart..
+        /// </summary>
+        public static string Admin_setTotalShardCount {
+            get {
+                return ResourceManager.GetString("Admin_setTotalShardCount", resourceCulture);
             }
         }
         
@@ -628,7 +682,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to **Link to davemadson&apos;s YouTube:** https://www.youtube.com/channel/UCGBiNqgNTsNUgRkUvAr4jWA.
+        ///   Looks up a localized string similar to **Link to davemadson&apos;s YouTube:**.
         /// </summary>
         public static string Davemadson_davemadson {
             get {
@@ -637,7 +691,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to **Here&apos;s a link to Angus McTavish&apos;s playlist of the original run of davemadson&apos;s Funny Signs:** https://www.youtube.com/playlist?list=PL6Wcr6NPTjmEJQpM4qhIIQGxsL2pyq_BF.
+        ///   Looks up a localized string similar to **Here&apos;s a link to Angus McTavish&apos;s playlist of the original run of davemadson&apos;s Funny Signs:**.
         /// </summary>
         public static string Davemadson_funnysigns {
             get {
@@ -646,11 +700,29 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to **Link to File Preserver&apos;s LT Bloopers playlist:** https://www.youtube.com/playlist?list=PLgN-B1Cy8AZ5bHrcnGkXz4Yh9CkLuPwnC.
+        ///   Looks up a localized string similar to **Link to File Preserver&apos;s LT Bloopers playlist:**.
         /// </summary>
         public static string Davemadson_ltbloopers {
             get {
                 return ResourceManager.GetString("Davemadson_ltbloopers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Now playing &quot;{0}&quot;....
+        /// </summary>
+        public static string DaveMusic_play {
+            get {
+                return ResourceManager.GetString("DaveMusic_play", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Track finished..
+        /// </summary>
+        public static string DaveMusic_songFinished {
+            get {
+                return ResourceManager.GetString("DaveMusic_songFinished", resourceCulture);
             }
         }
         
@@ -723,6 +795,15 @@ namespace DaveBot.Resources {
         public static string err_generic {
             get {
                 return ResourceManager.GetString("err_generic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can&apos;t have {0} total shard(s)!.
+        /// </summary>
+        public static string err_invalidShardCount {
+            get {
+                return ResourceManager.GetString("err_invalidShardCount", resourceCulture);
             }
         }
         

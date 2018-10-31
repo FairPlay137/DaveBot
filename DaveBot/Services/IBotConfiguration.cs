@@ -12,7 +12,7 @@ namespace DaveBot.Services
         string BotToken { get; }
         ulong BotOwnerID { get; }
 
-        int TotalShards { get; }
+        int TotalShards { get; set; }
 
         string DefaultPlayingString { get; }
         string DefaultPrefix { get; set; }

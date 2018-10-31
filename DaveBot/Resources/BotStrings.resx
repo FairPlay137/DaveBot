@@ -263,7 +263,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Alright, my prefix on this server is now `{0}`.</value>
   </data>
   <data name="Admin_setGame" xml:space="preserve">
-    <value>Okay, I will now be playing "{0}".</value>
+    <value>Okay, I will now be {1} "{0}".</value>
   </data>
   <data name="Admin_setStatus" xml:space="preserve">
     <value>Successfully updated status.</value>
@@ -663,13 +663,13 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>FIRE</value>
   </data>
   <data name="Davemadson_davemadson" xml:space="preserve">
-    <value>**Link to davemadson's YouTube:** https://www.youtube.com/channel/UCGBiNqgNTsNUgRkUvAr4jWA</value>
+    <value>**Link to davemadson's YouTube:**</value>
   </data>
   <data name="Davemadson_funnysigns" xml:space="preserve">
-    <value>**Here's a link to Angus McTavish's playlist of the original run of davemadson's Funny Signs:** https://www.youtube.com/playlist?list=PL6Wcr6NPTjmEJQpM4qhIIQGxsL2pyq_BF</value>
+    <value>**Here's a link to Angus McTavish's playlist of the original run of davemadson's Funny Signs:**</value>
   </data>
   <data name="Davemadson_ltbloopers" xml:space="preserve">
-    <value>**Link to File Preserver's LT Bloopers playlist:** https://www.youtube.com/playlist?list=PLgN-B1Cy8AZ5bHrcnGkXz4Yh9CkLuPwnC</value>
+    <value>**Link to File Preserver's LT Bloopers playlist:**</value>
   </data>
   <data name="err_noGoogleAPIKey" xml:space="preserve">
     <value>The bot owner hasn't specified a valid Google API key in `config.json`. Therefore, this command cannot be used.</value>
@@ -745,5 +745,32 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   </data>
   <data name="Help_modules_emptymodule" xml:space="preserve">
     <value>*(empty)*</value>
+  </data>
+  <data name="Admin_rotatingPlaying_off" xml:space="preserve">
+    <value>Alright; disabled rotating statuses!</value>
+  </data>
+  <data name="Admin_rotatingPlaying_on" xml:space="preserve">
+    <value>Okay; enabled rotating statuses!</value>
+  </data>
+  <data name="Admin_setGame_listeningTo" xml:space="preserve">
+    <value>listening to</value>
+  </data>
+  <data name="Admin_setGame_playing" xml:space="preserve">
+    <value>playing</value>
+  </data>
+  <data name="Admin_setGame_watching" xml:space="preserve">
+    <value>watching</value>
+  </data>
+  <data name="DaveMusic_play" xml:space="preserve">
+    <value>Now playing "{0}"...</value>
+  </data>
+  <data name="DaveMusic_songFinished" xml:space="preserve">
+    <value>Track finished.</value>
+  </data>
+  <data name="Admin_setTotalShardCount" xml:space="preserve">
+    <value>Alright, the total shard count has been set to {0} shard(s). The bot will now restart.</value>
+  </data>
+  <data name="err_invalidShardCount" xml:space="preserve">
+    <value>You can't have {0} total shard(s)!</value>
   </data>
 </root>
