@@ -387,7 +387,7 @@
     <Compile Include="Modules\Akinator\Common\AkinatorGame.cs" />
     <Compile Include="Modules\Akinator\Services\AkinatorService.cs" />
     <Compile Include="Modules\DaveBotModuleBase.cs" />
-    <Compile Include="Modules\Admin\AdminModule.cs" />
+    <Compile Include="Modules\Core\CoreModule.cs" />
     <Compile Include="Modules\Akinator\AkinatorModule.cs" />
     <Compile Include="Modules\CustomReactions\CustomReactionsModule.cs" />
     <Compile Include="Modules\DaveFun\DaveFunModule.cs" />
@@ -432,7 +432,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modules\Admin\Services\" />
+    <Folder Include="Modules\Core\Services\" />
     <Folder Include="Modules\Moderation\Services\" />
   </ItemGroup>
   <ItemGroup>
