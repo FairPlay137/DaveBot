@@ -714,7 +714,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Hi! I'm {0}; an open-source, davemadson-themed bot, based off of PaletteBot! I'm still under construction, so expect missing features, along with a few regressions.</value>
   </data>
   <data name="err_davebotEliteOnly" xml:space="preserve">
-    <value>Sorry, that command is for DaveBot Elite users ONLY. Want to become a DaveBot Elite user? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Elite for one whole server if you pledge!</value>
+    <value>Sorry, that command is only available with DaveBot Pro! Want to unlock DaveBot Pro? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Pro for one whole server if you pledge!</value>
   </data>
   <data name="err_commandUnimplemented" xml:space="preserve">
     <value>This command currently is not implemented. Try again later.</value>
@@ -772,5 +772,45 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   </data>
   <data name="err_invalidShardCount" xml:space="preserve">
     <value>You can't have {0} total shard(s)!</value>
+  </data>
+  <data name="err_audioDependenciesNotMet" xml:space="preserve">
+    <value>It appears I don't have all the dependencies needed for the </value>
+  </data>
+  <data name="Moderation_swearFilter_block1" xml:space="preserve">
+    <value>Hey, swearing is not allowed on this server!</value>
+  </data>
+  <data name="Moderation_swearFilter_block2" xml:space="preserve">
+    <value>My </value>
+  </data>
+  <data name="Moderation_swearFilter_block3" xml:space="preserve">
+    <value>Hmm...my bad word detector smells something fishy about the message you sent. Therefore, it has been deleted.</value>
+  </data>
+  <data name="Moderation_swearFilter_block4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Moderation_swearFilter_block5" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Admin_blacklist_allPermanent" xml:space="preserve">
+    <value>__**Notice:**__ Sadly, this bot's functionality has been permanently disabled.</value>
+  </data>
+  <data name="Admin_blacklist_allTemporary" xml:space="preserve">
+    <value>__**Notice:**__ This bot's functionality has been disabled until {0}.</value>
+  </data>
+  <data name="Admin_blacklist_permanent" xml:space="preserve">
+    <value>__**Notice:**__ The bot owner has permanently blocked you from using this bot.</value>
+  </data>
+  <data name="Admin_blacklist_permanent_withReason" xml:space="preserve">
+    <value>__**Notice:**__ The bot owner has permanently blocked you from using this bot for the following reason: ```
+{0}
+```</value>
+  </data>
+  <data name="Admin_blacklist_temporary" xml:space="preserve">
+    <value>__**Notice:**__ The bot owner has blocked you from using this bot until {0}.</value>
+  </data>
+  <data name="Admin_blacklist_temporary_withReason" xml:space="preserve">
+    <value>__**Notice:**__ The bot owner has blocked you from using this bot until {0} for the following reason: ```
+{1}
+```</value>
   </data>
 </root>

@@ -61,6 +61,64 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to __**Notice:**__ Sadly, this bot&apos;s functionality has been permanently disabled..
+        /// </summary>
+        public static string Admin_blacklist_allPermanent {
+            get {
+                return ResourceManager.GetString("Admin_blacklist_allPermanent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to __**Notice:**__ This bot&apos;s functionality has been disabled until {0}..
+        /// </summary>
+        public static string Admin_blacklist_allTemporary {
+            get {
+                return ResourceManager.GetString("Admin_blacklist_allTemporary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to __**Notice:**__ The bot owner has permanently blocked you from using this bot..
+        /// </summary>
+        public static string Admin_blacklist_permanent {
+            get {
+                return ResourceManager.GetString("Admin_blacklist_permanent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to __**Notice:**__ The bot owner has permanently blocked you from using this bot for the following reason: ```
+        ///{0}
+        ///```.
+        /// </summary>
+        public static string Admin_blacklist_permanent_withReason {
+            get {
+                return ResourceManager.GetString("Admin_blacklist_permanent_withReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to __**Notice:**__ The bot owner has blocked you from using this bot until {0}..
+        /// </summary>
+        public static string Admin_blacklist_temporary {
+            get {
+                return ResourceManager.GetString("Admin_blacklist_temporary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to __**Notice:**__ The bot owner has blocked you from using this bot until {0} for the following reason: ```
+        ///{1}
+        ///```.
+        /// </summary>
+        public static string Admin_blacklist_temporary_withReason {
+            get {
+                return ResourceManager.GetString("Admin_blacklist_temporary_withReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Okay, my default prefix is now `{0}`..
         /// </summary>
         public static string Admin_changeGlobalPrefix {
@@ -727,6 +785,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It appears I don&apos;t have all the dependencies needed for the .
+        /// </summary>
+        public static string err_audioDependenciesNotMet {
+            get {
+                return ResourceManager.GetString("err_audioDependenciesNotMet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This action requires the bot to have the &quot;{0}&quot; permission..
         /// </summary>
         public static string err_botMissingPermission {
@@ -754,7 +821,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sorry, that command is for DaveBot Elite users ONLY. Want to become a DaveBot Elite user? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Elite for one whole server if you pledge!.
+        ///   Looks up a localized string similar to Sorry, that command is only available with DaveBot Pro! Want to unlock DaveBot Pro? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Pro for one whole server if you pledge!.
         /// </summary>
         public static string err_davebotEliteOnly {
             get {
@@ -1557,6 +1624,51 @@ namespace DaveBot.Resources {
         public static string Moderation_softban {
             get {
                 return ResourceManager.GetString("Moderation_softban", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hey, swearing is not allowed on this server!.
+        /// </summary>
+        public static string Moderation_swearFilter_block1 {
+            get {
+                return ResourceManager.GetString("Moderation_swearFilter_block1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My .
+        /// </summary>
+        public static string Moderation_swearFilter_block2 {
+            get {
+                return ResourceManager.GetString("Moderation_swearFilter_block2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hmm...my bad word detector smells something fishy about the message you sent. Therefore, it has been deleted..
+        /// </summary>
+        public static string Moderation_swearFilter_block3 {
+            get {
+                return ResourceManager.GetString("Moderation_swearFilter_block3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Moderation_swearFilter_block4 {
+            get {
+                return ResourceManager.GetString("Moderation_swearFilter_block4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Moderation_swearFilter_block5 {
+            get {
+                return ResourceManager.GetString("Moderation_swearFilter_block5", resourceCulture);
             }
         }
         
