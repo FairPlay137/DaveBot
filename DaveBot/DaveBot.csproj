@@ -419,6 +419,7 @@
     <Compile Include="Services\CommandHandler.cs" />
     <Compile Include="Services\Impl\BotConfiguration.cs" />
     <Compile Include="Services\IDaveBotService.cs" />
+    <Compile Include="Services\IServerConfiguration.cs" />
     <Compile Include="Services\ServiceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -428,6 +429,7 @@
     <None Include="config-example.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Docs\idea-hole.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

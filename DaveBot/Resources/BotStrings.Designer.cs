@@ -785,6 +785,150 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 📣 A bulletin was posted on the channel!.
+        /// </summary>
+        public static string DaveNotifications_activityType_bulletin {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_bulletin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [placeholder text for channelItem].
+        /// </summary>
+        public static string DaveNotifications_activityType_channelItem {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_channelItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [placeholder text for comment].
+        /// </summary>
+        public static string DaveNotifications_activityType_comment {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ⭐ A video was added to {1}&apos;s Favorites!.
+        /// </summary>
+        public static string DaveNotifications_activityType_favorite {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_favorite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 👍 {1} left a like on a video!.
+        /// </summary>
+        public static string DaveNotifications_activityType_like {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_like", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [placeholder text for playlistItem].
+        /// </summary>
+        public static string DaveNotifications_activityType_playlistItem {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_playlistItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [placeholder text for promotedItem].
+        /// </summary>
+        public static string DaveNotifications_activityType_promotedItem {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_promotedItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [placeholder text for recommendation].
+        /// </summary>
+        public static string DaveNotifications_activityType_recommendation {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_recommendation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [placeholder text for social].
+        /// </summary>
+        public static string DaveNotifications_activityType_social {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_social", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [placeholder text for subscription].
+        /// </summary>
+        public static string DaveNotifications_activityType_subscription {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_subscription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ❓ Unknown activity type &quot;{0}&quot;. Please report this..
+        /// </summary>
+        public static string DaveNotifications_activityType_unknown {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 📹 A new video was uploaded!.
+        /// </summary>
+        public static string DaveNotifications_activityType_upload {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityType_upload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ***Event:***.
+        /// </summary>
+        public static string DaveNotifications_activityTypeTitle {
+            get {
+                return ResourceManager.GetString("DaveNotifications_activityTypeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong while trying to fetch more details! As such, some details may not be available..
+        /// </summary>
+        public static string DaveNotifications_contentDetailError {
+            get {
+                return ResourceManager.GetString("DaveNotifications_contentDetailError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🔔 __**New activity from {0}!**__ 🔔.
+        /// </summary>
+        public static string DaveNotifications_newNotifHeader {
+            get {
+                return ResourceManager.GetString("DaveNotifications_newNotifHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unfortunately, this activity is only partially implemented. As such, some details may not be available..
+        /// </summary>
+        public static string DaveNotifications_noContentDetailImplementationNotice {
+            get {
+                return ResourceManager.GetString("DaveNotifications_noContentDetailImplementationNotice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to It appears I don&apos;t have all the dependencies needed for the .
         /// </summary>
         public static string err_audioDependenciesNotMet {
@@ -1669,6 +1813,51 @@ namespace DaveBot.Resources {
         public static string Moderation_swearFilter_block5 {
             get {
                 return ResourceManager.GetString("Moderation_swearFilter_block5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [temp].
+        /// </summary>
+        public static string Utils_calculate_answerHeader {
+            get {
+                return ResourceManager.GetString("Utils_calculate_answerHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [temp].
+        /// </summary>
+        public static string Utils_calculate_equationHeader {
+            get {
+                return ResourceManager.GetString("Utils_calculate_equationHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [temp].
+        /// </summary>
+        public static string Utils_calculate_infiniteAnswer {
+            get {
+                return ResourceManager.GetString("Utils_calculate_infiniteAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [temp].
+        /// </summary>
+        public static string Utils_calculate_noAnswer {
+            get {
+                return ResourceManager.GetString("Utils_calculate_noAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [temp].
+        /// </summary>
+        public static string Utils_calculate_title {
+            get {
+                return ResourceManager.GetString("Utils_calculate_title", resourceCulture);
             }
         }
         

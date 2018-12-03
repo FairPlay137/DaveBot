@@ -813,4 +813,67 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
 {1}
 ```</value>
   </data>
+  <data name="DaveNotifications_activityType_bulletin" xml:space="preserve">
+    <value>📣 A bulletin was posted on the channel!</value>
+  </data>
+  <data name="DaveNotifications_activityType_channelItem" xml:space="preserve">
+    <value>[placeholder text for channelItem]</value>
+  </data>
+  <data name="DaveNotifications_activityType_comment" xml:space="preserve">
+    <value>[placeholder text for comment]</value>
+  </data>
+  <data name="DaveNotifications_activityType_favorite" xml:space="preserve">
+    <value>⭐ A video was added to {1}'s Favorites!</value>
+  </data>
+  <data name="DaveNotifications_activityType_like" xml:space="preserve">
+    <value>👍 {1} left a like on a video!</value>
+  </data>
+  <data name="DaveNotifications_activityType_playlistItem" xml:space="preserve">
+    <value>[placeholder text for playlistItem]</value>
+  </data>
+  <data name="DaveNotifications_activityType_promotedItem" xml:space="preserve">
+    <value>[placeholder text for promotedItem]</value>
+  </data>
+  <data name="DaveNotifications_activityType_recommendation" xml:space="preserve">
+    <value>[placeholder text for recommendation]</value>
+  </data>
+  <data name="DaveNotifications_activityType_social" xml:space="preserve">
+    <value>[placeholder text for social]</value>
+  </data>
+  <data name="DaveNotifications_activityType_subscription" xml:space="preserve">
+    <value>[placeholder text for subscription]</value>
+  </data>
+  <data name="DaveNotifications_activityType_unknown" xml:space="preserve">
+    <value>❓ Unknown activity type "{0}". Please report this.</value>
+  </data>
+  <data name="DaveNotifications_activityType_upload" xml:space="preserve">
+    <value>📹 A new video was uploaded!</value>
+  </data>
+  <data name="DaveNotifications_contentDetailError" xml:space="preserve">
+    <value>Something went wrong while trying to fetch more details! As such, some details may not be available.</value>
+  </data>
+  <data name="DaveNotifications_newNotifHeader" xml:space="preserve">
+    <value>🔔 __**New activity from {0}!**__ 🔔</value>
+  </data>
+  <data name="DaveNotifications_noContentDetailImplementationNotice" xml:space="preserve">
+    <value>Unfortunately, this activity is only partially implemented. As such, some details may not be available.</value>
+  </data>
+  <data name="Utils_calculate_answerHeader" xml:space="preserve">
+    <value>[temp]</value>
+  </data>
+  <data name="Utils_calculate_equationHeader" xml:space="preserve">
+    <value>[temp]</value>
+  </data>
+  <data name="Utils_calculate_infiniteAnswer" xml:space="preserve">
+    <value>[temp]</value>
+  </data>
+  <data name="Utils_calculate_noAnswer" xml:space="preserve">
+    <value>[temp]</value>
+  </data>
+  <data name="Utils_calculate_title" xml:space="preserve">
+    <value>[temp]</value>
+  </data>
+  <data name="DaveNotifications_activityTypeTitle" xml:space="preserve">
+    <value>***Event:***</value>
+  </data>
 </root>
