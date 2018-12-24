@@ -506,6 +506,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom Reaction created!.
+        /// </summary>
+        public static string CustomReactions_AddCustomReaction {
+            get {
+                return ResourceManager.GetString("CustomReactions_AddCustomReaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Custom Reaction deleted!.
         /// </summary>
         public static string CustomReactions_DeleteCustomReaction {
@@ -556,15 +565,6 @@ namespace DaveBot.Resources {
         public static string CustomReactions_ListCustomReactions {
             get {
                 return ResourceManager.GetString("CustomReactions_ListCustomReactions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Custom Reaction created!.
-        /// </summary>
-        public static string CustomReactions_NewCustomReaction {
-            get {
-                return ResourceManager.GetString("CustomReactions_NewCustomReaction", resourceCulture);
             }
         }
         
