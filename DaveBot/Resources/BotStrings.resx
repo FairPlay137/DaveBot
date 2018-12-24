@@ -528,7 +528,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Successfully banned {0} from the server.</value>
   </data>
   <data name="Moderation_DMFailed" xml:space="preserve">
-    <value>:no_entry_sign: **Couldn't DM the target: `{0}`**</value>
+    <value>**Couldn't DM the target: `{0}`** However...</value>
   </data>
   <data name="Moderation_dm_banned" xml:space="preserve">
     <value>Banned</value>
@@ -537,7 +537,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>You've been banned from `{0}`!</value>
   </data>
   <data name="Moderation_dm_by" xml:space="preserve">
-    <value>**{0} by:**</value>
+    <value>{0} by:</value>
   </data>
   <data name="Moderation_dm_kicked" xml:space="preserve">
     <value>Kicked</value>

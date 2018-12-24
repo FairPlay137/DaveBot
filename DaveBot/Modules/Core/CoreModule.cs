@@ -27,7 +27,7 @@ namespace DaveBot.Modules
         [OwnerOnly]
         public async Task Shutdown()
         {
-            await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Admin", "shutdown")}`").ConfigureAwait(false);
+            await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "shutdown")}`").ConfigureAwait(false);
             LogManager.GetCurrentClassLogger().Info(">>SHUTTING DOWN");
             _config.SaveConfig(true);
             LogManager.GetCurrentClassLogger().Info("Logging out...");
@@ -41,7 +41,7 @@ namespace DaveBot.Modules
         [OwnerOnly]
         public async Task Restart()
         {
-            await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Admin", "restart")}`");
+            await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "restart")}`");
             LogManager.GetCurrentClassLogger().Info(">>RESTARTING");
             _config.SaveConfig(true);
             LogManager.GetCurrentClassLogger().Info("Logging out...");
@@ -100,7 +100,7 @@ namespace DaveBot.Modules
                 default:
                     throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("err", "invalidStatus"));
             }
-            await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Admin", "setStatus")}`");
+            await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "setStatus")}`");
         }
         [Command("verboseerrors")]
         [Summary("Enables/disables verbose error messages. **BOT OWNER ONLY**")]
@@ -114,7 +114,7 @@ namespace DaveBot.Modules
             string toCueUp = "verboseErrors_disable";
             if(_config.VerboseErrors)
                 toCueUp = "verboseErrors_enable";
-            await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Admin", toCueUp)}`").ConfigureAwait(false);
+            await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", toCueUp)}`").ConfigureAwait(false);
         }
 
         [Command("setshards")]
@@ -127,7 +127,7 @@ namespace DaveBot.Modules
             _config.TotalShards = shards;
             _config.SaveConfig(true);
             _config.ReloadConfig(false);
-            await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Admin", "setShardCount", shards)}`").ConfigureAwait(false);
+            await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "setShardCount", shards)}`").ConfigureAwait(false);
             LogManager.GetCurrentClassLogger().Info($"Total shard count set to {shards}. Now restarting bot...");
             LogManager.GetCurrentClassLogger().Info(">>RESTARTING");
             _config.SaveConfig(true);

@@ -18,7 +18,11 @@ namespace DaveBot.Modules
         [CannotUseInDMs]
         public async Task Kick([Summary("User to kick")] IGuildUser target, [Remainder] string reason = null)
         {
-
+            if(target.Id == Context.Message.Author.Id)
+            {
+                await ReplyAsync($":no_entry_sign: `{StringResourceHandler.GetTextStatic("Moderation", "cannotKickSelf")}").ConfigureAwait(false);
+                return;
+            }
             try
             {
                 var userdm = await target.GetOrCreateDMChannelAsync();
@@ -32,10 +36,10 @@ namespace DaveBot.Modules
             }
             catch (Exception e)
             {
-                await ReplyAsync(StringResourceHandler.GetTextStatic("Moderation", "DMFailed", e.Message));
+                await ReplyAsync(":no_entry_sign: "+StringResourceHandler.GetTextStatic("Moderation", "DMFailed", e.Message));
             }
             await target.KickAsync(reason).ConfigureAwait(false);
-            await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Moderation", "kick", $"@{target.Username}#{target.Discriminator}")}`").ConfigureAwait(false);
+            await ReplyAsync($":boot: `{StringResourceHandler.GetTextStatic("Moderation", "kick", $"@{target.Username}#{target.Discriminator}")}`").ConfigureAwait(false);
         }
         [Command("ban")]
         [Summary("Bans a specified user from the server.")]
@@ -45,7 +49,11 @@ namespace DaveBot.Modules
         [CannotUseInDMs]
         public async Task Ban([Summary("User to ban")] IGuildUser target, [Remainder] string reason = null)
         {
-            
+            if (target.Id == Context.Message.Author.Id)
+            {
+                await ReplyAsync($":no_entry_sign: `{StringResourceHandler.GetTextStatic("Moderation", "cannotBanSelf")}").ConfigureAwait(false);
+                return;
+            }
             try
             {
                 var userdm = await target.GetOrCreateDMChannelAsync();
@@ -59,10 +67,10 @@ namespace DaveBot.Modules
             }
             catch(Exception e)
             {
-                await ReplyAsync(StringResourceHandler.GetTextStatic("Moderation", "DMFailed", e.Message));
+                await ReplyAsync(":no_entry_sign: " + StringResourceHandler.GetTextStatic("Moderation", "DMFailed", e.Message));
             }
             await Context.Guild.AddBanAsync(target,0,reason).ConfigureAwait(false);
-            await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Moderation", "ban", $"@{target.Username}#{target.Discriminator}")}`").ConfigureAwait(false);
+            await ReplyAsync($":hammer: `{StringResourceHandler.GetTextStatic("Moderation", "ban", $"@{target.Username}#{target.Discriminator}")}`").ConfigureAwait(false);
         }
     }
 }
