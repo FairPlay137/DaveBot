@@ -175,7 +175,8 @@ namespace DaveBot.Services
                     _log.Info(">>COMMAND EXECUTED");
                     _log.Info("User: " + usrMsg.Author + " ("+usrMsg.Author.Id+")");
                     _log.Info("Server: " + (channel == null ? "[Direct]" : guild.Name + " (" + guild.Id + ")"));
-                    _log.Info("Channel: " + (channel == null ? "[Direct]" : channel.Name + " (" + channel.Id + ")"));
+                    if(channel != null)
+                        _log.Info("Channel: " + channel.Name + " (" + channel.Id + ")");
                     _log.Info("Message: " + usrMsg.Content);
                     return;
                 }
@@ -184,7 +185,8 @@ namespace DaveBot.Services
                     _log.Warn(">>COMMAND ERRORED");
                     _log.Warn("User: " + usrMsg.Author + " (" + usrMsg.Author.Id + ")");
                     _log.Warn("Server: " + (channel == null ? "[Direct]" : guild.Name + " (" + guild.Id + ")"));
-                    _log.Warn("Channel: " + (channel == null ? "[Direct]" : channel.Name + " (" + channel.Id + ")"));
+                    if(channel != null)
+                        _log.Warn("Channel: " + channel.Name + " (" + channel.Id + ")");
                     _log.Warn("Message: " + usrMsg.Content);
                     _log.Warn("Error: " + result.ErrorReason);
 
@@ -194,7 +196,7 @@ namespace DaveBot.Services
                         case CommandError.UnknownCommand: //Unknown command
                             errtext = StringResourceHandler.GetTextStatic("err", "unknownCommand", prefix);
                             break;
-                        case CommandError.MultipleMatches:
+                        case CommandError.MultipleMatches: //Multiple command defs found (if configured to throw an error in this scenario)
                             errtext = StringResourceHandler.GetTextStatic("err", "multipleCommandDefs", result.ErrorReason);
                             break;
                         //case CommandError.Exception: //Exception during command processing

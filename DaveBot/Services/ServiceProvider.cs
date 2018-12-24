@@ -97,7 +97,7 @@ namespace DaveBot.Services
                     var instance = ctor.Invoke(args.ToArray());
                     swInstance.Stop();
                     if (swInstance.Elapsed.TotalSeconds > 5)
-                        _log.Warn($"{type.Name} took {swInstance.Elapsed.TotalSeconds:F2}s to load. (longer than usual)");
+                        _log.Warn($"{type.Name} took {swInstance.Elapsed.TotalSeconds:F2}s to load! (Longer than usual)");
                     var interfaceType = interfaces.FirstOrDefault(x => instance.GetType().GetInterfaces().Contains(x));
                     if (interfaceType != null)
                         _dict.TryAdd(interfaceType, instance);
@@ -105,7 +105,7 @@ namespace DaveBot.Services
                     _dict.TryAdd(type, instance);
                 }
                 sw.Stop();
-                _log.Info($"All services loaded in {sw.Elapsed.TotalSeconds:F2}s");
+                _log.Info($"Loaded {services.Count} service(s) in {sw.Elapsed.TotalSeconds:F2} seconds");
 
                 return this;
             }

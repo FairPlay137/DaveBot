@@ -61,7 +61,7 @@ namespace DaveBot.Modules
             {
                 await ReplyAsync(StringResourceHandler.GetTextStatic("Moderation", "DMFailed", e.Message));
             }
-            await Context.Guild.AddBanAsync(target,7,reason).ConfigureAwait(false);
+            await Context.Guild.AddBanAsync(target,0,reason).ConfigureAwait(false);
             await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Moderation", "ban", $"@{target.Username}#{target.Discriminator}")}`").ConfigureAwait(false);
         }
     }

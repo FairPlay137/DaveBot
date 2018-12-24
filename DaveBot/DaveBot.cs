@@ -139,7 +139,7 @@ namespace DaveBot
             Ready.TrySetResult(true);
             
             ConnectedAtTime = DateTime.Now;
-            _log.Info($"Booted in {new TimeSpan(ConnectedAtTime.Ticks - StartTime.Ticks).TotalSeconds} seconds.");
+            _log.Info($"It took {new TimeSpan(ConnectedAtTime.Ticks - StartTime.Ticks).TotalSeconds} second(s) to boot up.");
         }
 
         public async Task StartAndBlockAsync(params string[] args)
@@ -153,7 +153,7 @@ namespace DaveBot
             var logConfig = new LoggingConfiguration();
             var consoleTarget = new ColoredConsoleTarget()
             {
-                Layout = @"${date:format=HH\:mm\:ss} ${logger} | ${message}"
+                Layout = @"${date:format=HH\:mm\:ss} [${logger}] ${message}"
             };
             logConfig.AddTarget("Console", consoleTarget);
 
