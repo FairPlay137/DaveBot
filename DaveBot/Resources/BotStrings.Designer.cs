@@ -794,7 +794,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [placeholder text for channelItem].
+        ///   Looks up a localized string similar to Placeholder (DaveNotifications_activityType_channelItem).
         /// </summary>
         public static string DaveNotifications_activityType_channelItem {
             get {
@@ -803,7 +803,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [placeholder text for comment].
+        ///   Looks up a localized string similar to Placeholder (DaveNotifications_activityType_comment).
         /// </summary>
         public static string DaveNotifications_activityType_comment {
             get {
@@ -830,7 +830,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [placeholder text for playlistItem].
+        ///   Looks up a localized string similar to Placeholder (DaveNotifications_activityType_playlistItem).
         /// </summary>
         public static string DaveNotifications_activityType_playlistItem {
             get {
@@ -839,7 +839,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [placeholder text for promotedItem].
+        ///   Looks up a localized string similar to Placeholder (DaveNotifications_activityType_promotedItem).
         /// </summary>
         public static string DaveNotifications_activityType_promotedItem {
             get {
@@ -848,7 +848,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [placeholder text for recommendation].
+        ///   Looks up a localized string similar to Placeholder (DaveNotifications_activityType_recommendation).
         /// </summary>
         public static string DaveNotifications_activityType_recommendation {
             get {
@@ -857,7 +857,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [placeholder text for social].
+        ///   Looks up a localized string similar to Placeholder (DaveNotifications_activityType_social).
         /// </summary>
         public static string DaveNotifications_activityType_social {
             get {
@@ -866,7 +866,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [placeholder text for subscription].
+        ///   Looks up a localized string similar to Placeholder (DaveNotifications_activityType_subscription).
         /// </summary>
         public static string DaveNotifications_activityType_subscription {
             get {
@@ -929,7 +929,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It appears I don&apos;t have all the dependencies needed for the .
+        ///   Looks up a localized string similar to It appears I don&apos;t have all the dependencies needed for playing audio..
         /// </summary>
         public static string err_audioDependenciesNotMet {
             get {
@@ -1234,6 +1234,15 @@ namespace DaveBot.Resources {
         public static string Fun_ship_compatibility {
             get {
                 return ResourceManager.GetString("Fun_ship_compatibility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placeholder (Fun_ship_incorrectNumOfArgs).
+        /// </summary>
+        public static string Fun_ship_incorrectNumOfArgs {
+            get {
+                return ResourceManager.GetString("Fun_ship_incorrectNumOfArgs", resourceCulture);
             }
         }
         
@@ -1619,7 +1628,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Couldn&apos;t ban {0} due to them having a higher role..
+        ///   Looks up a localized string similar to Couldn&apos;t ban {0} due to them having a higher role than me..
         /// </summary>
         public static string Moderation_banFailed {
             get {
@@ -1633,6 +1642,24 @@ namespace DaveBot.Resources {
         public static string Moderation_banWithReason {
             get {
                 return ResourceManager.GetString("Moderation_banWithReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placeholder (Moderation_cannotBanSelf).
+        /// </summary>
+        public static string Moderation_cannotBanSelf {
+            get {
+                return ResourceManager.GetString("Moderation_cannotBanSelf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placeholder (Moderation_cannotKickSelf).
+        /// </summary>
+        public static string Moderation_cannotKickSelf {
+            get {
+                return ResourceManager.GetString("Moderation_cannotKickSelf", resourceCulture);
             }
         }
         
@@ -1781,7 +1808,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My .
+        ///   Looks up a localized string similar to Placeholder (Moderation_swearFilter_block2).
         /// </summary>
         public static string Moderation_swearFilter_block2 {
             get {
@@ -1799,7 +1826,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Placeholder (Moderation_swearFilter_block4).
         /// </summary>
         public static string Moderation_swearFilter_block4 {
             get {
@@ -1808,7 +1835,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Placeholder (Moderation_swearFilter_block5).
         /// </summary>
         public static string Moderation_swearFilter_block5 {
             get {
@@ -1817,7 +1844,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [temp].
+        ///   Looks up a localized string similar to Placeholder (Utils_calculate_answerHeader).
         /// </summary>
         public static string Utils_calculate_answerHeader {
             get {
@@ -1826,7 +1853,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [temp].
+        ///   Looks up a localized string similar to Placeholder (Utils_calculate_equationHeader).
         /// </summary>
         public static string Utils_calculate_equationHeader {
             get {
@@ -1835,7 +1862,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [temp].
+        ///   Looks up a localized string similar to Placeholder (Utils_calculate_infiniteAnswer).
         /// </summary>
         public static string Utils_calculate_infiniteAnswer {
             get {
@@ -1844,7 +1871,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [temp].
+        ///   Looks up a localized string similar to Placeholder (Utils_calculate_noAnswer).
         /// </summary>
         public static string Utils_calculate_noAnswer {
             get {
@@ -1853,7 +1880,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [temp].
+        ///   Looks up a localized string similar to Placeholder (Utils_calculate_title).
         /// </summary>
         public static string Utils_calculate_title {
             get {
@@ -1880,7 +1907,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Damn, that&apos;s fast!.
+        ///   Looks up a localized string similar to Dang, that&apos;s fast!.
         /// </summary>
         public static string Utils_ping_footer2 {
             get {

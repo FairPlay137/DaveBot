@@ -27,7 +27,7 @@ namespace DaveBot.Modules
         [Summary("Ask the 8ball a question!")]
         public async Task EightBall([Remainder] [Summary("The question")] string question)
         {
-            await Context.Message.AddReactionAsync(new Emoji("👌"));
+            await Context.Message.AddReactionAsync(new Emoji("🎱"));
             DaveRNG random = new DaveRNG();
             string answer = (_config.EightBallResponses.Length > 0)?
                 _config.EightBallResponses[random.Next(_config.EightBallResponses.Length)]:
@@ -42,7 +42,7 @@ namespace DaveBot.Modules
         [Summary("Choose an option from a given set")]
         public async Task Choose([Remainder] [Summary("Options (seperate with `;`)")] string options)
         {
-            await Context.Message.AddReactionAsync(new Emoji("👌"));
+            await Context.Message.AddReactionAsync(new Emoji("🤔"));
             DaveRNG random = new DaveRNG();
             string[] optionsIndiv = options.Split(';');
             string choice = optionsIndiv[random.Next(optionsIndiv.Length)];
@@ -58,7 +58,7 @@ namespace DaveBot.Modules
             string[] args = targets.Split(';');
             if (args.Length == 2)
             {
-                await Context.Message.AddReactionAsync(new Emoji("👌"));
+                await Context.Message.AddReactionAsync(new Emoji("❤"));
                 var msg = await ReplyAsync(StringResourceHandler.GetTextStatic("generic", "PleaseWait")).ConfigureAwait(false);
                 var tstate = Context.Channel.EnterTypingState();
                 int percentage = MatchmakingLogic.CalculateMatchmakingPercentage(args[0], args[1]);
@@ -95,7 +95,7 @@ namespace DaveBot.Modules
             else
             {
                 await Context.Message.AddReactionAsync(new Emoji("⛔"));
-                await ReplyAsync($":no_entry_sign: `{StringResourceHandler.GetTextStatic("Fun", "ship_incorrectNumOfArgs")}`").ConfigureAwait(false);
+                await ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("Fun", "ship_incorrectNumOfArgs")}`").ConfigureAwait(false);
             }
         }
     }

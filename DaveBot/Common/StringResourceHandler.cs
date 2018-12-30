@@ -20,7 +20,7 @@ namespace DaveBot.Common
             if (string.IsNullOrWhiteSpace(text))
             {
                 LogManager.GetCurrentClassLogger().Warn(category + "_" + key + " key is missing from BotStrings! Report this ASAP.");
-                text = $"Error: Key {category + "_" + key} not found!";
+                text = $"!! Key \"{category + "_" + key}\" not found in BotStrings !!";
             }
             return text;
         }

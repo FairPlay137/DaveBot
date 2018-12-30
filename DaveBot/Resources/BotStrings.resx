@@ -287,7 +287,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Successfully banned {0} from the server for reason: {1}</value>
   </data>
   <data name="Moderation_banFailed" xml:space="preserve">
-    <value>Couldn't ban {0} due to them having a higher role.</value>
+    <value>Couldn't ban {0} due to them having a higher role than me.</value>
   </data>
   <data name="Moderation_kick" xml:space="preserve">
     <value>Successfully kicked {0} from the server.</value>
@@ -401,7 +401,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>The ball came back so fast I nearly missed it!</value>
   </data>
   <data name="Utils_ping_footer2" xml:space="preserve">
-    <value>Damn, that's fast!</value>
+    <value>Dang, that's fast!</value>
   </data>
   <data name="Utils_ping_footer3" xml:space="preserve">
     <value>Connection is OK.</value>
@@ -774,22 +774,22 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>You can't have {0} total shard(s)!</value>
   </data>
   <data name="err_audioDependenciesNotMet" xml:space="preserve">
-    <value>It appears I don't have all the dependencies needed for the </value>
+    <value>It appears I don't have all the dependencies needed for playing audio.</value>
   </data>
   <data name="Moderation_swearFilter_block1" xml:space="preserve">
     <value>Hey, swearing is not allowed on this server!</value>
   </data>
   <data name="Moderation_swearFilter_block2" xml:space="preserve">
-    <value>My </value>
+    <value>Placeholder (Moderation_swearFilter_block2)</value>
   </data>
   <data name="Moderation_swearFilter_block3" xml:space="preserve">
     <value>Hmm...my bad word detector smells something fishy about the message you sent. Therefore, it has been deleted.</value>
   </data>
   <data name="Moderation_swearFilter_block4" xml:space="preserve">
-    <value />
+    <value>Placeholder (Moderation_swearFilter_block4)</value>
   </data>
   <data name="Moderation_swearFilter_block5" xml:space="preserve">
-    <value />
+    <value>Placeholder (Moderation_swearFilter_block5)</value>
   </data>
   <data name="Admin_blacklist_allPermanent" xml:space="preserve">
     <value>__**Notice:**__ Sadly, this bot's functionality has been permanently disabled.</value>
@@ -817,10 +817,10 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>📣 A bulletin was posted on the channel!</value>
   </data>
   <data name="DaveNotifications_activityType_channelItem" xml:space="preserve">
-    <value>[placeholder text for channelItem]</value>
+    <value>Placeholder (DaveNotifications_activityType_channelItem)</value>
   </data>
   <data name="DaveNotifications_activityType_comment" xml:space="preserve">
-    <value>[placeholder text for comment]</value>
+    <value>Placeholder (DaveNotifications_activityType_comment)</value>
   </data>
   <data name="DaveNotifications_activityType_favorite" xml:space="preserve">
     <value>⭐ A video was added to {1}'s Favorites!</value>
@@ -829,19 +829,19 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>👍 {1} left a like on a video!</value>
   </data>
   <data name="DaveNotifications_activityType_playlistItem" xml:space="preserve">
-    <value>[placeholder text for playlistItem]</value>
+    <value>Placeholder (DaveNotifications_activityType_playlistItem)</value>
   </data>
   <data name="DaveNotifications_activityType_promotedItem" xml:space="preserve">
-    <value>[placeholder text for promotedItem]</value>
+    <value>Placeholder (DaveNotifications_activityType_promotedItem)</value>
   </data>
   <data name="DaveNotifications_activityType_recommendation" xml:space="preserve">
-    <value>[placeholder text for recommendation]</value>
+    <value>Placeholder (DaveNotifications_activityType_recommendation)</value>
   </data>
   <data name="DaveNotifications_activityType_social" xml:space="preserve">
-    <value>[placeholder text for social]</value>
+    <value>Placeholder (DaveNotifications_activityType_social)</value>
   </data>
   <data name="DaveNotifications_activityType_subscription" xml:space="preserve">
-    <value>[placeholder text for subscription]</value>
+    <value>Placeholder (DaveNotifications_activityType_subscription)</value>
   </data>
   <data name="DaveNotifications_activityType_unknown" xml:space="preserve">
     <value>❓ Unknown activity type "{0}". Please report this.</value>
@@ -859,21 +859,30 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Unfortunately, this activity is only partially implemented. As such, some details may not be available.</value>
   </data>
   <data name="Utils_calculate_answerHeader" xml:space="preserve">
-    <value>[temp]</value>
+    <value>Placeholder (Utils_calculate_answerHeader)</value>
   </data>
   <data name="Utils_calculate_equationHeader" xml:space="preserve">
-    <value>[temp]</value>
+    <value>Placeholder (Utils_calculate_equationHeader)</value>
   </data>
   <data name="Utils_calculate_infiniteAnswer" xml:space="preserve">
-    <value>[temp]</value>
+    <value>Placeholder (Utils_calculate_infiniteAnswer)</value>
   </data>
   <data name="Utils_calculate_noAnswer" xml:space="preserve">
-    <value>[temp]</value>
+    <value>Placeholder (Utils_calculate_noAnswer)</value>
   </data>
   <data name="Utils_calculate_title" xml:space="preserve">
-    <value>[temp]</value>
+    <value>Placeholder (Utils_calculate_title)</value>
   </data>
   <data name="DaveNotifications_activityTypeTitle" xml:space="preserve">
     <value>***Event:***</value>
+  </data>
+  <data name="Fun_ship_incorrectNumOfArgs" xml:space="preserve">
+    <value>Placeholder (Fun_ship_incorrectNumOfArgs)</value>
+  </data>
+  <data name="Moderation_cannotBanSelf" xml:space="preserve">
+    <value>Placeholder (Moderation_cannotBanSelf)</value>
+  </data>
+  <data name="Moderation_cannotKickSelf" xml:space="preserve">
+    <value>Placeholder (Moderation_cannotKickSelf)</value>
   </data>
 </root>
