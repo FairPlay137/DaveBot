@@ -27,6 +27,7 @@ namespace DaveBot.Modules
         [OwnerOnly]
         public async Task Shutdown()
         {
+            await Context.Message.AddReactionAsync(new Emoji("👋"));
             await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "shutdown")}`").ConfigureAwait(false);
             LogManager.GetCurrentClassLogger().Info(">>SHUTTING DOWN");
             _config.SaveConfig(true);
@@ -41,6 +42,7 @@ namespace DaveBot.Modules
         [OwnerOnly]
         public async Task Restart()
         {
+            await Context.Message.AddReactionAsync(new Emoji("👋"));
             await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "restart")}`");
             LogManager.GetCurrentClassLogger().Info(">>RESTARTING");
             _config.SaveConfig(true);
@@ -76,6 +78,7 @@ namespace DaveBot.Modules
                     throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("err", "invalidActivityType"));
             }
             await Context.Client.SetGameAsync(game, null, acttype).ConfigureAwait(false);
+            await Context.Message.AddReactionAsync(new Emoji("👌"));
             await ReplyAsync($":ok: `{StringResourceHandler.GetTextStatic("Admin", "setGame", game, acttypestring)}`").ConfigureAwait(false);
         }
         [Command("setstatus")]
@@ -100,6 +103,7 @@ namespace DaveBot.Modules
                 default:
                     throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("err", "invalidStatus"));
             }
+            await Context.Message.AddReactionAsync(new Emoji("👌"));
             await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "setStatus")}`");
         }
         [Command("verboseerrors")]
@@ -108,6 +112,7 @@ namespace DaveBot.Modules
         [OwnerOnly]
         public async Task ToggleVerboseErrors()
         {
+            await Context.Message.AddReactionAsync(new Emoji("👌"));
             _config.VerboseErrors = !_config.VerboseErrors;
             _config.SaveConfig(true);
             _config.ReloadConfig(false);
@@ -127,6 +132,7 @@ namespace DaveBot.Modules
             _config.TotalShards = shards;
             _config.SaveConfig(true);
             _config.ReloadConfig(false);
+            await Context.Message.AddReactionAsync(new Emoji("👌"));
             await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "setShardCount", shards)}`").ConfigureAwait(false);
             LogManager.GetCurrentClassLogger().Info($"Total shard count set to {shards}. Now restarting bot...");
             LogManager.GetCurrentClassLogger().Info(">>RESTARTING");

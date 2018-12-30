@@ -26,6 +26,7 @@ namespace DaveBot.Modules
         [Summary("Checks the bot's ping time.")]
         public async Task Ping()
         {
+            await Context.Message.AddReactionAsync(new Emoji("🏓"));
             var pleasewait = Context.Channel.EnterTypingState();
             string pingwaitmsg = StringResourceHandler.GetTextStatic("Utils", "ping_wait");
             var msg = await Context.Channel.SendMessageAsync("🏓 " + pingwaitmsg).ConfigureAwait(false);
@@ -55,12 +56,14 @@ namespace DaveBot.Modules
         [Summary("Gets the invite link for this bot.")]
         public async Task Invite()
         {
+            await Context.Message.AddReactionAsync(new Emoji("👌"));
             await ReplyAsync($"{Context.User.Mention} - {StringResourceHandler.GetTextStatic("Utils", "invite")} https://discordapp.com/oauth2/authorize?client_id={Context.Client.CurrentUser.Id}&permissions=8&scope=bot");
         }
         [Command("stats")]
         [Summary("Gets this bot's stats.")]
         public async Task Stats()
         {
+            await Context.Message.AddReactionAsync(new Emoji("👌"));
             TimeSpan uptime = new TimeSpan(DateTime.Now.Ticks - _bot.StartTime.Ticks);
             await ReplyAsync(Context.User.Mention, false, new EmbedBuilder()
                 .WithTitle(StringResourceHandler.GetTextStatic("Utils", "stats_title", _config.BotName))

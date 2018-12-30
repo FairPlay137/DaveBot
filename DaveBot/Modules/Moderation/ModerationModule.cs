@@ -20,7 +20,8 @@ namespace DaveBot.Modules
         {
             if(target.Id == Context.Message.Author.Id)
             {
-                await ReplyAsync($":no_entry_sign: `{StringResourceHandler.GetTextStatic("Moderation", "cannotKickSelf")}").ConfigureAwait(false);
+                await Context.Message.AddReactionAsync(new Emoji("⛔"));
+                await ReplyAsync($":no_entry_sign: `{StringResourceHandler.GetTextStatic("Moderation", "cannotKickSelf")}`").ConfigureAwait(false);
                 return;
             }
             try
@@ -38,6 +39,7 @@ namespace DaveBot.Modules
             {
                 await ReplyAsync(":no_entry_sign: "+StringResourceHandler.GetTextStatic("Moderation", "DMFailed", e.Message));
             }
+            await Context.Message.AddReactionAsync(new Emoji("👢"));
             await target.KickAsync(reason).ConfigureAwait(false);
             await ReplyAsync($":boot: `{StringResourceHandler.GetTextStatic("Moderation", "kick", $"@{target.Username}#{target.Discriminator}")}`").ConfigureAwait(false);
         }
@@ -51,7 +53,8 @@ namespace DaveBot.Modules
         {
             if (target.Id == Context.Message.Author.Id)
             {
-                await ReplyAsync($":no_entry_sign: `{StringResourceHandler.GetTextStatic("Moderation", "cannotBanSelf")}").ConfigureAwait(false);
+                await Context.Message.AddReactionAsync(new Emoji("⛔"));
+                await ReplyAsync($":no_entry_sign: `{StringResourceHandler.GetTextStatic("Moderation", "cannotBanSelf")}`").ConfigureAwait(false);
                 return;
             }
             try
@@ -69,6 +72,7 @@ namespace DaveBot.Modules
             {
                 await ReplyAsync(":no_entry_sign: " + StringResourceHandler.GetTextStatic("Moderation", "DMFailed", e.Message));
             }
+            await Context.Message.AddReactionAsync(new Emoji("🔨"));
             await Context.Guild.AddBanAsync(target,0,reason).ConfigureAwait(false);
             await ReplyAsync($":hammer: `{StringResourceHandler.GetTextStatic("Moderation", "ban", $"@{target.Username}#{target.Discriminator}")}`").ConfigureAwait(false);
         }
