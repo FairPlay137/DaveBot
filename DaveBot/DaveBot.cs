@@ -136,6 +136,8 @@ namespace DaveBot
 
             var _ = await CommandService.AddModulesAsync(GetType().GetTypeInfo().Assembly, Services);
 
+            await Client.SetGameAsync(Configuration.DefaultPlayingString);
+
             Ready.TrySetResult(true);
             
             ConnectedAtTime = DateTime.Now;

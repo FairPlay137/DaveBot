@@ -51,7 +51,7 @@ namespace DaveBot.Modules
                 .Build());
         }
         [Command("ship")]
-        [Summary("Command description TBD")]
+        [Summary("Checks the compatibility level of two people.")]
         public async Task Ship([Remainder] [Summary("Two targets, separated by `;`")] string targets)
         {
             string[] args = targets.Split(';');
