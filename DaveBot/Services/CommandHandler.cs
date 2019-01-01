@@ -3,14 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Discord;
 using NLog;
 using Discord.Commands;
-using System.Collections.Concurrent;
-using System.Threading;
 using System.Collections.Immutable;
-using System.IO;
-using Discord.Net;
 using DaveBot.Common;
 using DaveBot.Common.ModuleBehaviors;
 

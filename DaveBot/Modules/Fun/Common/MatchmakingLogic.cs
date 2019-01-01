@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DaveBot.Modules.Fun.Common
 {
-    //This code was ripped from DaveBot Legacy
+    //This code was mostly ripped from DaveBot Legacy
     public class MatchmakingLogic
     {
+        const int SUPER_MAGICAL_VALUE_WHICH_ACTUALLY_IMPACTS_RESULTS = 11;
+
         static int RandomNumberFromSeed(int seed, int range)
         {
             Random LocalRNG = new Random(seed);
@@ -44,7 +42,7 @@ namespace DaveBot.Modules.Fun.Common
                 sumofasciivalues2 += (byte)c;
             int finalsum = sumofasciivalues1 + sumofasciivalues2; //add checksums together
 
-            int percentage = RandomNumberFromSeed(finalsum * 11, 101);
+            int percentage = RandomNumberFromSeed(finalsum * SUPER_MAGICAL_VALUE_WHICH_ACTUALLY_IMPACTS_RESULTS, 101);
 
             return percentage;
         }
