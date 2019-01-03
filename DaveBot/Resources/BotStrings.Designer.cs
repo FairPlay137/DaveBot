@@ -236,20 +236,20 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alright, the total shard count has been set to {0} shard(s). The bot will now restart..
+        /// </summary>
+        public static string Admin_setShardCount {
+            get {
+                return ResourceManager.GetString("Admin_setShardCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully updated status..
         /// </summary>
         public static string Admin_setStatus {
             get {
                 return ResourceManager.GetString("Admin_setStatus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Alright, the total shard count has been set to {0} shard(s). The bot will now restart..
-        /// </summary>
-        public static string Admin_setTotalShardCount {
-            get {
-                return ResourceManager.GetString("Admin_setTotalShardCount", resourceCulture);
             }
         }
         

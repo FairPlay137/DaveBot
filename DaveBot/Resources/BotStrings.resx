@@ -767,7 +767,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="DaveMusic_songFinished" xml:space="preserve">
     <value>Track finished.</value>
   </data>
-  <data name="Admin_setTotalShardCount" xml:space="preserve">
+  <data name="Admin_setShardCount" xml:space="preserve">
     <value>Alright, the total shard count has been set to {0} shard(s). The bot will now restart.</value>
   </data>
   <data name="err_invalidShardCount" xml:space="preserve">
