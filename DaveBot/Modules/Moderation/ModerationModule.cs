@@ -76,5 +76,26 @@ namespace DaveBot.Modules
             await Context.Guild.AddBanAsync(target,0,reason).ConfigureAwait(false);
             await ReplyAsync($":hammer: `{StringResourceHandler.GetTextStatic("Moderation", "ban", $"@{target.Username}#{target.Discriminator}")}`").ConfigureAwait(false);
         }
+
+        [Command("prune")]
+        [Summary("Prunes messages from the current channel.")]
+        [RequireBotPermission(GuildPermission.ManageMessages)]
+        [RequireUserPermission(GuildPermission.ManageMessages)]
+        public async Task Prune(int limits)
+        {
+            if (limits < 0)
+            {
+                await Context.Message.AddReactionAsync(new Emoji("⛔"));
+                await ReplyAsync($":no_entry_sign: `{StringResourceHandler.GetTextStatic("Moderation", "negativePruneImpossible")}`").ConfigureAwait(false);
+                return;
+            }
+            var messages = await Context.Channel.GetMessagesAsync(limits + 1).FlattenAsync();
+            var channel = (ITextChannel)Context.Channel;
+            await channel.DeleteMessagesAsync(messages);
+
+            var SelfDestructingResultMessage = await ReplyAsync($":white_check_mark: `{StringResourceHandler.GetTextStatic("Moderation", "prune", limits)}`").ConfigureAwait(false);
+            await Task.Delay(5000); //TODO: There has to be a better way to do this.
+            await SelfDestructingResultMessage.DeleteAsync();
+        }
     }
 }
