@@ -254,7 +254,7 @@ namespace DaveBot
             _log.Info($"Shard #{client.ShardId} is ready!");
             int recShard = await Client.GetRecommendedShardCountAsync();
             if (Configuration.TotalShards != recShard)
-                _log.Warn($"According to the Discord API, it is recommended that you use {recShard} shard(s) instead of {Configuration.TotalShards}. "
+                _log.Warn($"It is recommended that you use {recShard} shard(s) instead of {Configuration.TotalShards}. "
                     + $"Please use \"{Configuration.DefaultPrefix}setshards {recShard}\" to change config.json accordingly.");
         }
 
