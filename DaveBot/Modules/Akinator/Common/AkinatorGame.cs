@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !PUBLIC_BUILD
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,3 +55,4 @@ namespace DaveBot.Modules.Akinator.Common
 
     }
 }
+#endif

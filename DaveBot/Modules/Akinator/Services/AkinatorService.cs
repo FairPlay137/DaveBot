@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !PUBLIC_BUILD
+using System;
 using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
@@ -22,3 +23,4 @@ namespace DaveBot.Modules.Akinator.Services
          
     }
 }
+#endif

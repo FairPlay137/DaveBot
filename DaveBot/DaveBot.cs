@@ -40,6 +40,12 @@ namespace DaveBot
             _log = LogManager.GetCurrentClassLogger();
             SimpleElevatedPermissionCheck();
 
+            _log.Info($"DaveBot v{GetType().Assembly.GetName().Version} is initializing; please wait...");
+
+#if PUBLIC_BUILD
+            _log.Info(" == PUBLIC BUILD ==");
+#endif
+
             Configuration = new BotConfiguration();
             Client = new DiscordShardedClient(new DiscordSocketConfig()
             {
@@ -116,8 +122,13 @@ namespace DaveBot
 
         public async Task StartAsync(params string[] args)
         {
-
-            _log.Info($"DaveBot v{GetType().Assembly.GetName().Version} is starting up...");
+#if !PUBLIC_BUILD
+            _log.Info("Initialization complete. Starting up...");
+#else
+            _log.Info("Initialization complete. Waiting for 1 minute before executing startup routines...");
+            await Task.Delay(60000);
+            _log.Info("A minute has elapsed. Starting up...");
+#endif
 
             var sw = Stopwatch.StartNew();
 
@@ -243,7 +254,8 @@ namespace DaveBot
             _log.Info($"Shard #{client.ShardId} is ready!");
             int recShard = await Client.GetRecommendedShardCountAsync();
             if (Configuration.TotalShards != recShard)
-                _log.Warn($"It is recommended that you use {recShard} shard(s). Please consider changing the config.json to reflect this.");
+                _log.Warn($"According to the Discord API, it is recommended that you use {recShard} shard(s) instead of {Configuration.TotalShards}. "
+                    + $"Please use \"{Configuration.DefaultPrefix}setshards {recShard}\" to change config.json accordingly.");
         }
 
         protected virtual void Dispose(bool disposing)

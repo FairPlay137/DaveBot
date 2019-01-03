@@ -45,7 +45,7 @@ namespace DaveBot.Modules.CustomReactions
             else
                 desc += StringResourceHandler.GetTextStatic("CustomReactions", "lcr_TotalCountMultiple", _config.CustomReactions.Count);
             EmbedBuilder eb = new EmbedBuilder()
-                .WithTitle(StringResourceHandler.GetTextStatic("CustomReactions", "ListCustomReactions"))
+                .WithTitle("🧾 " + StringResourceHandler.GetTextStatic("CustomReactions", "ListCustomReactions"))
                 .WithDescription(desc)
                 .WithColor(Color.Green);
             pleasewait.Dispose();
@@ -95,9 +95,9 @@ namespace DaveBot.Modules.CustomReactions
             {
                 eb.WithColor(Color.Green);
                 if(matches>1)
-                    eb.WithTitle(StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_multipleResults"));
+                    eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_multipleResults"));
                 else
-                    eb.WithTitle(StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction"));
+                    eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction"));
             }
             pleasewait.Dispose();
             await ReplyAsync(Context.Message.Author.Mention, false, eb.Build());
@@ -129,7 +129,7 @@ namespace DaveBot.Modules.CustomReactions
             _config.SaveConfig(true);
             _config.ReloadConfig(false);
             var replyEmbed = new EmbedBuilder()
-                .WithTitle(StringResourceHandler.GetTextStatic("CustomReactions", "AddCustomReaction"))
+                .WithTitle("✨ " + StringResourceHandler.GetTextStatic("CustomReactions", "AddCustomReaction"))
                 .AddField(StringResourceHandler.GetTextStatic("CustomReactions", "trigger"), trigger)
                 .AddField(StringResourceHandler.GetTextStatic("CustomReactions", "response", respnum), response)
                 .Build();

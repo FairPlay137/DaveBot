@@ -79,12 +79,16 @@ namespace DaveBot.Services.Impl
                 if ((BotToken == null) || (BotToken == ""))
                 {
                     _log.Error("No token found in configuration!");
+#if !PUBLIC_BUILD
                     Console.WriteLine("A token is required in order to use DaveBot.");
                     Console.WriteLine("To get a bot token, go to https://discordapp.com/developers/applications/me, then follow these steps:");
                     Console.WriteLine(" 1. Create a new app.");
                     Console.WriteLine(" 2. Create a bot user associated with your app.");
                     Console.WriteLine(" 3. Below where it says \"App Bot User\", you should see an option to show your bot user's token. Click it.");
                     Console.WriteLine(" 4. Copy the Bot Token (NOT THE CLIENT SECRET) to this prompt.");
+#else
+                    Console.WriteLine("If you think this shouldn't be happening; double-check to see if your config.json actually has a bot token in it. If not, it may have been reset to defaults, in which case you'll need to restore from a backup.");
+#endif
                     Console.WriteLine("Enter your bot token below...");
                     BotToken = Console.ReadLine();
                     Console.WriteLine("Okay, this'll be saved into config.json.");
@@ -104,7 +108,7 @@ namespace DaveBot.Services.Impl
                 RotatePlayingStatuses = cfgjson.RotatePlaying;
                 PlayingStatuses = cfgjson.PlayingStatuses;
                 TotalShards = cfgjson.TotalShards;
-                _log.Info("Loaded.");
+                _log.Info("Loaded configuration.");
                 SaveConfig(false);
             }
             catch (Exception e)
@@ -112,12 +116,16 @@ namespace DaveBot.Services.Impl
                 _log.Error(e, "Exception during JSON loading. Using default values...");
                 if ((BotToken == null) || (BotToken == ""))
                 {
+#if !PUBLIC_BUILD
                     Console.WriteLine("A token is required in order to use DaveBot.");
                     Console.WriteLine("To get a bot token, go to https://discordapp.com/developers/applications/me, then follow these steps:");
                     Console.WriteLine(" 1. Create a new app.");
                     Console.WriteLine(" 2. Create a bot user associated with your app.");
                     Console.WriteLine(" 3. Below where it says \"App Bot User\", you should see an option to show your bot user's token. Click it.");
                     Console.WriteLine(" 4. Copy the Bot Token (NOT THE CLIENT SECRET) to this prompt.");
+#else
+                    Console.WriteLine("If you think this shouldn't be happening; double-check to see if config.json was formatted correctly. If you made a simple typo, CLOSE DAVEBOT RIGHT NOW and correct it. Otherwise...");
+#endif
                     Console.WriteLine("Enter your bot token below...");
                     Console.Write("> ");
                     BotToken = Console.ReadLine();

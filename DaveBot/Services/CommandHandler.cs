@@ -108,7 +108,7 @@ namespace DaveBot.Services
             }
             catch(Exception ex)
             {
-                _log.Warn("Exception occurred in CommandHandler!");
+                _log.Warn("Whoops! An exception occurred in CommandHandler! This might be a bug.");
                 _log.Warn(ex);
                 if (ex.InnerException != null)
                 {

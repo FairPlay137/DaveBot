@@ -21,7 +21,7 @@ namespace DaveBot.Modules.CustomReactions.Services
 
         public async Task<bool> TryExecuteEarly(DiscordSocketClient client, IGuild guild, IUserMessage msg)
         {
-            IGuildChannel channel = (IGuildChannel)msg.Channel;
+            ITextChannel channel = (ITextChannel)msg.Channel;
             foreach (var cr in _config.CustomReactions)
             {
                 string[] key = cr.Key.ToLower().Trim().Split(' ');
