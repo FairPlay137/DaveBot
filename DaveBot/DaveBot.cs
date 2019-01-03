@@ -240,18 +240,18 @@ namespace DaveBot
         }
         private Task ShardConnect(DiscordSocketClient client)
         {
-            _log.Info($"Shard #{client.ShardId} has connected!");
+            //_log.Info($"Shard #{client.ShardId} has connected!");
             return Task.CompletedTask;
         }
         private Task ShardDisconnect(Exception error, DiscordSocketClient client)
         {
-            _log.Info($"Shard #{client.ShardId} has lost connection!");
+            //_log.Info($"Shard #{client.ShardId} has lost connection!");
             return Task.CompletedTask;
         }
 
         private async Task ShardReady(DiscordSocketClient client)
         {
-            _log.Info($"Shard #{client.ShardId} is ready!");
+            //_log.Info($"Shard #{client.ShardId} is ready!");
             int recShard = await Client.GetRecommendedShardCountAsync();
             if (Configuration.TotalShards != recShard)
                 _log.Warn($"It is recommended that you use {recShard} shard(s) instead of {Configuration.TotalShards}. "
