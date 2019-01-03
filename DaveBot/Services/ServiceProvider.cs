@@ -56,6 +56,8 @@ namespace DaveBot.Services
                 var sw = Stopwatch.StartNew();
                 var swInstance = new Stopwatch();
 
+                int totalServices = services.Count;
+
                 while (services.Count > 0)
                 {
                     var type = services.Dequeue(); //get a type i need to make an instance of
@@ -105,7 +107,7 @@ namespace DaveBot.Services
                     _dict.TryAdd(type, instance);
                 }
                 sw.Stop();
-                _log.Info($"Loaded {services.Count} service(s) in {sw.Elapsed.TotalSeconds:F2} seconds");
+                _log.Info($"Loaded {totalServices} service(s) in {sw.Elapsed.TotalSeconds:F2} seconds");
 
                 return this;
             }
@@ -122,7 +124,7 @@ namespace DaveBot.Services
 
         public T GetService<T>()
         {
-            return (T)((IServiceProvider)(this)).GetService(typeof(T));
+            return (T)((IServiceProvider)this).GetService(typeof(T));
         }
 
         object IServiceProvider.GetService(Type serviceType)

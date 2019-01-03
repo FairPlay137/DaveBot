@@ -92,7 +92,7 @@ namespace DaveBot.Modules
             var messages = await Context.Channel.GetMessagesAsync(limits + 1).FlattenAsync();
             var channel = (ITextChannel)Context.Channel;
             await channel.DeleteMessagesAsync(messages);
-
+            
             var SelfDestructingResultMessage = await ReplyAsync($":white_check_mark: `{StringResourceHandler.GetTextStatic("Moderation", "prune", limits)}`").ConfigureAwait(false);
             await Task.Delay(5000); //TODO: There has to be a better way to do this.
             await SelfDestructingResultMessage.DeleteAsync();

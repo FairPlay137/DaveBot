@@ -84,7 +84,7 @@ namespace DaveBot
                     clientReady.TrySetResult(true);
                     try
                     {
-                        foreach (var chan in (await shardClient.GetDMChannelsAsync()))
+                        foreach (var chan in await shardClient.GetDMChannelsAsync())
                         {
                             await chan.CloseAsync().ConfigureAwait(false);
                         }

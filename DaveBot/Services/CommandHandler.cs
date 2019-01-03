@@ -126,7 +126,7 @@ namespace DaveBot.Services
                 if(svc is IPreXBlocker blocker &&
                     await blocker.TryBlockEarly(guild, usrMsg).ConfigureAwait(false))
                 {
-                    _log.Info(">>BLOCKED USER");
+                    _log.Info(">>MESSAGE BLOCKED");
                     _log.Info("User: "+usrMsg.Author);
                     _log.Info("Message: "+usrMsg.Content);
                     _log.Info("Service: "+svc.GetType().Name);
