@@ -877,12 +877,18 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>***Event:***</value>
   </data>
   <data name="Fun_ship_incorrectNumOfArgs" xml:space="preserve">
-    <value>Placeholder (Fun_ship_incorrectNumOfArgs)</value>
+    <value>You specified {0} parameter(s), but this command only takes 2 parameters!</value>
   </data>
   <data name="Moderation_cannotBanSelf" xml:space="preserve">
-    <value>Placeholder (Moderation_cannotBanSelf)</value>
+    <value>You can't ban yourself!</value>
   </data>
   <data name="Moderation_cannotKickSelf" xml:space="preserve">
-    <value>Placeholder (Moderation_cannotKickSelf)</value>
+    <value>You can't kick yourself!</value>
+  </data>
+  <data name="Moderation_negativePruneImpossible" xml:space="preserve">
+    <value>You can't prune a negative number of messages!</value>
+  </data>
+  <data name="Moderation_prune" xml:space="preserve">
+    <value>{0} message(s) were successfully pruned from this channel.</value>
   </data>
 </root>

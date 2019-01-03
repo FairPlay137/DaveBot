@@ -1238,7 +1238,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Fun_ship_incorrectNumOfArgs).
+        ///   Looks up a localized string similar to You specified {0} parameter(s), but this command only takes 2 parameters!.
         /// </summary>
         public static string Fun_ship_incorrectNumOfArgs {
             get {
@@ -1646,7 +1646,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Moderation_cannotBanSelf).
+        ///   Looks up a localized string similar to You can&apos;t ban yourself!.
         /// </summary>
         public static string Moderation_cannotBanSelf {
             get {
@@ -1655,7 +1655,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Moderation_cannotKickSelf).
+        ///   Looks up a localized string similar to You can&apos;t kick yourself!.
         /// </summary>
         public static string Moderation_cannotKickSelf {
             get {
@@ -1786,6 +1786,24 @@ namespace DaveBot.Resources {
         public static string Moderation_lockdown_lift {
             get {
                 return ResourceManager.GetString("Moderation_lockdown_lift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can&apos;t prune a negative number of messages!.
+        /// </summary>
+        public static string Moderation_negativePruneImpossible {
+            get {
+                return ResourceManager.GetString("Moderation_negativePruneImpossible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} message(s) were successfully pruned from this channel..
+        /// </summary>
+        public static string Moderation_prune {
+            get {
+                return ResourceManager.GetString("Moderation_prune", resourceCulture);
             }
         }
         
