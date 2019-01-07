@@ -25,12 +25,13 @@ namespace DaveBot.Modules
         [Summary("Shuts down the bot. **BOT OWNER ONLY**")]
         [Alias("die")]
         [OwnerOnly]
-        public async Task Shutdown()
+        public async Task Shutdown(bool SaveChanges = true)
         {
             await Context.Message.AddReactionAsync(new Emoji("👋"));
             await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "shutdown")}`").ConfigureAwait(false);
             LogManager.GetCurrentClassLogger().Info(">>SHUTTING DOWN");
-            _config.SaveConfig(true);
+            if(SaveChanges)
+                _config.SaveConfig(true);
             LogManager.GetCurrentClassLogger().Info("Logging out...");
             await Context.Client.LogoutAsync().ConfigureAwait(false);
             LogManager.GetCurrentClassLogger().Info("The bot is now DOWN!");
@@ -40,12 +41,13 @@ namespace DaveBot.Modules
         [Command("restart")]
         [Summary("Restarts the bot. **BOT OWNER ONLY**")]
         [OwnerOnly]
-        public async Task Restart()
+        public async Task Restart(bool SaveChanges = true)
         {
             await Context.Message.AddReactionAsync(new Emoji("👋"));
             await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "restart")}`");
             LogManager.GetCurrentClassLogger().Info(">>RESTARTING");
-            _config.SaveConfig(true);
+            if(SaveChanges)
+                _config.SaveConfig(true);
             LogManager.GetCurrentClassLogger().Info("Logging out...");
             await Context.Client.LogoutAsync().ConfigureAwait(false);
             LogManager.GetCurrentClassLogger().Info("Relaunching in 2 seconds...");
@@ -143,6 +145,17 @@ namespace DaveBot.Modules
             await Task.Delay(2000).ConfigureAwait(false);
             Process.Start(Assembly.GetExecutingAssembly().Location);
             Environment.Exit(0);
+        }
+
+        [Command("reloadconfig")]
+        [Summary("Reloads the configuration from config.json. **BOT OWNER ONLY**")]
+        [Alias("rcf")]
+        [OwnerOnly]
+        public async Task ReloadConfig()
+        {
+            await Context.Message.AddReactionAsync(new Emoji("👌"));
+            _config.ReloadConfig(true);
+            await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", "reloadconfig")}`");
         }
     }
 }

@@ -21,6 +21,7 @@ namespace DaveBot.Modules.Fun.Services
 
         public async Task<bool> TryExecuteEarly(DiscordSocketClient client, IGuild guild, IUserMessage msg)
         {
+            //TODO: Actually add stuff here.
             return false;
         }
     }

@@ -6,6 +6,7 @@ using DaveBot.Modules.CustomReactions.Services;
 using DaveBot.Services;
 using System.Collections.Generic;
 using DaveBot.Common.Attributes;
+using System;
 
 namespace DaveBot.Modules.CustomReactions
 {
@@ -45,7 +46,7 @@ namespace DaveBot.Modules.CustomReactions
             else
                 desc += StringResourceHandler.GetTextStatic("CustomReactions", "lcr_TotalCountMultiple", _config.CustomReactions.Count);
             EmbedBuilder eb = new EmbedBuilder()
-                .WithTitle("🧾 " + StringResourceHandler.GetTextStatic("CustomReactions", "ListCustomReactions"))
+                .WithTitle("📃 " + StringResourceHandler.GetTextStatic("CustomReactions", "ListCustomReactions"))
                 .WithDescription(desc)
                 .WithColor(Color.Green);
             pleasewait.Dispose();
@@ -65,11 +66,11 @@ namespace DaveBot.Modules.CustomReactions
                 if(cr.Key.Trim().ToLower().Equals(inputkey))
                 {
                     string desc = "";
-                    string title = cr.Key;
+                    string title = $"**{StringResourceHandler.GetTextStatic("CustomReactions", "trigger")}** {cr.Key}";
                     int respnum = 1;
                     foreach(var response in cr.Value.ToArray())
                     {
-                        if (desc.Length < 1200)
+                        if (desc.Length < 850)
                             desc += $"***{StringResourceHandler.GetTextStatic("CustomReactions", "response", respnum)}*** {response}\n";
                         else
                         {
@@ -85,19 +86,27 @@ namespace DaveBot.Modules.CustomReactions
                     matches++;
                 }
             }
-            if(matches==0)
+            try
             {
-                eb.WithTitle(StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_noResults"))
-                    .WithDescription(StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_noResults_desc",ikey))
-                    .WithColor(Color.Red);
-            }
-            else
-            {
-                eb.WithColor(Color.Green);
-                if(matches>1)
-                    eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_multipleResults"));
+                if (matches == 0)
+                {
+                    eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_noResults"))
+                        .WithDescription(StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_noResults_desc", ikey))
+                        .WithColor(Color.Red);
+                }
                 else
-                    eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction"));
+                {
+                    eb.WithColor(Color.Green);
+                    if (matches > 1)
+                        eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_multipleResults"));
+                    else
+                        eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction"));
+                }
+            }
+            catch(Exception)
+            {
+                pleasewait.Dispose();
+                throw;
             }
             pleasewait.Dispose();
             await ReplyAsync(Context.Message.Author.Mention, false, eb.Build());
