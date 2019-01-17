@@ -7,7 +7,7 @@ using DaveBot.Modules.Akinator.Services;
 namespace DaveBot.Modules
 {
     [Name("Akinator")]
-    public class AkinatorModule : DaveBotModuleBase<AkinatorService>
+    public class AkinatorModule : DaveBotTopModuleBase<AkinatorService>
     {
         [Command("akinator")]
         [Summary("Starts an Akinator game (COMING SOON)")]

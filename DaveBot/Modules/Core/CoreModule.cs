@@ -12,7 +12,7 @@ using DaveBot.Services;
 namespace DaveBot.Modules
 {
     [Name("Core")]
-    public class CoreModule : DaveBotModuleBase<CommandContext>
+    public class CoreModule : DaveBotTopModuleBase
     {
         private readonly IBotConfiguration _config;
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace DaveBot.Modules
 {
     [Name("Davemadson")]
-    public class DavemadsonModule : DaveBotModuleBase<SocketCommandContext>
+    public class DavemadsonModule : DaveBotTopModuleBase
     {
         [Command("davemadson")]
         [Summary("Posts a link to davemadson's YouTube channel")]

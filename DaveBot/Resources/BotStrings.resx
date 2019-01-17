@@ -416,7 +416,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>API Ping time was `{0}ms`!</value>
   </data>
   <data name="Utils_ping_subtitle1" xml:space="preserve">
-    <value>Oh, uh, my paddle seems to be turning red...</value>
+    <value>Oh, uh, my paddle seems to be turning red... Is that normal?</value>
   </data>
   <data name="Utils_ping_subtitle2" xml:space="preserve">
     <value>Right back at ya!</value>
@@ -455,7 +455,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>The lockdown on this channel has been lifted.</value>
   </data>
   <data name="Utils_ping_subtitle4" xml:space="preserve">
-    <value>Play again?</value>
+    <value>Wanna play again?</value>
   </data>
   <data name="Utils_ping_subtitle5" xml:space="preserve">
     <value>I love doing this!</value>
@@ -482,17 +482,16 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>A text portal has been created!</value>
   </data>
   <data name="Fun_textportal_connectionEstablished" xml:space="preserve">
-    <value>The text portal has opened! Say hello to the other end! :wave:</value>
+    <value>The text portal has opened! Say hello to the other end! 👋</value>
   </data>
   <data name="Fun_textportal_connectionLost_deletedChannel" xml:space="preserve">
     <value>The text portal has been closed since the other end has deleted the channel it was leading to.</value>
-    <comment>I doubt anyone's gonna see this message, if it ever gets implemented</comment>
   </data>
   <data name="Fun_textportal_connectionLost_generic" xml:space="preserve">
     <value>The text portal has closed.</value>
   </data>
   <data name="Fun_textportal_connectionLost_noResponse" xml:space="preserve">
-    <value>The text portal failed to open since no other text portals were found.</value>
+    <value>The text portal failed to open since no other end was found.</value>
   </data>
   <data name="Fun_textportal_connectionLost_otherSideClose" xml:space="preserve">
     <value>The other end has closed the text portal...</value>
@@ -510,7 +509,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Cannot create a text portal due to the {0} portal limit on this bot being hit! Please try again later!</value>
   </data>
   <data name="Fun_textportal_waiting" xml:space="preserve">
-    <value>Waiting for another text portal...</value>
+    <value>A new text portal was created. Waiting for the other end...</value>
   </data>
   <data name="Fun_textportal_wordBlacklisted_otherSide" xml:space="preserve">
     <value>{0}, your message hasn't been sent to the other end due to one or more of the words in your message being blacklisted on the other end.</value>
@@ -865,10 +864,10 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Placeholder (Utils_calculate_equationHeader)</value>
   </data>
   <data name="Utils_calculate_infiniteAnswer" xml:space="preserve">
-    <value>Placeholder (Utils_calculate_infiniteAnswer)</value>
+    <value>Infinity</value>
   </data>
   <data name="Utils_calculate_noAnswer" xml:space="preserve">
-    <value>Placeholder (Utils_calculate_noAnswer)</value>
+    <value>No answer</value>
   </data>
   <data name="Utils_calculate_title" xml:space="preserve">
     <value>Placeholder (Utils_calculate_title)</value>
@@ -890,5 +889,20 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   </data>
   <data name="Moderation_prune" xml:space="preserve">
     <value>{0} message(s) were successfully pruned from this channel.</value>
+  </data>
+  <data name="Utils_showWarns_none" xml:space="preserve">
+    <value> == There are no warnings at this time. ==</value>
+  </data>
+  <data name="Utils_showWarns_permissions" xml:space="preserve">
+    <value>* Some commands won't be usable due to me not having the permissions needed.</value>
+  </data>
+  <data name="Utils_showWarns_placeholder" xml:space="preserve">
+    <value>* This warning does not have a description.</value>
+  </data>
+  <data name="Utils_showWarns_shardCount" xml:space="preserve">
+    <value>* The bot is currently set to use {0} shard(s), while the Discord API recommends that you use {1} shard(s) for this bot. Tell the owner to reconfigure it accordingly.</value>
+  </data>
+  <data name="generic_loadingPlayingStatus" xml:space="preserve">
+    <value>Please wait...loading...</value>
   </data>
 </root>

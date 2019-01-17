@@ -384,6 +384,7 @@
     <Compile Include="Common\Attributes\OwnerOnlyAttribute.cs" />
     <Compile Include="Common\CommandUnsuccessfulException.cs" />
     <Compile Include="Common\ConfigJsonStructure.cs" />
+    <Compile Include="Common\CurrencyJsonStructure.cs" />
     <Compile Include="Common\DaveRNG.cs" />
     <Compile Include="Common\ModuleBehaviors\IInputOverrider.cs" />
     <Compile Include="Common\ModuleBehaviors\IPostXBlocker.cs" />
@@ -395,7 +396,7 @@
     <Compile Include="Common\ServerJsonStructure.cs" />
     <Compile Include="Modules\Akinator\Common\AkinatorGame.cs" />
     <Compile Include="Modules\Akinator\Services\AkinatorService.cs" />
-    <Compile Include="Modules\DaveBotModuleBase.cs" />
+    <Compile Include="Modules\DaveBotModule.cs" />
     <Compile Include="Modules\Core\CoreModule.cs" />
     <Compile Include="Modules\Akinator\AkinatorModule.cs" />
     <Compile Include="Modules\CustomReactions\CustomReactionsModule.cs" />
@@ -403,6 +404,8 @@
     <Compile Include="Modules\Fun\Common\MatchmakingLogic.cs" />
     <Compile Include="Modules\Fun\FunModule.cs" />
     <Compile Include="Modules\Fun\Services\CleverbotService.cs" />
+    <Compile Include="Modules\Fun\Services\TextPortalService.cs" />
+    <Compile Include="Modules\Fun\TextPortalCmds.cs" />
     <Compile Include="Modules\Moderation\ModerationModule.cs" />
     <Compile Include="Modules\Davemadson\DavemadsonModule.cs" />
     <Compile Include="Modules\Help\HelpModule.cs" />

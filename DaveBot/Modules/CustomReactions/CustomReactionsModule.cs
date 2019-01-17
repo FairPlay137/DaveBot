@@ -11,7 +11,7 @@ using System;
 namespace DaveBot.Modules.CustomReactions
 {
     [Name("Custom Reactions")]
-    public class CustomReactionsModule : DaveBotModuleBase<CustomReactionService>
+    public class CustomReactionsModule : DaveBotTopModuleBase<CustomReactionService>
     {
 
         private readonly IBotConfiguration _config;
@@ -30,7 +30,7 @@ namespace DaveBot.Modules.CustomReactions
             int crcount = 1;
             foreach (var cr in _config.CustomReactions)
             {
-                if (desc.Length < 1800)
+                if (desc.Length < 800)
                     desc += "• " + cr.Key + '\n';
                 else
                 {
@@ -49,6 +49,7 @@ namespace DaveBot.Modules.CustomReactions
                 .WithTitle("📃 " + StringResourceHandler.GetTextStatic("CustomReactions", "ListCustomReactions"))
                 .WithDescription(desc)
                 .WithColor(Color.Green);
+            await Context.Message.AddReactionAsync(new Emoji("📃"));
             pleasewait.Dispose();
             await ReplyAsync(Context.Message.Author.Mention, false, eb.Build());
         }
@@ -90,9 +91,10 @@ namespace DaveBot.Modules.CustomReactions
             {
                 if (matches == 0)
                 {
-                    eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_noResults"))
+                    eb.WithTitle("🚫 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_noResults"))
                         .WithDescription(StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_noResults_desc", ikey))
                         .WithColor(Color.Red);
+                    await Context.Message.AddReactionAsync(new Emoji("🚫"));
                 }
                 else
                 {
@@ -101,6 +103,7 @@ namespace DaveBot.Modules.CustomReactions
                         eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_multipleResults"));
                     else
                         eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction"));
+                    await Context.Message.AddReactionAsync(new Emoji("📂"));
                 }
             }
             catch(Exception)
@@ -142,6 +145,7 @@ namespace DaveBot.Modules.CustomReactions
                 .AddField(StringResourceHandler.GetTextStatic("CustomReactions", "trigger"), trigger)
                 .AddField(StringResourceHandler.GetTextStatic("CustomReactions", "response", respnum), response)
                 .Build();
+            await Context.Message.AddReactionAsync(new Emoji("✨"));
             pleasewait.Dispose();
             await ReplyAsync(Context.User.Mention, false, replyEmbed);
         }

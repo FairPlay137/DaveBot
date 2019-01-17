@@ -1,14 +1,15 @@
 ﻿using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
-using DaveBot.Common;
 using DaveBot.Services;
 using DaveBot.Modules.Fun.Common;
+using DaveBot.Modules.Fun.Services;
+using DaveBot.Common;
 
 namespace DaveBot.Modules
 {
     [Name("Fun")]
-    public class FunModule : DaveBotModuleBase<SocketCommandContext>
+    public partial class FunModule : DaveBotTopModuleBase
     {
         string[] DefaultEightBallResponses = { "It is certain.", "Without a doubt.", "You may rely on it.", "Most likely.", "Outlook good.",
                                         "Yes.", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.",
@@ -97,5 +98,7 @@ namespace DaveBot.Modules
                 await ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("Fun", "ship_incorrectNumOfArgs")}`").ConfigureAwait(false);
             }
         }
+
+        
     }
 }

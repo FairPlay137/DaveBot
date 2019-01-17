@@ -1355,7 +1355,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The text portal has opened! Say hello to the other end! :wave:.
+        ///   Looks up a localized string similar to The text portal has opened! Say hello to the other end! 👋.
         /// </summary>
         public static string Fun_textportal_connectionEstablished {
             get {
@@ -1382,7 +1382,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The text portal failed to open since no other text portals were found..
+        ///   Looks up a localized string similar to The text portal failed to open since no other end was found..
         /// </summary>
         public static string Fun_textportal_connectionLost_noResponse {
             get {
@@ -1436,7 +1436,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Waiting for another text portal....
+        ///   Looks up a localized string similar to A new text portal was created. Waiting for the other end....
         /// </summary>
         public static string Fun_textportal_waiting {
             get {
@@ -1459,6 +1459,15 @@ namespace DaveBot.Resources {
         public static string Fun_textportal_wordBlacklisted_yourSide {
             get {
                 return ResourceManager.GetString("Fun_textportal_wordBlacklisted_yourSide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please wait...loading....
+        /// </summary>
+        public static string generic_loadingPlayingStatus {
+            get {
+                return ResourceManager.GetString("generic_loadingPlayingStatus", resourceCulture);
             }
         }
         
@@ -1880,7 +1889,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Utils_calculate_infiniteAnswer).
+        ///   Looks up a localized string similar to Infinity.
         /// </summary>
         public static string Utils_calculate_infiniteAnswer {
             get {
@@ -1889,7 +1898,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Utils_calculate_noAnswer).
+        ///   Looks up a localized string similar to No answer.
         /// </summary>
         public static string Utils_calculate_noAnswer {
             get {
@@ -1970,7 +1979,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oh, uh, my paddle seems to be turning red....
+        ///   Looks up a localized string similar to Oh, uh, my paddle seems to be turning red... Is that normal?.
         /// </summary>
         public static string Utils_ping_subtitle1 {
             get {
@@ -1997,7 +2006,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Play again?.
+        ///   Looks up a localized string similar to Wanna play again?.
         /// </summary>
         public static string Utils_ping_subtitle4 {
             get {
@@ -2029,6 +2038,42 @@ namespace DaveBot.Resources {
         public static string Utils_ping_wait {
             get {
                 return ResourceManager.GetString("Utils_ping_wait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  == There are no warnings at this time. ==.
+        /// </summary>
+        public static string Utils_showWarns_none {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_none", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Some commands won&apos;t be usable due to me not having the permissions needed..
+        /// </summary>
+        public static string Utils_showWarns_permissions {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_permissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * This warning does not have a description..
+        /// </summary>
+        public static string Utils_showWarns_placeholder {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * The bot is currently set to use {0} shard(s), while the Discord API recommends that you use {1} shard(s) for this bot. Tell the owner to reconfigure it accordingly..
+        /// </summary>
+        public static string Utils_showWarns_shardCount {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_shardCount", resourceCulture);
             }
         }
         

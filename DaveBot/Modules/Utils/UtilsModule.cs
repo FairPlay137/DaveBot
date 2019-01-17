@@ -10,7 +10,7 @@ using DaveBot.Common.Attributes;
 namespace DaveBot.Modules
 {
     [Name("Utilities")]
-    public class UtilsModule : DaveBotModuleBase<SocketCommandContext>
+    public class UtilsModule : DaveBotTopModuleBase
     {
         private readonly DaveBot _bot;
 
@@ -36,13 +36,13 @@ namespace DaveBot.Modules
             DaveRNG random = new DaveRNG();
             string subtitleText = StringResourceHandler.GetTextStatic("Utils", "ping_subtitle" + random.Next(1, 5));
             string footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer1");
-            if(sw.ElapsedMilliseconds > 200)
+            if(sw.ElapsedMilliseconds > 150)
                 footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer2");
-            if (sw.ElapsedMilliseconds > 500)
+            if (sw.ElapsedMilliseconds > 300)
                 footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer3");
-            if (sw.ElapsedMilliseconds > 1200)
+            if (sw.ElapsedMilliseconds > 800)
                 footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer4");
-            if (sw.ElapsedMilliseconds > 5000)
+            if (sw.ElapsedMilliseconds > 3000)
                 footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer5");
             pleasewait.Dispose();
             await ReplyAsync(Context.User.Mention, false, new EmbedBuilder()

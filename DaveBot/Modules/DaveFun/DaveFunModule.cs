@@ -5,7 +5,7 @@ using DaveBot.Common;
 namespace DaveBot.Modules
 {
     [Name("DaveBot Fun")]
-    public class DaveFunModule : DaveBotModuleBase<SocketCommandContext>
+    public class DaveFunModule : DaveBotTopModuleBase
     {
         [Command("fire")]
         [Summary("Placeholder summary")]

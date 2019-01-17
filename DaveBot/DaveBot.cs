@@ -12,6 +12,7 @@ using DaveBot.Services;
 using Discord.Net.Providers.WS4Net;
 using DaveBot.Services.Impl;
 using System.Diagnostics;
+using DaveBot.Common;
 
 namespace DaveBot
 {
@@ -125,14 +126,17 @@ namespace DaveBot
 #if !PUBLIC_BUILD
             _log.Info("Initialization complete. Starting up...");
 #else
-            _log.Info("Initialization complete. Waiting for 1 minute before executing startup routines...");
-            await Task.Delay(60000);
-            _log.Info("A minute has elapsed. Starting up...");
+            _log.Info("Initialization complete. Waiting for 30 seconds before executing startup routines...");
+            await Task.Delay(30000);
+            _log.Info("30 seconds have elapsed. Starting up...");
 #endif
 
             var sw = Stopwatch.StartNew();
 
             await LoginAsync(Configuration.BotToken).ConfigureAwait(false);
+
+            await Client.SetStatusAsync(UserStatus.DoNotDisturb);
+            await Client.SetGameAsync(StringResourceHandler.GetTextStatic("generic", "loadingPlayingStatus"));
 
             _log.Info("Loading services...");
             AddServices();
@@ -147,6 +151,7 @@ namespace DaveBot
 
             var _ = await CommandService.AddModulesAsync(GetType().GetTypeInfo().Assembly, Services);
 
+            await Client.SetStatusAsync(UserStatus.Online);
             await Client.SetGameAsync(Configuration.DefaultPlayingString);
 
             Ready.TrySetResult(true);
