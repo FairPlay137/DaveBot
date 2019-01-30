@@ -1166,6 +1166,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cleverbot functionality is coming soon!.
+        /// </summary>
+        public static string Fun_cleverbot_comingSoon {
+            get {
+                return ResourceManager.GetString("Fun_cleverbot_comingSoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Couldn&apos;t establish a connection to the Cleverbot or Program O servers!.
         /// </summary>
         public static string Fun_cleverbot_connectionError {

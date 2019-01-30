@@ -32,6 +32,10 @@ namespace DaveBot.Services.Impl
         public bool RotatePlayingStatuses { get; set; }
         public string[] PlayingStatuses { get; set; }
 
+        public ulong[] CleverbotChannels { get; set; }
+
+        public bool EnableTextPortals { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:Do not dispose objects multiple times")]
         public BotConfiguration()
         {
@@ -108,6 +112,9 @@ namespace DaveBot.Services.Impl
                 RotatePlayingStatuses = cfgjson.RotatePlaying;
                 PlayingStatuses = cfgjson.PlayingStatuses;
                 TotalShards = cfgjson.TotalShards;
+                GoogleAPIKey = cfgjson.GoogleAPIKey;
+                CleverbotChannels = cfgjson.CleverbotChannels;
+
                 _log.Info("Loaded configuration.");
                 SaveConfig(false);
             }
@@ -190,6 +197,7 @@ namespace DaveBot.Services.Impl
                 PlayingStatuses = cfgjson.PlayingStatuses;
                 TotalShards = cfgjson.TotalShards;
                 GoogleAPIKey = cfgjson.GoogleAPIKey;
+                CleverbotChannels = cfgjson.CleverbotChannels;
             }
             catch (Exception e)
             {
@@ -225,7 +233,8 @@ namespace DaveBot.Services.Impl
                     RotatePlaying = RotatePlayingStatuses,
                     PlayingStatuses = PlayingStatuses,
                     TotalShards = TotalShards,
-                    GoogleAPIKey = GoogleAPIKey
+                    GoogleAPIKey = GoogleAPIKey,
+                    CleverbotChannels = CleverbotChannels
                 };
                 string json = JsonConvert.SerializeObject(cfg, Formatting.Indented);
                 File.WriteAllText("config.json", json);

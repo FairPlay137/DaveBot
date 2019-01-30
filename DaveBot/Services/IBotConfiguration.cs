@@ -24,6 +24,10 @@ namespace DaveBot.Services
 
         string GoogleAPIKey { get; }
 
+        ulong[] CleverbotChannels { get; set; }
+
+        bool EnableTextPortals { get; set; }
+
         bool ReloadConfig(bool verbose);
         bool SaveConfig(bool verbose);
     }

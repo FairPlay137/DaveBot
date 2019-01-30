@@ -15,7 +15,7 @@ namespace DaveBot.Modules.Fun
         [Name("Text Portal")]
         public partial class TextPortalCmds : DaveBotSubModuleBase
         {
-            private readonly IBotConfiguration _config;
+            private readonly IBotConfiguration _config; //TODO: Add some parameters allowing for the Text Portal feature to be more configurable.
             private readonly TextPortalService _textportals;
 
             public TextPortalCmds(IBotConfiguration config, TextPortalService textportals)
@@ -68,9 +68,7 @@ namespace DaveBot.Modules.Fun
                         else
                         {
                             if(_textportals.textPortals.Count >= _textportals.maxTextPortals)
-                            {
                                 throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("Fun", "textportal_error_limitReached", _textportals.maxTextPortals));
-                            }
                             _textportals.textPortals.Add((ITextChannel)Context.Channel, null);
                             await ReplyAsync($":telephone_receiver: `{StringResourceHandler.GetTextStatic("Fun", "textportal_waiting")}`");
                         }

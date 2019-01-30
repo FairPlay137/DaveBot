@@ -4,6 +4,7 @@ using Discord;
 using Discord.WebSocket;
 using DaveBot.Services;
 using DaveBot.Common.ModuleBehaviors;
+using DaveBot.Common;
 
 namespace DaveBot.Modules.Fun.Services
 {
@@ -21,8 +22,25 @@ namespace DaveBot.Modules.Fun.Services
 
         public async Task<bool> TryExecuteEarly(DiscordSocketClient client, IGuild guild, IUserMessage msg)
         {
-            //TODO: Actually add stuff here.
+            if (msg.Content.StartsWith(client.CurrentUser.Mention) && IsCleverbotChannel(msg.Channel))
+            {
+                await msg.Channel.SendMessageAsync($":speech_balloon: `{StringResourceHandler.GetTextStatic("Fun", "cleverbot_comingSoon")}`");
+            }
             return false;
+        }
+
+        private bool IsCleverbotChannel(IMessageChannel channel)
+        {
+            try
+            {
+                foreach (var chnid in _config.CleverbotChannels)
+                    if (channel.Id == chnid)
+                        return true;
+                return false;
+            }catch(Exception)
+            {
+                return false;
+            }
         }
     }
 }

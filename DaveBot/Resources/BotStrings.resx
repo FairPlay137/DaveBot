@@ -905,4 +905,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="generic_loadingPlayingStatus" xml:space="preserve">
     <value>Please wait...loading...</value>
   </data>
+  <data name="Fun_cleverbot_comingSoon" xml:space="preserve">
+    <value>Cleverbot functionality is coming soon!</value>
+  </data>
 </root>

@@ -396,6 +396,7 @@
     <Compile Include="Common\ServerJsonStructure.cs" />
     <Compile Include="Modules\Akinator\Common\AkinatorGame.cs" />
     <Compile Include="Modules\Akinator\Services\AkinatorService.cs" />
+    <Compile Include="Modules\Core\Services\GameRotationService.cs" />
     <Compile Include="Modules\DaveBotModule.cs" />
     <Compile Include="Modules\Core\CoreModule.cs" />
     <Compile Include="Modules\Akinator\AkinatorModule.cs" />
@@ -446,7 +447,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modules\Core\Services\" />
+    <Folder Include="Modules\DaveMusic\" />
     <Folder Include="Modules\Moderation\Services\" />
   </ItemGroup>
   <ItemGroup>

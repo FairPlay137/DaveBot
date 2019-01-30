@@ -41,5 +41,10 @@ namespace DaveBot.Common
         [JsonProperty("googleAPIKey")]
         public string GoogleAPIKey { get; set; }
 
+        [JsonProperty("cleverbotChannels")]
+        public ulong[] CleverbotChannels { get; set; }
+
+        [JsonProperty("enableTextPortals")]
+        public bool EnableTextPortals { get; set; }
     }
 }
