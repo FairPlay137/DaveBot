@@ -29,6 +29,8 @@ namespace DaveBot.Modules.Fun
             [CannotUseInDMs]
             public async Task TextPortal()
             {
+                if(!_config.EnableTextPortals)
+                    throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("Fun", "textportal_error_featureDisabled"));
                 if (_textportals.textPortals.ContainsKey((ITextChannel)Context.Channel))
                 {
                     if (_textportals.textPortals[(ITextChannel)Context.Channel] != null)

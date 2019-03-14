@@ -104,6 +104,16 @@ namespace DaveBot.Modules
                 else
                     userCount++;
             }
+            var vl = Context.Guild.VerificationLevel;
+            int vli = 0;
+            if (vl == VerificationLevel.Low)
+                vli = 1;
+            else if (vl == VerificationLevel.Medium)
+                vli = 2;
+            else if (vl == VerificationLevel.High)
+                vli = 3;
+            else if (vl == VerificationLevel.Extreme)
+                vli = 4;
             await ReplyAsync(Context.User.Mention, false, new EmbedBuilder()
                 .WithTitle(Context.Guild.Name)
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_id"),Context.Guild.Id,true)
@@ -114,6 +124,7 @@ namespace DaveBot.Modules
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_textchannels"), Context.Guild.TextChannels.Count, true)
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_voicechannels"), Context.Guild.VoiceChannels.Count, true)
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_roles"), Context.Guild.Roles.Count, true)
+                .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_verificationlevel"), StringResourceHandler.GetTextStatic("Utils", $"sinfo_verificationlevel_{vli}"), true)
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_features"), featureList, true)
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_invites"), inviteLinks.Count, true)
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_customemotes"), Context.Guild.Emotes.Count, true)

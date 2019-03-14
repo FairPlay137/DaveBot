@@ -19,7 +19,7 @@ namespace DaveBot.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class BotStrings {
@@ -637,6 +637,24 @@ namespace DaveBot.Resources {
         public static string CustomReactions_trigger {
             get {
                 return ResourceManager.GetString("CustomReactions_trigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to **Welcome to God’s country, {0}. Time for you to be scrubbed clean.**.
+        /// </summary>
+        public static string DaveFun_clean {
+            get {
+                return ResourceManager.GetString("DaveFun_clean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to **DaveBot may have performed some sins, but he doesn&apos;t deserve to be scrubbed clean.**.
+        /// </summary>
+        public static string DaveFun_clean_easterEgg1 {
+            get {
+                return ResourceManager.GetString("DaveFun_clean_easterEgg1", resourceCulture);
             }
         }
         

@@ -394,6 +394,8 @@
     <Compile Include="Common\ModuleBehaviors\IPreXBlockerExecutor.cs" />
     <Compile Include="Common\ModuleBehaviors\IPreXExecutor.cs" />
     <Compile Include="Common\ServerJsonStructure.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Modules\Akinator\Common\AkinatorGame.cs" />
     <Compile Include="Modules\Akinator\Services\AkinatorService.cs" />
     <Compile Include="Modules\Core\Services\GameRotationService.cs" />
@@ -449,6 +451,7 @@
   <ItemGroup>
     <Folder Include="Modules\DaveMusic\" />
     <Folder Include="Modules\Moderation\Services\" />
+    <Folder Include="Services\Forms\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">

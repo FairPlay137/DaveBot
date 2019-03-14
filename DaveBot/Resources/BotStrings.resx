@@ -908,4 +908,10 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="Fun_cleverbot_comingSoon" xml:space="preserve">
     <value>Cleverbot functionality is coming soon!</value>
   </data>
+  <data name="DaveFun_clean" xml:space="preserve">
+    <value>**Welcome to God’s country, {0}. Time for you to be scrubbed clean.**</value>
+  </data>
+  <data name="DaveFun_clean_easterEgg1" xml:space="preserve">
+    <value>**DaveBot may have performed some sins, but he doesn't deserve to be scrubbed clean.**</value>
+  </data>
 </root>
