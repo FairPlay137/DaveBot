@@ -19,7 +19,7 @@ namespace DaveBot.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class BotStrings {
@@ -61,7 +61,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to __**Notice:**__ Sadly, this bot&apos;s functionality has been permanently disabled..
+        ///   Looks up a localized string similar to __**Notice:**__ Sadly, this bot&apos;s functionality has been disabled until further notice..
         /// </summary>
         public static string Admin_blacklist_allPermanent {
             get {
@@ -641,7 +641,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to **Welcome to God’s country, {0}. Time for you to be scrubbed clean.**.
+        ///   Looks up a localized string similar to **&quot;Welcome to God’s country, {0}. Time for you to be scrubbed clean.&quot;**.
         /// </summary>
         public static string DaveFun_clean {
             get {
@@ -650,7 +650,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to **DaveBot may have performed some sins, but he doesn&apos;t deserve to be scrubbed clean.**.
+        ///   Looks up a localized string similar to ***EE-YIYIYIYIYIYIYIYIYIYIYIYIYIYIYI...***.
         /// </summary>
         public static string DaveFun_clean_easterEgg1 {
             get {
@@ -902,7 +902,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 📹 A new video was uploaded!.
+        ///   Looks up a localized string similar to 📹 {1} just uploaded a video!.
         /// </summary>
         public static string DaveNotifications_activityType_upload {
             get {
@@ -983,7 +983,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sorry, that command is only available with DaveBot Pro! Want to unlock DaveBot Pro? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Pro for one whole server if you pledge!.
+        ///   Looks up a localized string similar to Sorry, that command is only available with DaveBot Elite! Want to unlock DaveBot Elite? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Elite for one whole server if you pledge! Alternatively, you can boost the DaveBot Central server to unlock DaveBot Elite for yourself!.
         /// </summary>
         public static string err_davebotEliteOnly {
             get {
@@ -1148,7 +1148,8 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unknown command. Be sure you typed it correctly, or type &quot;{0}help&quot; for help..
+        ///   Looks up a localized string similar to Unknown command. Be sure you typed it correctly, or type &quot;{0}help&quot; for help.`
+        ///❓ `Did this command work in the past? If so, it may not have been re-added yet. (since DaveBot recently underwent a rewrite).
         /// </summary>
         public static string err_unknownCommand {
             get {
@@ -1220,7 +1221,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This bot is currently using the Program O servers due to a problem with the Cleverbot servers..
+        ///   Looks up a localized string similar to This bot is currently using limited servers due to a problem with the Cleverbot servers..
         /// </summary>
         public static string Fun_cleverbot_limited {
             get {
@@ -1229,7 +1230,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This bot is currently using the Program O servers due to Cleverbot server support not being implemented yet..
+        ///   Looks up a localized string similar to This bot is currently using limited servers due to Cleverbot server support not being implemented yet..
         /// </summary>
         public static string Fun_cleverbot_limited2 {
             get {
@@ -1247,11 +1248,11 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to :thinking: Thinking of a response... (This may take a while, since Program O v2 can get a little slow).
+        ///   Looks up a localized string similar to :thinking: Thinking of a response... (This may take a while).
         /// </summary>
-        public static string Fun_cleverbot_waitProgramO2 {
+        public static string Fun_cleverbot_waitLimited {
             get {
-                return ResourceManager.GetString("Fun_cleverbot_waitProgramO2", resourceCulture);
+                return ResourceManager.GetString("Fun_cleverbot_waitLimited", resourceCulture);
             }
         }
         
@@ -1391,7 +1392,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The text portal has been closed since the other end has deleted the channel it was leading to..
+        ///   Looks up a localized string similar to The text portal was closed since the other end has deleted the channel it was leading to..
         /// </summary>
         public static string Fun_textportal_connectionLost_deletedChannel {
             get {
@@ -1400,7 +1401,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The text portal has closed..
+        ///   Looks up a localized string similar to The text portal was closed..
         /// </summary>
         public static string Fun_textportal_connectionLost_generic {
             get {
@@ -1427,7 +1428,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The text portal has closed itself due to overload!.
+        ///   Looks up a localized string similar to The text portal closed itself due to overload!.
         /// </summary>
         public static string Fun_textportal_connectionLost_overload {
             get {
@@ -1546,7 +1547,7 @@ namespace DaveBot.Resources {
         ///Type `{0}invite` to get the invite link for this bot!
         ///
         ///
-        ///GitHub: https://github.com/FairPlay137/Discord-PaletteBot
+        ///GitHub: https://github.com/FairPlay137/DaveBot
         ///This DaveBot rewrite is a work-in-progress, so expect missing features, along with a few regressions..
         /// </summary>
         public static string Help_DMContent {
@@ -1601,7 +1602,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I&apos;m **DaveBot**; a public bot written by FairPlay137-TTS!.
+        ///   Looks up a localized string similar to I&apos;m **DaveBot**; a public, davemadson-themed bot written by FairPlay137-TTS!.
         /// </summary>
         public static string Help_introPublic {
             get {
@@ -1646,7 +1647,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to :mailbox: I would&apos;ve DMed you some helpful information, but I can&apos;t DM you! Please enable DMs and try this command again..
+        ///   Looks up a localized string similar to :mailbox: I would&apos;ve DMed you some helpful information, but I can&apos;t DM you! Please enable your DMs and try this command again..
         /// </summary>
         public static string Help_unableToDM {
             get {
@@ -1853,7 +1854,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hey, swearing is not allowed on this server!.
+        ///   Looks up a localized string similar to Oh, uh, your message contained a swear word (or words), and due to rules in place on this server, it was automatically deleted..
         /// </summary>
         public static string Moderation_swearFilter_block1 {
             get {
@@ -2132,6 +2133,51 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Animated server icon.
+        /// </summary>
+        public static string Utils_sinfo_feature_ANIMATED_ICON {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_ANIMATED_ICON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server banner.
+        /// </summary>
+        public static string Utils_sinfo_feature_BANNER {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_BANNER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Store page for associated app/game in server.
+        /// </summary>
+        public static string Utils_sinfo_feature_COMMERCE {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_COMMERCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Featured in Server Discovery!.
+        /// </summary>
+        public static string Utils_sinfo_feature_DISCOVERABLE {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_DISCOVERABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Featured in activity feed!.
+        /// </summary>
+        public static string Utils_sinfo_feature_FEATURABLE {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_FEATURABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Custom invite background.
         /// </summary>
         public static string Utils_sinfo_feature_INVITE_SPLASH {
@@ -2141,7 +2187,70 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VIP Features:.
+        ///   Looks up a localized string similar to Server viewable without joining.
+        /// </summary>
+        public static string Utils_sinfo_feature_LURKABLE {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_LURKABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increased emoji slots.
+        /// </summary>
+        public static string Utils_sinfo_feature_MORE_EMOJI {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_MORE_EMOJI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to News channels enabled.
+        /// </summary>
+        public static string Utils_sinfo_feature_NEWS {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_NEWS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partnered server.
+        /// </summary>
+        public static string Utils_sinfo_feature_PARTNERED {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_PARTNERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vanity invite URL.
+        /// </summary>
+        public static string Utils_sinfo_feature_VANITY_URL {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_VANITY_URL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verified server.
+        /// </summary>
+        public static string Utils_sinfo_feature_VERIFIED {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_VERIFIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VIP voice regions unlocked.
+        /// </summary>
+        public static string Utils_sinfo_feature_VIP_REGIONS {
+            get {
+                return ResourceManager.GetString("Utils_sinfo_feature_VIP_REGIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Features:.
         /// </summary>
         public static string Utils_sinfo_features {
             get {
@@ -2168,7 +2277,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (none enabled).
+        ///   Looks up a localized string similar to (none available).
         /// </summary>
         public static string Utils_sinfo_noFeatures {
             get {

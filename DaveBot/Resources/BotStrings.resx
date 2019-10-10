@@ -136,7 +136,8 @@
     <value>Too many arguments have been given.</value>
   </data>
   <data name="err_unknownCommand" xml:space="preserve">
-    <value>Unknown command. Be sure you typed it correctly, or type "{0}help" for help.</value>
+    <value>Unknown command. Be sure you typed it correctly, or type "{0}help" for help.`
+❓ `Did this command work in the past? If so, it may not have been re-added yet. (since DaveBot recently underwent a rewrite)</value>
   </data>
   <data name="Help_commands_header" xml:space="preserve">
     <value>📃 Commands in module "{0}":</value>
@@ -213,7 +214,7 @@ Type `{0}commands (module name)` to view all commands in a module.
 Type `{0}invite` to get the invite link for this bot!
 
 
-GitHub: https://github.com/FairPlay137/Discord-PaletteBot
+GitHub: https://github.com/FairPlay137/DaveBot
 This DaveBot rewrite is a work-in-progress, so expect missing features, along with a few regressions.</value>
     <comment>I might revise this in the future.</comment>
   </data>
@@ -308,7 +309,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>I'm **{0}**; a Discord bot based off of DaveBot!</value>
   </data>
   <data name="Help_introPublic" xml:space="preserve">
-    <value>I'm **DaveBot**; a public bot written by FairPlay137-TTS!</value>
+    <value>I'm **DaveBot**; a public, davemadson-themed bot written by FairPlay137-TTS!</value>
   </data>
   <data name="Utils_stats_description" xml:space="preserve">
     <value>Hi! I'm **{0}**! I'm based off of DaveBot, an open-source, davemadson-themed bot, which in turn is based off of PaletteBot!</value>
@@ -485,10 +486,10 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>The text portal has opened! Say hello to the other end! 👋</value>
   </data>
   <data name="Fun_textportal_connectionLost_deletedChannel" xml:space="preserve">
-    <value>The text portal has been closed since the other end has deleted the channel it was leading to.</value>
+    <value>The text portal was closed since the other end has deleted the channel it was leading to.</value>
   </data>
   <data name="Fun_textportal_connectionLost_generic" xml:space="preserve">
-    <value>The text portal has closed.</value>
+    <value>The text portal was closed.</value>
   </data>
   <data name="Fun_textportal_connectionLost_noResponse" xml:space="preserve">
     <value>The text portal failed to open since no other end was found.</value>
@@ -497,7 +498,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>The other end has closed the text portal...</value>
   </data>
   <data name="Fun_textportal_connectionLost_overload" xml:space="preserve">
-    <value>The text portal has closed itself due to overload!</value>
+    <value>The text portal closed itself due to overload!</value>
   </data>
   <data name="Fun_textportal_connectionLost_timeout" xml:space="preserve">
     <value>The text portal has closed itself due to {0} seconds of inactivity.</value>
@@ -518,7 +519,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>{0}, your message hasn't been sent to the other end due to the word blacklist in effect on this server.</value>
   </data>
   <data name="Help_unableToDM" xml:space="preserve">
-    <value>:mailbox: I would've DMed you some helpful information, but I can't DM you! Please enable DMs and try this command again.</value>
+    <value>:mailbox: I would've DMed you some helpful information, but I can't DM you! Please enable your DMs and try this command again.</value>
   </data>
   <data name="Moderation_hackban" xml:space="preserve">
     <value>Successfully hackbanned user ID {0}.</value>
@@ -572,7 +573,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Emojis:</value>
   </data>
   <data name="Utils_sinfo_features" xml:space="preserve">
-    <value>VIP Features:</value>
+    <value>Features:</value>
   </data>
   <data name="Utils_sinfo_feature_INVITE_SPLASH" xml:space="preserve">
     <value>Custom invite background</value>
@@ -584,7 +585,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Active invite links:</value>
   </data>
   <data name="Utils_sinfo_noFeatures" xml:space="preserve">
-    <value>(none enabled)</value>
+    <value>(none available)</value>
   </data>
   <data name="Utils_sinfo_owner" xml:space="preserve">
     <value>Owner:</value>
@@ -713,7 +714,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Hi! I'm {0}; an open-source, davemadson-themed bot, based off of PaletteBot! I'm still under construction, so expect missing features, along with a few regressions.</value>
   </data>
   <data name="err_davebotEliteOnly" xml:space="preserve">
-    <value>Sorry, that command is only available with DaveBot Pro! Want to unlock DaveBot Pro? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Pro for one whole server if you pledge!</value>
+    <value>Sorry, that command is only available with DaveBot Elite! Want to unlock DaveBot Elite? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Elite for one whole server if you pledge! Alternatively, you can boost the DaveBot Central server to unlock DaveBot Elite for yourself!</value>
   </data>
   <data name="err_commandUnimplemented" xml:space="preserve">
     <value>This command currently is not implemented. Try again later.</value>
@@ -731,16 +732,16 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Cleverbot has been enabled! Begin any message with my mention and I'll respond to you!</value>
   </data>
   <data name="Fun_cleverbot_limited" xml:space="preserve">
-    <value>This bot is currently using the Program O servers due to a problem with the Cleverbot servers.</value>
+    <value>This bot is currently using limited servers due to a problem with the Cleverbot servers.</value>
   </data>
   <data name="Fun_cleverbot_limited2" xml:space="preserve">
-    <value>This bot is currently using the Program O servers due to Cleverbot server support not being implemented yet.</value>
+    <value>This bot is currently using limited servers due to Cleverbot server support not being implemented yet.</value>
   </data>
   <data name="Fun_cleverbot_wait" xml:space="preserve">
     <value>:thinking: Thinking of a response...</value>
   </data>
-  <data name="Fun_cleverbot_waitProgramO2" xml:space="preserve">
-    <value>:thinking: Thinking of a response... (This may take a while, since Program O v2 can get a little slow)</value>
+  <data name="Fun_cleverbot_waitLimited" xml:space="preserve">
+    <value>:thinking: Thinking of a response... (This may take a while)</value>
   </data>
   <data name="Help_modules_emptymodule" xml:space="preserve">
     <value>*(empty)*</value>
@@ -776,7 +777,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>It appears I don't have all the dependencies needed for playing audio.</value>
   </data>
   <data name="Moderation_swearFilter_block1" xml:space="preserve">
-    <value>Hey, swearing is not allowed on this server!</value>
+    <value>Oh, uh, your message contained a swear word (or words), and due to rules in place on this server, it was automatically deleted.</value>
   </data>
   <data name="Moderation_swearFilter_block2" xml:space="preserve">
     <value>Placeholder (Moderation_swearFilter_block2)</value>
@@ -791,7 +792,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Placeholder (Moderation_swearFilter_block5)</value>
   </data>
   <data name="Admin_blacklist_allPermanent" xml:space="preserve">
-    <value>__**Notice:**__ Sadly, this bot's functionality has been permanently disabled.</value>
+    <value>__**Notice:**__ Sadly, this bot's functionality has been disabled until further notice.</value>
   </data>
   <data name="Admin_blacklist_allTemporary" xml:space="preserve">
     <value>__**Notice:**__ This bot's functionality has been disabled until {0}.</value>
@@ -846,7 +847,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>❓ Unknown activity type "{0}". Please report this.</value>
   </data>
   <data name="DaveNotifications_activityType_upload" xml:space="preserve">
-    <value>📹 A new video was uploaded!</value>
+    <value>📹 {1} just uploaded a video!</value>
   </data>
   <data name="DaveNotifications_contentDetailError" xml:space="preserve">
     <value>Something went wrong while trying to fetch more details! As such, some details may not be available.</value>
@@ -909,9 +910,45 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Cleverbot functionality is coming soon!</value>
   </data>
   <data name="DaveFun_clean" xml:space="preserve">
-    <value>**Welcome to God’s country, {0}. Time for you to be scrubbed clean.**</value>
+    <value>**"Welcome to God’s country, {0}. Time for you to be scrubbed clean."**</value>
   </data>
   <data name="DaveFun_clean_easterEgg1" xml:space="preserve">
-    <value>**DaveBot may have performed some sins, but he doesn't deserve to be scrubbed clean.**</value>
+    <value>***EE-YIYIYIYIYIYIYIYIYIYIYIYIYIYIYI...***</value>
+  </data>
+  <data name="Utils_sinfo_feature_ANIMATED_ICON" xml:space="preserve">
+    <value>Animated server icon</value>
+  </data>
+  <data name="Utils_sinfo_feature_BANNER" xml:space="preserve">
+    <value>Server banner</value>
+  </data>
+  <data name="Utils_sinfo_feature_COMMERCE" xml:space="preserve">
+    <value>Store page for associated app/game in server</value>
+  </data>
+  <data name="Utils_sinfo_feature_DISCOVERABLE" xml:space="preserve">
+    <value>Featured in Server Discovery!</value>
+  </data>
+  <data name="Utils_sinfo_feature_FEATURABLE" xml:space="preserve">
+    <value>Featured in activity feed!</value>
+  </data>
+  <data name="Utils_sinfo_feature_LURKABLE" xml:space="preserve">
+    <value>Server viewable without joining</value>
+  </data>
+  <data name="Utils_sinfo_feature_MORE_EMOJI" xml:space="preserve">
+    <value>Increased emoji slots</value>
+  </data>
+  <data name="Utils_sinfo_feature_NEWS" xml:space="preserve">
+    <value>News channels enabled</value>
+  </data>
+  <data name="Utils_sinfo_feature_PARTNERED" xml:space="preserve">
+    <value>Partnered server</value>
+  </data>
+  <data name="Utils_sinfo_feature_VANITY_URL" xml:space="preserve">
+    <value>Vanity invite URL</value>
+  </data>
+  <data name="Utils_sinfo_feature_VERIFIED" xml:space="preserve">
+    <value>Verified server</value>
+  </data>
+  <data name="Utils_sinfo_feature_VIP_REGIONS" xml:space="preserve">
+    <value>VIP voice regions unlocked</value>
   </data>
 </root>

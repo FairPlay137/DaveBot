@@ -38,7 +38,22 @@ namespace DaveBot.Modules
         [Summary("(To be written)")]
         public async Task CrotchKick([Remainder]string target)
         {
+            await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "crotchkick", target));
+            if (target.Contains(Context.Client.CurrentUser.Mention))
+            {
+                await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "crotchkick_kickedSelf"));
+            }
+        }
 
+        [Command("clean")]
+        [Summary("(To be written)")]
+        public async Task GodClean([Remainder]string target)
+        {
+            await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "clean", target));
+            if (target.Contains(Context.Client.CurrentUser.Mention))
+            {
+                await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "clean_easterEgg1"));
+            }
         }
     }
 }

@@ -20,7 +20,8 @@ namespace DaveBot.Modules.Fun.Services
         public Dictionary<ITextChannel, ITextChannel> textPortals = new Dictionary<ITextChannel, ITextChannel>();
 
         public int maxTextPortals = 64; //TODO: Make this configurable
-        public int timeoutPeriodSecs = 30; //TODO: Make this configurable
+        public int timeoutPeriodSecs = 45; //TODO: Make this configurable
+        public int answerTimeoutPeriodSecs = 60; //TODO: Make this configurable
 
         private readonly Timer _t;
 
@@ -28,8 +29,8 @@ namespace DaveBot.Modules.Fun.Services
         {
             _client = client;
             _config = config;
-            _client.ChannelDestroyed += _client_ChannelDestroyed;
-            _client.UserIsTyping += _client_UserIsTyping;
+            _client.ChannelDestroyed += ChannelDeleteHandler;
+            _client.UserIsTyping += TypingHandler;
             _t = new Timer(TimerTick, null, 1000, 1000);
         }
 
@@ -46,16 +47,20 @@ namespace DaveBot.Modules.Fun.Services
                         {
                             if (tp.Key.Id == tp.Value.Id)
                             {
-                                LogManager.GetCurrentClassLogger().Warn($"Can't have a text portal pointing to the same channels! Deleting text portal {num}...");
+                                LogManager.GetCurrentClassLogger().Warn($"Can't have a text portal pointing to the same channel! Deleting text portal {num}...");
                                 textPortals.Remove(tp.Key);
                             }
                             else
                             {
-                                var m1 = await tp.Key.GetMessagesAsync(1).FlattenAsync();
-                                var m2 = await tp.Value.GetMessagesAsync(1).FlattenAsync();
-                                var mostRecentMessage = (m1.GetEnumerator().Current.Timestamp.Ticks > m2.GetEnumerator().Current.Timestamp.Ticks) ?
-                                    m1.GetEnumerator().Current : m2.GetEnumerator().Current;
-                                if ((DateTime.Now.Ticks - mostRecentMessage.Timestamp.Ticks) > (timeoutPeriodSecs * 10000000))
+                                var m1e = await tp.Key.GetMessagesAsync(1).FlattenAsync().ConfigureAwait(false);
+                                var m2e = await tp.Value.GetMessagesAsync(1).FlattenAsync().ConfigureAwait(false);
+                                var m1 = m1e.GetEnumerator(); m1.MoveNext();
+                                var m2 = m2e.GetEnumerator(); m2.MoveNext();
+                                var mostRecentMessage = (m1.Current.Timestamp.Ticks > m2.Current.Timestamp.Ticks) ?
+                                    m1.Current : m2.Current;
+                                m1.Dispose(); m2.Dispose(); //these aren't needed anymore since we're finished comparing them
+                                LogManager.GetCurrentClassLogger().Debug($"{DateTime.UtcNow.Ticks - mostRecentMessage.Timestamp.Ticks} ticks since last message");
+                                if ((DateTime.UtcNow.Ticks - mostRecentMessage.Timestamp.Ticks) > (timeoutPeriodSecs * 10000000))
                                 {
                                     try
                                     {
@@ -64,7 +69,7 @@ namespace DaveBot.Modules.Fun.Services
                                     }
                                     catch (Exception e)
                                     {
-                                        LogManager.GetCurrentClassLogger().Warn($"Whoa, something happened and I couldn't send the time out message!");
+                                        LogManager.GetCurrentClassLogger().Warn($"Whoa, something happened and I couldn't send the timeout message! (perhaps a lack of permissions?)");
                                         LogManager.GetCurrentClassLogger().Warn(e);
                                     }
                                     textPortals.Remove(tp.Key);
@@ -75,13 +80,13 @@ namespace DaveBot.Modules.Fun.Services
                     }
                 }catch(Exception e)
                 {
-                    LogManager.GetCurrentClassLogger().Warn("The timeout feature seems to have broken somehow.");
+                    LogManager.GetCurrentClassLogger().Warn("An error occurred in the timeout routine.");
                     LogManager.GetCurrentClassLogger().Warn(e);
                 }
             }
         }
 
-        private async Task _client_UserIsTyping(SocketUser arg1, ISocketMessageChannel arg2)
+        private async Task TypingHandler(SocketUser arg1, ISocketMessageChannel arg2)
         {
             if (arg1.IsBot)
                 return;
@@ -120,7 +125,7 @@ namespace DaveBot.Modules.Fun.Services
             }
         }
 
-        private async Task _client_ChannelDestroyed(SocketChannel arg)
+        private async Task ChannelDeleteHandler(SocketChannel arg)
         {
             ITextChannel targetChannel = null;
             int foundChannel = 0;
@@ -133,7 +138,7 @@ namespace DaveBot.Modules.Fun.Services
                     {
                         if (tp.Key.Id == tp.Value.Id)
                         {
-                            LogManager.GetCurrentClassLogger().Warn($"Can't have a text portal pointing to the same channels! Deleting text portal {num}..");
+                            LogManager.GetCurrentClassLogger().Warn($"Can't have a text portal pointing to the same channel! Deleting text portal {num}..");
                             textPortals.Remove(tp.Key);
                         }
                         else
@@ -160,9 +165,9 @@ namespace DaveBot.Modules.Fun.Services
                     }
                     num++;
                 }
-                if ((foundChannel == 1) && (targetChannel != null))
+                if ((foundChannel == 1) && (targetChannel != null)) //Was the channel that was deleted part of an existing text portal?
                 {
-                    textPortals.Remove((ITextChannel)arg);
+                    textPortals.Remove((ITextChannel)arg); //To prevent problems later on
                     await targetChannel.SendMessageAsync($":telephone_receiver: `{StringResourceHandler.GetTextStatic("Fun", "textportal_connectionLost_deletedChannel")}`");
                 }
             }
@@ -196,7 +201,7 @@ namespace DaveBot.Modules.Fun.Services
                     {
                         if (tp.Key.Id == tp.Value.Id)
                         {
-                            LogManager.GetCurrentClassLogger().Warn($"Can't have a text portal pointing to the same channels! Deleting text portal {num}..");
+                            LogManager.GetCurrentClassLogger().Warn($"Can't have a text portal pointing to the same channel! Deleting text portal {num}..");
                             textPortals.Remove(tp.Key);
                         }
                         else
@@ -218,7 +223,7 @@ namespace DaveBot.Modules.Fun.Services
                 if ((foundChannel == 1) && (targetChannel != null) && !msg.Content.StartsWith(_config.DefaultPrefix))
                 {
                     EmbedBuilder eb = new EmbedBuilder()
-                        .WithDescription($"**@{msg.Author.Username}#{msg.Author.Discriminator}** :speech_balloon:\n{msg.Content}");
+                        .WithDescription($"**@{msg.Author.Username}#{msg.Author.Discriminator}** :speech_balloon: {msg.Content}");
                     await targetChannel.SendMessageAsync("", false, eb.Build());
                 }
             }

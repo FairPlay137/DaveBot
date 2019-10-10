@@ -6,6 +6,7 @@ using DaveBot.Modules.Fun.Services;
 using DaveBot.Common;
 using DaveBot.Common.Attributes;
 using System.Collections.Generic;
+using NLog;
 
 namespace DaveBot.Modules.Fun
 {
@@ -30,7 +31,8 @@ namespace DaveBot.Modules.Fun
             public async Task TextPortal()
             {
                 if(!_config.EnableTextPortals)
-                    throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("Fun", "textportal_error_featureDisabled"));
+                    LogManager.GetCurrentClassLogger().Info("_config.EnableTextPortals appears to be false.");
+                //    throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("Fun", "textportal_error_featureDisabled"));
                 if (_textportals.textPortals.ContainsKey((ITextChannel)Context.Channel))
                 {
                     if (_textportals.textPortals[(ITextChannel)Context.Channel] != null)
