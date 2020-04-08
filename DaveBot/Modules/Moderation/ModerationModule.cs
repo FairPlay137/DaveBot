@@ -94,7 +94,7 @@ namespace DaveBot.Modules
             await channel.DeleteMessagesAsync(messages);
             
             var SelfDestructingResultMessage = await ReplyAsync($":white_check_mark: `{StringResourceHandler.GetTextStatic("Moderation", "prune", limits)}`").ConfigureAwait(false);
-            await Task.Delay(5000); //TODO: There has to be a better way to do this.
+            await Task.Delay(5000); //TODO: There *has* to be a better way to do this.
             await SelfDestructingResultMessage.DeleteAsync();
         }
     }

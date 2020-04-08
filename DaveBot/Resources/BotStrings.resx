@@ -216,7 +216,7 @@ Type `{0}invite` to get the invite link for this bot!
 
 GitHub: https://github.com/FairPlay137/DaveBot
 This DaveBot rewrite is a work-in-progress, so expect missing features, along with a few regressions.</value>
-    <comment>I might revise this in the future.</comment>
+    <comment>{0} is the bot's current prefix, and {1} is the intro text.</comment>
   </data>
   <data name="Help_DMContentContactBotOwner" xml:space="preserve">
     <value>If you encounter an issue, please contact {0} (@{1}#{2}).</value>
@@ -297,7 +297,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Couldn't kick {0} due to them having a higher role.</value>
   </data>
   <data name="Moderation_softban" xml:space="preserve">
-    <value>Successfully kicked {0} from the server and deleted {1} day(s) of messages.</value>
+    <value>Successfully kicked {0} from the server and deleted {1} day(s) of their messages.</value>
   </data>
   <data name="Admin_setName" xml:space="preserve">
     <value>Okay, my username is now "{0}".</value>
@@ -414,7 +414,8 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>I've been waiting ages for the ball to come back!</value>
   </data>
   <data name="Utils_ping_pingtime" xml:space="preserve">
-    <value>API Ping time was `{0}ms`!</value>
+    <value>Took `{0}ms` to ping **{1}**!</value>
+    <comment>{0} being the ping time in milliseconds and {1} being a random ping location.</comment>
   </data>
   <data name="Utils_ping_subtitle1" xml:space="preserve">
     <value>Oh, uh, my paddle seems to be turning red... Is that normal?</value>
@@ -444,7 +445,8 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Please restart the bot for this change to take effect.</value>
   </data>
   <data name="err_malformedConfig" xml:space="preserve">
-    <value>The configuration file appears to be corrupt! Please report this to the bot owner.</value>
+    <value>The configuration file for this bot appears to be corrupt! Please report this to the bot owner.</value>
+    <comment>I'm not sure how this will be used.</comment>
   </data>
   <data name="Moderation_lockdown" xml:space="preserve">
     <value>This channel has been placed on lockdown for {0}.</value>
@@ -498,10 +500,10 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>The other end has closed the text portal...</value>
   </data>
   <data name="Fun_textportal_connectionLost_overload" xml:space="preserve">
-    <value>The text portal closed itself due to overload!</value>
+    <value>The text portal closed due to overload!</value>
   </data>
   <data name="Fun_textportal_connectionLost_timeout" xml:space="preserve">
-    <value>The text portal has closed itself due to {0} seconds of inactivity.</value>
+    <value>The text portal has automatically closed due to {0} seconds of inactivity.</value>
   </data>
   <data name="Fun_textportal_error_featureDisabled" xml:space="preserve">
     <value>Sorry, text portals have been disabled by the bot owner!</value>
@@ -713,9 +715,6 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="Utils_stats_description2" xml:space="preserve">
     <value>Hi! I'm {0}; an open-source, davemadson-themed bot, based off of PaletteBot! I'm still under construction, so expect missing features, along with a few regressions.</value>
   </data>
-  <data name="err_davebotEliteOnly" xml:space="preserve">
-    <value>Sorry, that command is only available with DaveBot Elite! Want to unlock DaveBot Elite? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Elite for one whole server if you pledge! Alternatively, you can boost the DaveBot Central server to unlock DaveBot Elite for yourself!</value>
-  </data>
   <data name="err_commandUnimplemented" xml:space="preserve">
     <value>This command currently is not implemented. Try again later.</value>
   </data>
@@ -723,7 +722,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>An error has occurred...</value>
   </data>
   <data name="Fun_cleverbot_connectionError" xml:space="preserve">
-    <value>Couldn't establish a connection to the Cleverbot or Program O servers!</value>
+    <value>Couldn't establish a connection to the Cleverbot servers!</value>
   </data>
   <data name="Fun_cleverbot_disabled" xml:space="preserve">
     <value>Cleverbot has been disabled!</value>
@@ -774,7 +773,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>You can't have {0} total shard(s)!</value>
   </data>
   <data name="err_audioDependenciesNotMet" xml:space="preserve">
-    <value>It appears I don't have all the dependencies needed for playing audio.</value>
+    <value>It appears I don't have all the dependencies needed for playing audio. If you are the bot owner, please check to see if FFmpeg is set up correctly for use with this bot.</value>
   </data>
   <data name="Moderation_swearFilter_block1" xml:space="preserve">
     <value>Oh, uh, your message contained a swear word (or words), and due to rules in place on this server, it was automatically deleted.</value>
@@ -814,7 +813,8 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
 ```</value>
   </data>
   <data name="DaveNotifications_activityType_bulletin" xml:space="preserve">
-    <value>📣 A bulletin was posted on the channel!</value>
+    <value>📣 A bulletin was posted on {1}'s channel!</value>
+    <comment>Yes, I know YouTube removed this feature several eons ago; I'm just covering all the bases.</comment>
   </data>
   <data name="DaveNotifications_activityType_channelItem" xml:space="preserve">
     <value>Placeholder (DaveNotifications_activityType_channelItem)</value>
@@ -844,7 +844,8 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Placeholder (DaveNotifications_activityType_subscription)</value>
   </data>
   <data name="DaveNotifications_activityType_unknown" xml:space="preserve">
-    <value>❓ Unknown activity type "{0}". Please report this.</value>
+    <value>❓ Unknown activity type "{0}" by {1}. Please report this.</value>
+    <comment>For all these activityTypes, {0} is the activity type, and {1} is the channel's name.</comment>
   </data>
   <data name="DaveNotifications_activityType_upload" xml:space="preserve">
     <value>📹 {1} just uploaded a video!</value>
@@ -859,10 +860,10 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Unfortunately, this activity is only partially implemented. As such, some details may not be available.</value>
   </data>
   <data name="Utils_calculate_answerHeader" xml:space="preserve">
-    <value>Placeholder (Utils_calculate_answerHeader)</value>
+    <value>Answer:</value>
   </data>
   <data name="Utils_calculate_equationHeader" xml:space="preserve">
-    <value>Placeholder (Utils_calculate_equationHeader)</value>
+    <value>Equation:</value>
   </data>
   <data name="Utils_calculate_infiniteAnswer" xml:space="preserve">
     <value>Infinity</value>
@@ -871,7 +872,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>No answer</value>
   </data>
   <data name="Utils_calculate_title" xml:space="preserve">
-    <value>Placeholder (Utils_calculate_title)</value>
+    <value>Calculator</value>
   </data>
   <data name="DaveNotifications_activityTypeTitle" xml:space="preserve">
     <value>***Event:***</value>
@@ -950,5 +951,12 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   </data>
   <data name="Utils_sinfo_feature_VIP_REGIONS" xml:space="preserve">
     <value>VIP voice regions unlocked</value>
+  </data>
+  <data name="err_botActionFailed" xml:space="preserve">
+    <value>Discord didn't let me perform that action. Check my role permissions, perhaps?</value>
+  </data>
+  <data name="err_davebotEliteOnly" xml:space="preserve">
+    <value>Sorry, that command is only available with DaveBot Elite! Want to unlock DaveBot Elite? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Elite for one whole server if you pledge! Alternatively, you can boost the DaveBot Central server to unlock DaveBot Elite for yourself!</value>
+    <comment>This feature might never be implemented, since this *is* an open-source Discord bot, after all. People would likely clone the bot and make their own instance with all the Elite commands unlocked.</comment>
   </data>
 </root>

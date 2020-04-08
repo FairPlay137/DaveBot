@@ -803,7 +803,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 📣 A bulletin was posted on the channel!.
+        ///   Looks up a localized string similar to 📣 A bulletin was posted on {1}&apos;s channel!.
         /// </summary>
         public static string DaveNotifications_activityType_bulletin {
             get {
@@ -893,7 +893,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ❓ Unknown activity type &quot;{0}&quot;. Please report this..
+        ///   Looks up a localized string similar to ❓ Unknown activity type &quot;{0}&quot; by {1}. Please report this..
         /// </summary>
         public static string DaveNotifications_activityType_unknown {
             get {
@@ -947,11 +947,20 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It appears I don&apos;t have all the dependencies needed for playing audio..
+        ///   Looks up a localized string similar to It appears I don&apos;t have all the dependencies needed for playing audio. If you are the bot owner, please check to see if FFmpeg is set up correctly for use with this bot..
         /// </summary>
         public static string err_audioDependenciesNotMet {
             get {
                 return ResourceManager.GetString("err_audioDependenciesNotMet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discord didn&apos;t let me perform that action. Check my role permissions, perhaps?.
+        /// </summary>
+        public static string err_botActionFailed {
+            get {
+                return ResourceManager.GetString("err_botActionFailed", resourceCulture);
             }
         }
         
@@ -1046,7 +1055,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The configuration file appears to be corrupt! Please report this to the bot owner..
+        ///   Looks up a localized string similar to The configuration file for this bot appears to be corrupt! Please report this to the bot owner..
         /// </summary>
         public static string err_malformedConfig {
             get {
@@ -1194,7 +1203,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Couldn&apos;t establish a connection to the Cleverbot or Program O servers!.
+        ///   Looks up a localized string similar to Couldn&apos;t establish a connection to the Cleverbot servers!.
         /// </summary>
         public static string Fun_cleverbot_connectionError {
             get {
@@ -1428,7 +1437,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The text portal closed itself due to overload!.
+        ///   Looks up a localized string similar to The text portal closed due to overload!.
         /// </summary>
         public static string Fun_textportal_connectionLost_overload {
             get {
@@ -1437,7 +1446,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The text portal has closed itself due to {0} seconds of inactivity..
+        ///   Looks up a localized string similar to The text portal has automatically closed due to {0} seconds of inactivity..
         /// </summary>
         public static string Fun_textportal_connectionLost_timeout {
             get {
@@ -1845,7 +1854,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Successfully kicked {0} from the server and deleted {1} day(s) of messages..
+        ///   Looks up a localized string similar to Successfully kicked {0} from the server and deleted {1} day(s) of their messages..
         /// </summary>
         public static string Moderation_softban {
             get {
@@ -1899,7 +1908,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Utils_calculate_answerHeader).
+        ///   Looks up a localized string similar to Answer:.
         /// </summary>
         public static string Utils_calculate_answerHeader {
             get {
@@ -1908,7 +1917,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Utils_calculate_equationHeader).
+        ///   Looks up a localized string similar to Equation:.
         /// </summary>
         public static string Utils_calculate_equationHeader {
             get {
@@ -1935,7 +1944,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Utils_calculate_title).
+        ///   Looks up a localized string similar to Calculator.
         /// </summary>
         public static string Utils_calculate_title {
             get {
@@ -1998,7 +2007,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to API Ping time was `{0}ms`!.
+        ///   Looks up a localized string similar to Took `{0}ms` to ping **{1}**!.
         /// </summary>
         public static string Utils_ping_pingtime {
             get {

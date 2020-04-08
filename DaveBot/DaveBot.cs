@@ -157,7 +157,12 @@ namespace DaveBot
             Ready.TrySetResult(true);
             
             ConnectedAtTime = DateTime.Now;
-            _log.Info($"It took {new TimeSpan(ConnectedAtTime.Ticks - StartTime.Ticks).TotalSeconds} second(s) to boot up.");
+#if PUBLIC_BUILD
+            int secsOffset = 30;
+#else
+            int secsOffset = 0;
+#endif
+            _log.Info($"It took {new TimeSpan(ConnectedAtTime.Ticks - StartTime.Ticks).TotalSeconds - secsOffset} second(s) to boot up.");
         }
 
         public async Task StartAndBlockAsync(params string[] args)
