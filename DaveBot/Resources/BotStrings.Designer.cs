@@ -758,6 +758,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DaveFun_wedgie {
+            get {
+                return ResourceManager.GetString("DaveFun_wedgie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to **Link to davemadson&apos;s YouTube:**.
         /// </summary>
         public static string Davemadson_davemadson {
@@ -1028,7 +1037,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An error has occurred....
+        ///   Looks up a localized string similar to An error has occurred..
         /// </summary>
         public static string err_generic {
             get {
@@ -1656,7 +1665,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to :mailbox: I would&apos;ve DMed you some helpful information, but I can&apos;t DM you! Please enable your DMs and try this command again..
+        ///   Looks up a localized string similar to :mailbox: I would&apos;ve DMed you some helpful information, but I can&apos;t seem to DM you! Please enable your DMs and try this command again..
         /// </summary>
         public static string Help_unableToDM {
             get {
@@ -1863,7 +1872,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oh, uh, your message contained a swear word (or words), and due to rules in place on this server, it was automatically deleted..
+        ///   Looks up a localized string similar to {0} Oh, uh, your message contained a swear word (or words), and due to rules in place on this server, it was automatically deleted..
         /// </summary>
         public static string Moderation_swearFilter_block1 {
             get {
@@ -1872,7 +1881,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Moderation_swearFilter_block2).
+        ///   Looks up a localized string similar to {0}, you are aware that rules in place on this server prevent swearing, right?.
         /// </summary>
         public static string Moderation_swearFilter_block2 {
             get {
@@ -1881,7 +1890,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hmm...my bad word detector smells something fishy about the message you sent. Therefore, it has been deleted..
+        ///   Looks up a localized string similar to {0} Hmm...my bad word detector smells something fishy about the message you sent. Therefore, it has been deleted..
         /// </summary>
         public static string Moderation_swearFilter_block3 {
             get {
@@ -1890,7 +1899,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Moderation_swearFilter_block4).
+        ///   Looks up a localized string similar to {0} Due to rules against swearing in place on this server, your message has been deleted..
         /// </summary>
         public static string Moderation_swearFilter_block4 {
             get {
@@ -1899,11 +1908,29 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder (Moderation_swearFilter_block5).
+        ///   Looks up a localized string similar to {0}, your message was deleted because it contained swearing. Please be more careful with your words..
         /// </summary>
         public static string Moderation_swearFilter_block5 {
             get {
                 return ResourceManager.GetString("Moderation_swearFilter_block5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to :zzz: **I noticed that there has been no activity for quite a while. As such, I have deemed this server to be dead, and I must now leave the server. Hope I have served you all well! *(Reinvite me if you&apos;re against my decision!)***.
+        /// </summary>
+        public static string Services_autoLeaveDeadServers_noticeMsg {
+            get {
+                return ResourceManager.GetString("Services_autoLeaveDeadServers_noticeMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to :no_entry_sign: **Sorry; your server does not meet the minimum member requirements for this bot! Be sure to invite me again once your server has gotten just a *little* bigger!**.
+        /// </summary>
+        public static string Services_autoLeaveReallySmallServers {
+            get {
+                return ResourceManager.GetString("Services_autoLeaveReallySmallServers", resourceCulture);
             }
         }
         
@@ -2079,6 +2106,24 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to * The bot owner&apos;s ID specified in the configuration seems to be invalid..
+        /// </summary>
+        public static string Utils_showWarns_invalidBotOwner {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_invalidBotOwner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * The bot owner field has not been filled out yet in the configuration..
+        /// </summary>
+        public static string Utils_showWarns_noBotOwner {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_noBotOwner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  == There are no warnings at this time. ==.
         /// </summary>
         public static string Utils_showWarns_none {
@@ -2106,11 +2151,20 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to * The bot is currently set to use {0} shard(s), while the Discord API recommends that you use {1} shard(s) for this bot. Tell the owner to reconfigure it accordingly..
+        ///   Looks up a localized string similar to * The bot is currently set to use {0} shard(s), while the Discord API recommends that this bot should use {1} shard(s) for this bot. Tell the owner to reconfigure it accordingly..
         /// </summary>
         public static string Utils_showWarns_shardCount {
             get {
                 return ResourceManager.GetString("Utils_showWarns_shardCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warnings:.
+        /// </summary>
+        public static string Utils_showWarns_title {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_title", resourceCulture);
             }
         }
         
@@ -2259,7 +2313,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Features:.
+        ///   Looks up a localized string similar to Special features:.
         /// </summary>
         public static string Utils_sinfo_features {
             get {

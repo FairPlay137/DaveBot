@@ -16,6 +16,9 @@ namespace DaveBot.Modules
                                         "Very doubtful.", "Reply hazy; try again.", "Ask again later.", "Better not tell you now.",
                                         "Cannot predict now.", "Concentrate and ask again."};
 
+        string[] DefaultReviveChatTopics = { "The last video game you played is the world you somehow end up in. How well do you think the experience would go?",
+                                        ""};
+
         private readonly IBotConfiguration _config;
 
         public FunModule(IBotConfiguration config)
@@ -99,6 +102,7 @@ namespace DaveBot.Modules
             }
         }
 
-        
+        /*[Command("reviveChat")]
+        [Summary("Generates a random topic to attempt to bring life back to a dead chat.")]*/
     }
 }

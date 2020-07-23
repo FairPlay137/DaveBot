@@ -16,7 +16,7 @@ namespace DaveBot.Modules
 
         private readonly IBotConfiguration _config;
 
-        private readonly string[] pingLocations = { //TODO: Embed this into the config too
+        private readonly string[] defaultPingLocations = { //TODO: Embed this into the config too
             "127.0.0.1",
             "localhost",
             "Google",
@@ -63,7 +63,7 @@ namespace DaveBot.Modules
             pleasewait.Dispose();
             await ReplyAsync(Context.User.Mention, false, new EmbedBuilder()
                 .WithTitle("🏓 " + StringResourceHandler.GetTextStatic("Utils", "ping_title"))
-                .WithDescription(subtitleText+'\n'+StringResourceHandler.GetTextStatic("Utils", "ping_pingtime", sw.ElapsedMilliseconds, pingLocations[random.Next(pingLocations.Length)]))
+                .WithDescription(subtitleText+'\n'+StringResourceHandler.GetTextStatic("Utils", "ping_pingtime", sw.ElapsedMilliseconds, defaultPingLocations[random.Next(defaultPingLocations.Length)]))
                 .WithFooter(footerText)
                 .WithColor(Color.Blue)
                 .Build());

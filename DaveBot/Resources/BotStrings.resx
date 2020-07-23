@@ -521,7 +521,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>{0}, your message hasn't been sent to the other end due to the word blacklist in effect on this server.</value>
   </data>
   <data name="Help_unableToDM" xml:space="preserve">
-    <value>:mailbox: I would've DMed you some helpful information, but I can't DM you! Please enable your DMs and try this command again.</value>
+    <value>:mailbox: I would've DMed you some helpful information, but I can't seem to DM you! Please enable your DMs and try this command again.</value>
   </data>
   <data name="Moderation_hackban" xml:space="preserve">
     <value>Successfully hackbanned user ID {0}.</value>
@@ -575,7 +575,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Emojis:</value>
   </data>
   <data name="Utils_sinfo_features" xml:space="preserve">
-    <value>Features:</value>
+    <value>Special features:</value>
   </data>
   <data name="Utils_sinfo_feature_INVITE_SPLASH" xml:space="preserve">
     <value>Custom invite background</value>
@@ -719,7 +719,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>This command currently is not implemented. Try again later.</value>
   </data>
   <data name="err_generic" xml:space="preserve">
-    <value>An error has occurred...</value>
+    <value>An error has occurred.</value>
   </data>
   <data name="Fun_cleverbot_connectionError" xml:space="preserve">
     <value>Couldn't establish a connection to the Cleverbot servers!</value>
@@ -776,19 +776,19 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>It appears I don't have all the dependencies needed for playing audio. If you are the bot owner, please check to see if FFmpeg is set up correctly for use with this bot.</value>
   </data>
   <data name="Moderation_swearFilter_block1" xml:space="preserve">
-    <value>Oh, uh, your message contained a swear word (or words), and due to rules in place on this server, it was automatically deleted.</value>
+    <value>{0} Oh, uh, your message contained a swear word (or words), and due to rules in place on this server, it was automatically deleted.</value>
   </data>
   <data name="Moderation_swearFilter_block2" xml:space="preserve">
-    <value>Placeholder (Moderation_swearFilter_block2)</value>
+    <value>{0}, you are aware that rules in place on this server prevent swearing, right?</value>
   </data>
   <data name="Moderation_swearFilter_block3" xml:space="preserve">
-    <value>Hmm...my bad word detector smells something fishy about the message you sent. Therefore, it has been deleted.</value>
+    <value>{0} Hmm...my bad word detector smells something fishy about the message you sent. Therefore, it has been deleted.</value>
   </data>
   <data name="Moderation_swearFilter_block4" xml:space="preserve">
-    <value>Placeholder (Moderation_swearFilter_block4)</value>
+    <value>{0} Due to rules against swearing in place on this server, your message has been deleted.</value>
   </data>
   <data name="Moderation_swearFilter_block5" xml:space="preserve">
-    <value>Placeholder (Moderation_swearFilter_block5)</value>
+    <value>{0}, your message was deleted because it contained swearing. Please be more careful with your words.</value>
   </data>
   <data name="Admin_blacklist_allPermanent" xml:space="preserve">
     <value>__**Notice:**__ Sadly, this bot's functionality has been disabled until further notice.</value>
@@ -902,7 +902,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>* This warning does not have a description.</value>
   </data>
   <data name="Utils_showWarns_shardCount" xml:space="preserve">
-    <value>* The bot is currently set to use {0} shard(s), while the Discord API recommends that you use {1} shard(s) for this bot. Tell the owner to reconfigure it accordingly.</value>
+    <value>* The bot is currently set to use {0} shard(s), while the Discord API recommends that this bot should use {1} shard(s) for this bot. Tell the owner to reconfigure it accordingly.</value>
   </data>
   <data name="generic_loadingPlayingStatus" xml:space="preserve">
     <value>Please wait...loading...</value>
@@ -958,5 +958,23 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="err_davebotEliteOnly" xml:space="preserve">
     <value>Sorry, that command is only available with DaveBot Elite! Want to unlock DaveBot Elite? Become a Patron, and pledge at least $2 for the membership! You can also unlock DaveBot Elite for one whole server if you pledge! Alternatively, you can boost the DaveBot Central server to unlock DaveBot Elite for yourself!</value>
     <comment>This feature might never be implemented, since this *is* an open-source Discord bot, after all. People would likely clone the bot and make their own instance with all the Elite commands unlocked.</comment>
+  </data>
+  <data name="Utils_showWarns_title" xml:space="preserve">
+    <value>Warnings:</value>
+  </data>
+  <data name="DaveFun_wedgie" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Services_autoLeaveDeadServers_noticeMsg" xml:space="preserve">
+    <value>:zzz: **I noticed that there has been no activity for quite a while. As such, I have deemed this server to be dead, and I must now leave the server. Hope I have served you all well! *(Reinvite me if you're against my decision!)***</value>
+  </data>
+  <data name="Services_autoLeaveReallySmallServers" xml:space="preserve">
+    <value>:no_entry_sign: **Sorry; your server does not meet the minimum member requirements for this bot! Be sure to invite me again once your server has gotten just a *little* bigger!**</value>
+  </data>
+  <data name="Utils_showWarns_invalidBotOwner" xml:space="preserve">
+    <value>* The bot owner's ID specified in the configuration seems to be invalid.</value>
+  </data>
+  <data name="Utils_showWarns_noBotOwner" xml:space="preserve">
+    <value>* The bot owner field has not been filled out yet in the configuration.</value>
   </data>
 </root>

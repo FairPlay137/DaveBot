@@ -41,7 +41,8 @@ namespace DaveBot.Modules.Fun.Services
             {
                 try
                 {
-                    foreach (var tp in textPortals)
+                    var tpc = textPortals;
+                    foreach (var tp in tpc)
                     {
                         if (tp.Value != null) //make sure we ignore non-paired portals
                         {
