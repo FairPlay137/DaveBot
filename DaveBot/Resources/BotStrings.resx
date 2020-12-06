@@ -402,7 +402,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>The ball came back so fast I nearly missed it!</value>
   </data>
   <data name="Utils_ping_footer2" xml:space="preserve">
-    <value>Dang, that's fast!</value>
+    <value>Wow, that's fast!</value>
   </data>
   <data name="Utils_ping_footer3" xml:space="preserve">
     <value>Connection is OK.</value>
@@ -510,6 +510,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   </data>
   <data name="Fun_textportal_error_limitReached" xml:space="preserve">
     <value>Cannot create a text portal due to the {0} portal limit on this bot being hit! Please try again later!</value>
+    <comment>May not be used in the future</comment>
   </data>
   <data name="Fun_textportal_waiting" xml:space="preserve">
     <value>A new text portal was created. Waiting for the other end...</value>
@@ -776,19 +777,19 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>It appears I don't have all the dependencies needed for playing audio. If you are the bot owner, please check to see if FFmpeg is set up correctly for use with this bot.</value>
   </data>
   <data name="Moderation_swearFilter_block1" xml:space="preserve">
-    <value>{0} Oh, uh, your message contained a swear word (or words), and due to rules in place on this server, it was automatically deleted.</value>
+    <value>{0} Oh, uh, your message contained a word (or multiple) which is not allowed on this server, so it was automatically deleted.</value>
   </data>
   <data name="Moderation_swearFilter_block2" xml:space="preserve">
-    <value>{0}, you are aware that rules in place on this server prevent swearing, right?</value>
+    <value>{0}, please be more careful with your word choices!</value>
   </data>
   <data name="Moderation_swearFilter_block3" xml:space="preserve">
     <value>{0} Hmm...my bad word detector smells something fishy about the message you sent. Therefore, it has been deleted.</value>
   </data>
   <data name="Moderation_swearFilter_block4" xml:space="preserve">
-    <value>{0} Due to rules against swearing in place on this server, your message has been deleted.</value>
+    <value>{0} Due to rules against the use of certain words in place on this server, your message has been deleted.</value>
   </data>
   <data name="Moderation_swearFilter_block5" xml:space="preserve">
-    <value>{0}, your message was deleted because it contained swearing. Please be more careful with your words.</value>
+    <value>{0}, your message was deleted because it contained one or words not allowed on this server. Please be more careful with your words.</value>
   </data>
   <data name="Admin_blacklist_allPermanent" xml:space="preserve">
     <value>__**Notice:**__ Sadly, this bot's functionality has been disabled until further notice.</value>
@@ -797,20 +798,20 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>__**Notice:**__ This bot's functionality has been disabled until {0}.</value>
   </data>
   <data name="Admin_blacklist_permanent" xml:space="preserve">
-    <value>__**Notice:**__ The bot owner has permanently blocked you from using this bot.</value>
+    <value>__**Notice:**__ The bot owner has permanently blocked you from using this bot. If you wish to appeal this block, please type `{0}appeal`.</value>
   </data>
   <data name="Admin_blacklist_permanent_withReason" xml:space="preserve">
     <value>__**Notice:**__ The bot owner has permanently blocked you from using this bot for the following reason: ```
 {0}
-```</value>
+``` If you wish to appeal this block, please type `{1}appeal`.</value>
   </data>
   <data name="Admin_blacklist_temporary" xml:space="preserve">
-    <value>__**Notice:**__ The bot owner has blocked you from using this bot until {0}.</value>
+    <value>__**Notice:**__ The bot owner has blocked you from using this bot until {0}. If you wish to appeal this block, please type `{1}appeal`.</value>
   </data>
   <data name="Admin_blacklist_temporary_withReason" xml:space="preserve">
     <value>__**Notice:**__ The bot owner has blocked you from using this bot until {0} for the following reason: ```
 {1}
-```</value>
+``` If you wish to appeal this block, please type `{2}appeal`.</value>
   </data>
   <data name="DaveNotifications_activityType_bulletin" xml:space="preserve">
     <value>📣 A bulletin was posted on {1}'s channel!</value>
@@ -963,10 +964,10 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Warnings:</value>
   </data>
   <data name="DaveFun_wedgie" xml:space="preserve">
-    <value />
+    <value>That's it, {0}! Take this! _[gives {0} a wedgie]_</value>
   </data>
   <data name="Services_autoLeaveDeadServers_noticeMsg" xml:space="preserve">
-    <value>:zzz: **I noticed that there has been no activity for quite a while. As such, I have deemed this server to be dead, and I must now leave the server. Hope I have served you all well! *(Reinvite me if you're against my decision!)***</value>
+    <value>:zzz: **I noticed that there has been no activity for quite a while. As such, I have deemed this server to be dead, and I must now leave the server. Hope I have served you all well! *(Reinvite me if you want)***</value>
   </data>
   <data name="Services_autoLeaveReallySmallServers" xml:space="preserve">
     <value>:no_entry_sign: **Sorry; your server does not meet the minimum member requirements for this bot! Be sure to invite me again once your server has gotten just a *little* bigger!**</value>
@@ -976,5 +977,74 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   </data>
   <data name="Utils_showWarns_noBotOwner" xml:space="preserve">
     <value>* The bot owner field has not been filled out yet in the configuration.</value>
+  </data>
+  <data name="Admin_submitAppeal" xml:space="preserve">
+    <value>Your block appeal has been submitted successfully.</value>
+  </data>
+  <data name="Admin_submitAppeal_accepted" xml:space="preserve">
+    <value>:white_check_mark: **After reviewing your appeal, the bot owner has made the decision to accept the appeal and lift your block from the bot!**</value>
+  </data>
+  <data name="Admin_submitAppeal_rejected" xml:space="preserve">
+    <value>:x: **After reviewing your appeal, the bot owner has decided to reject it. You may try again in {0}.**</value>
+  </data>
+  <data name="err_submitAppeal_alreadySubmitted" xml:space="preserve">
+    <value>You have already submitted a pending block appeal.</value>
+  </data>
+  <data name="err_submitAppeal_notBlocked" xml:space="preserve">
+    <value>You may only submit a block appeal if you are blocked from the bot.</value>
+  </data>
+  <data name="err_submitAppeal_restricted" xml:space="preserve">
+    <value>You may not submit an appeal, as your ability to do so has been restricted.</value>
+  </data>
+  <data name="err_submitAppeal_tooSoon" xml:space="preserve">
+    <value>Since your previous appeal was rejected, you need to wait {0} before making another block appeal.</value>
+  </data>
+  <data name="Moderaion_hackban_defaultReason" xml:space="preserve">
+    <value>Hackbanned by {0}</value>
+  </data>
+  <data name="Moderaion_hackban_reasonPrefix" xml:space="preserve">
+    <value>Hackbanned by {0} - Reason: {1}</value>
+  </data>
+  <data name="Moderation_warn" xml:space="preserve">
+    <value>Successfully warned {0}.</value>
+  </data>
+  <data name="Moderation_warnpunish_entry" xml:space="preserve">
+    <value>If a user reaches {0} warnings, they will be {1}.</value>
+  </data>
+  <data name="Moderation_warn_punished" xml:space="preserve">
+    <value>Successfully warned {0}. Since this user has reached {1} warnings, I have {2} them.</value>
+  </data>
+  <data name="Moderation_warn_punishment_0" xml:space="preserve">
+    <value>muted</value>
+  </data>
+  <data name="Moderation_warn_punishment_1" xml:space="preserve">
+    <value>kicked</value>
+  </data>
+  <data name="Moderation_warn_punishment_2" xml:space="preserve">
+    <value>banned ({0})</value>
+  </data>
+  <data name="Moderation_warn_punishment_3" xml:space="preserve">
+    <value>permanently banned</value>
+  </data>
+  <data name="Utils_showWarns_mysqlcredsincorrect" xml:space="preserve">
+    <value>* The bot was unable to connect to the MySQL database. Some features may be unavailable.</value>
+  </data>
+  <data name="Utils_showWarns_mysqlcredsincorrect_sqlitefallback" xml:space="preserve">
+    <value>* The bot was unable to connect to the MySQL database, and as such has fallen back to SQLite.</value>
+  </data>
+  <data name="Utils_showWarns_mysqltableserror" xml:space="preserve">
+    <value>* The MySQL database has not been initialized properly, or is corrupt. Some features may be unavailable.</value>
+  </data>
+  <data name="Utils_showWarns_mysqltableserror_sqlitefallback" xml:space="preserve">
+    <value>* The MySQL database has not been initialized properly, or is corrupt. The bot has fallen back to SQLite.</value>
+  </data>
+  <data name="Utils_showWarns_sqlitedberror" xml:space="preserve">
+    <value>* The SQLite database could not be opened. Some features may be unavailable.</value>
+  </data>
+  <data name="DaveFun_shinKick" xml:space="preserve">
+    <value>Take this, {0}! **[SHIN KICK]**</value>
+  </data>
+  <data name="Fun_textportal_connectionLost_freeUpSpace" xml:space="preserve">
+    <value>The text portal was closed to </value>
   </data>
 </root>

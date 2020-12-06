@@ -39,7 +39,7 @@ namespace DaveBot
         {
             SetupLogger();
             _log = LogManager.GetCurrentClassLogger();
-            SimpleElevatedPermissionCheck();
+            SloppyElevatedPermissionCheck();
 
             _log.Info($"DaveBot v{GetType().Assembly.GetName().Version} is initializing; please wait...");
 
@@ -218,16 +218,17 @@ namespace DaveBot
             return Task.CompletedTask;
         }
 
-        private void SimpleElevatedPermissionCheck()
+        private void SloppyElevatedPermissionCheck()
         {
             try
             {
-                File.WriteAllText("testfile", "asdf");
+                File.WriteAllText("testfile", "This is a test file to check to see if DaveBot can save or not. This file should have been deleted as part of the normal startup process. If it hasn't, please delete this file.");
                 File.Delete("testfile");
             }
             catch
             {
-                _log.Error("Please run DaveBot as an administrator.");
+                _log.Error("DaveBot cannot start, either due to not having permission to save in the program folder, or there being insufficient disk space.\n"+
+                    "Please make sure DaveBot is running as an administrator, and that you have at least *some* free space on the drive DaveBot is on.");
                 Console.ReadKey();
                 Environment.Exit(2);
             }
@@ -250,12 +251,12 @@ namespace DaveBot
         }
         private Task ShardConnect(DiscordSocketClient client)
         {
-            //_log.Info($"Shard #{client.ShardId} has connected!");
+            _log.Info($"Shard #{client.ShardId} has connected!");
             return Task.CompletedTask;
         }
         private Task ShardDisconnect(Exception error, DiscordSocketClient client)
         {
-            //_log.Info($"Shard #{client.ShardId} has lost connection!");
+            _log.Info($"Shard #{client.ShardId} has lost connection!");
             return Task.CompletedTask;
         }
 
@@ -283,6 +284,7 @@ namespace DaveBot
         {
             if(!disposed)
                 Dispose(true);
+            GC.SuppressFinalize(this);
         }
         ~DaveBot()
         {

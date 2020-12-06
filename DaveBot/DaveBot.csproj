@@ -437,6 +437,11 @@
     <Compile Include="Common\StringResourceHandler.cs" />
     <Compile Include="Modules\Utils\UtilsModule.cs" />
     <Compile Include="Modules\CustomReactions\Services\CustomReactionService.cs" />
+    <Compile Include="Resources\CommandHelpStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommandHelpStrings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\IBotConfiguration.cs" />
     <Compile Include="Services\CommandHandler.cs" />
     <Compile Include="Services\Impl\BotConfiguration.cs" />
@@ -459,6 +464,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BotStrings.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CommandHelpStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommandHelpStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -55,5 +55,12 @@ namespace DaveBot.Modules
                 await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "clean_easterEgg1"));
             }
         }
+
+        [Command("shinkick")]
+        [Summary("(To be written)")]
+        public async Task ShinKick([Remainder] string target)
+        {
+            await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "shinkick", target));
+        }
     }
 }

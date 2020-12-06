@@ -79,7 +79,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to __**Notice:**__ The bot owner has permanently blocked you from using this bot..
+        ///   Looks up a localized string similar to __**Notice:**__ The bot owner has permanently blocked you from using this bot. If you wish to appeal this block, please type `{0}appeal`..
         /// </summary>
         public static string Admin_blacklist_permanent {
             get {
@@ -90,7 +90,7 @@ namespace DaveBot.Resources {
         /// <summary>
         ///   Looks up a localized string similar to __**Notice:**__ The bot owner has permanently blocked you from using this bot for the following reason: ```
         ///{0}
-        ///```.
+        ///``` If you wish to appeal this block, please type `{1}appeal`..
         /// </summary>
         public static string Admin_blacklist_permanent_withReason {
             get {
@@ -99,7 +99,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to __**Notice:**__ The bot owner has blocked you from using this bot until {0}..
+        ///   Looks up a localized string similar to __**Notice:**__ The bot owner has blocked you from using this bot until {0}. If you wish to appeal this block, please type `{1}appeal`..
         /// </summary>
         public static string Admin_blacklist_temporary {
             get {
@@ -110,7 +110,7 @@ namespace DaveBot.Resources {
         /// <summary>
         ///   Looks up a localized string similar to __**Notice:**__ The bot owner has blocked you from using this bot until {0} for the following reason: ```
         ///{1}
-        ///```.
+        ///``` If you wish to appeal this block, please type `{2}appeal`..
         /// </summary>
         public static string Admin_blacklist_temporary_withReason {
             get {
@@ -259,6 +259,33 @@ namespace DaveBot.Resources {
         public static string Admin_shutdown {
             get {
                 return ResourceManager.GetString("Admin_shutdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your block appeal has been submitted successfully..
+        /// </summary>
+        public static string Admin_submitAppeal {
+            get {
+                return ResourceManager.GetString("Admin_submitAppeal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to :white_check_mark: **After reviewing your appeal, the bot owner has made the decision to accept the appeal and lift your block from the bot!**.
+        /// </summary>
+        public static string Admin_submitAppeal_accepted {
+            get {
+                return ResourceManager.GetString("Admin_submitAppeal_accepted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to :x: **After reviewing your appeal, the bot owner has decided to reject it. You may try again in {0}.**.
+        /// </summary>
+        public static string Admin_submitAppeal_rejected {
+            get {
+                return ResourceManager.GetString("Admin_submitAppeal_rejected", resourceCulture);
             }
         }
         
@@ -758,7 +785,16 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Take this, {0}! **[SHIN KICK]**.
+        /// </summary>
+        public static string DaveFun_shinKick {
+            get {
+                return ResourceManager.GetString("DaveFun_shinKick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to That&apos;s it, {0}! Take this! _[gives {0} a wedgie]_.
         /// </summary>
         public static string DaveFun_wedgie {
             get {
@@ -1139,6 +1175,42 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have already submitted a pending block appeal..
+        /// </summary>
+        public static string err_submitAppeal_alreadySubmitted {
+            get {
+                return ResourceManager.GetString("err_submitAppeal_alreadySubmitted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You may only submit a block appeal if you are blocked from the bot..
+        /// </summary>
+        public static string err_submitAppeal_notBlocked {
+            get {
+                return ResourceManager.GetString("err_submitAppeal_notBlocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You may not submit an appeal, as your ability to do so has been restricted..
+        /// </summary>
+        public static string err_submitAppeal_restricted {
+            get {
+                return ResourceManager.GetString("err_submitAppeal_restricted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Since your previous appeal was rejected, you need to wait {0} before making another block appeal..
+        /// </summary>
+        public static string err_submitAppeal_tooSoon {
+            get {
+                return ResourceManager.GetString("err_submitAppeal_tooSoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not enough arguments have been given..
         /// </summary>
         public static string err_tooFewArgs {
@@ -1419,6 +1491,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The text portal was closed to .
+        /// </summary>
+        public static string Fun_textportal_connectionLost_freeUpSpace {
+            get {
+                return ResourceManager.GetString("Fun_textportal_connectionLost_freeUpSpace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The text portal was closed..
         /// </summary>
         public static string Fun_textportal_connectionLost_generic {
@@ -1674,6 +1755,24 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hackbanned by {0}.
+        /// </summary>
+        public static string Moderaion_hackban_defaultReason {
+            get {
+                return ResourceManager.GetString("Moderaion_hackban_defaultReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hackbanned by {0} - Reason: {1}.
+        /// </summary>
+        public static string Moderaion_hackban_reasonPrefix {
+            get {
+                return ResourceManager.GetString("Moderaion_hackban_reasonPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully banned {0} from the server..
         /// </summary>
         public static string Moderation_ban {
@@ -1872,7 +1971,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Oh, uh, your message contained a swear word (or words), and due to rules in place on this server, it was automatically deleted..
+        ///   Looks up a localized string similar to {0} Oh, uh, your message contained a word (or multiple) which is not allowed on this server, so it was automatically deleted..
         /// </summary>
         public static string Moderation_swearFilter_block1 {
             get {
@@ -1881,7 +1980,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}, you are aware that rules in place on this server prevent swearing, right?.
+        ///   Looks up a localized string similar to {0}, please be more careful with your word choices!.
         /// </summary>
         public static string Moderation_swearFilter_block2 {
             get {
@@ -1899,7 +1998,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Due to rules against swearing in place on this server, your message has been deleted..
+        ///   Looks up a localized string similar to {0} Due to rules against the use of certain words in place on this server, your message has been deleted..
         /// </summary>
         public static string Moderation_swearFilter_block4 {
             get {
@@ -1908,7 +2007,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}, your message was deleted because it contained swearing. Please be more careful with your words..
+        ///   Looks up a localized string similar to {0}, your message was deleted because it contained one or words not allowed on this server. Please be more careful with your words..
         /// </summary>
         public static string Moderation_swearFilter_block5 {
             get {
@@ -1917,7 +2016,70 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to :zzz: **I noticed that there has been no activity for quite a while. As such, I have deemed this server to be dead, and I must now leave the server. Hope I have served you all well! *(Reinvite me if you&apos;re against my decision!)***.
+        ///   Looks up a localized string similar to Successfully warned {0}..
+        /// </summary>
+        public static string Moderation_warn {
+            get {
+                return ResourceManager.GetString("Moderation_warn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully warned {0}. Since this user has reached {1} warnings, I have {2} them..
+        /// </summary>
+        public static string Moderation_warn_punished {
+            get {
+                return ResourceManager.GetString("Moderation_warn_punished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to muted.
+        /// </summary>
+        public static string Moderation_warn_punishment_0 {
+            get {
+                return ResourceManager.GetString("Moderation_warn_punishment_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to kicked.
+        /// </summary>
+        public static string Moderation_warn_punishment_1 {
+            get {
+                return ResourceManager.GetString("Moderation_warn_punishment_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to banned ({0}).
+        /// </summary>
+        public static string Moderation_warn_punishment_2 {
+            get {
+                return ResourceManager.GetString("Moderation_warn_punishment_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to permanently banned.
+        /// </summary>
+        public static string Moderation_warn_punishment_3 {
+            get {
+                return ResourceManager.GetString("Moderation_warn_punishment_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If a user reaches {0} warnings, they will be {1}..
+        /// </summary>
+        public static string Moderation_warnpunish_entry {
+            get {
+                return ResourceManager.GetString("Moderation_warnpunish_entry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to :zzz: **I noticed that there has been no activity for quite a while. As such, I have deemed this server to be dead, and I must now leave the server. Hope I have served you all well! *(Reinvite me if you want)***.
         /// </summary>
         public static string Services_autoLeaveDeadServers_noticeMsg {
             get {
@@ -1998,7 +2160,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dang, that&apos;s fast!.
+        ///   Looks up a localized string similar to Wow, that&apos;s fast!.
         /// </summary>
         public static string Utils_ping_footer2 {
             get {
@@ -2115,6 +2277,42 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to * The bot was unable to connect to the MySQL database. Some features may be unavailable..
+        /// </summary>
+        public static string Utils_showWarns_mysqlcredsincorrect {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_mysqlcredsincorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * The bot was unable to connect to the MySQL database, and as such has fallen back to SQLite..
+        /// </summary>
+        public static string Utils_showWarns_mysqlcredsincorrect_sqlitefallback {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_mysqlcredsincorrect_sqlitefallback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * The MySQL database has not been initialized properly, or is corrupt. Some features may be unavailable..
+        /// </summary>
+        public static string Utils_showWarns_mysqltableserror {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_mysqltableserror", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * The MySQL database has not been initialized properly, or is corrupt. The bot has fallen back to SQLite..
+        /// </summary>
+        public static string Utils_showWarns_mysqltableserror_sqlitefallback {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_mysqltableserror_sqlitefallback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to * The bot owner field has not been filled out yet in the configuration..
         /// </summary>
         public static string Utils_showWarns_noBotOwner {
@@ -2156,6 +2354,15 @@ namespace DaveBot.Resources {
         public static string Utils_showWarns_shardCount {
             get {
                 return ResourceManager.GetString("Utils_showWarns_shardCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * The SQLite database could not be opened. Some features may be unavailable..
+        /// </summary>
+        public static string Utils_showWarns_sqlitedberror {
+            get {
+                return ResourceManager.GetString("Utils_showWarns_sqlitedberror", resourceCulture);
             }
         }
         
