@@ -1047,4 +1047,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="Fun_textportal_connectionLost_freeUpSpace" xml:space="preserve">
     <value>The text portal was closed to </value>
   </data>
+  <data name="Fun_textportal_error_guildTooNew" xml:space="preserve">
+    <value>Sorry, this server is too new to be eligible for the text portals feature yet!</value>
+  </data>
 </root>

@@ -1554,6 +1554,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, this server is too new to be eligible for the text portals feature yet!.
+        /// </summary>
+        public static string Fun_textportal_error_guildTooNew {
+            get {
+                return ResourceManager.GetString("Fun_textportal_error_guildTooNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot create a text portal due to the {0} portal limit on this bot being hit! Please try again later!.
         /// </summary>
         public static string Fun_textportal_error_limitReached {
