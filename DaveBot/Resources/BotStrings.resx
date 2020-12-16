@@ -1041,7 +1041,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="Utils_showWarns_sqlitedberror" xml:space="preserve">
     <value>* The SQLite database could not be opened. Some features may be unavailable.</value>
   </data>
-  <data name="DaveFun_shinKick" xml:space="preserve">
+  <data name="DaveFun_shinkick" xml:space="preserve">
     <value>Take this, {0}! **[SHIN KICK]**</value>
   </data>
   <data name="Fun_textportal_connectionLost_freeUpSpace" xml:space="preserve">

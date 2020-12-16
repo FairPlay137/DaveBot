@@ -73,7 +73,7 @@ namespace DaveBot.Modules
         public async Task Invite()
         {
             await Context.Message.AddReactionAsync(new Emoji("👌"));
-            await ReplyAsync($"{Context.User.Mention} - {StringResourceHandler.GetTextStatic("Utils", "invite")} https://discordapp.com/oauth2/authorize?client_id={Context.Client.CurrentUser.Id}&permissions=8&scope=bot");
+            await ReplyAsync($"{Context.User.Mention} - {StringResourceHandler.GetTextStatic("Utils", "invite")} https://discordapp.com/oauth2/authorize?client_id={Context.Client.CurrentUser.Id}&permissions=8&scope=bot%20applications.commands");
         }
         [Command("stats")]
         [Summary("Gets this bot's stats.")]

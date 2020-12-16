@@ -787,9 +787,9 @@ namespace DaveBot.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Take this, {0}! **[SHIN KICK]**.
         /// </summary>
-        public static string DaveFun_shinKick {
+        public static string DaveFun_shinkick {
             get {
-                return ResourceManager.GetString("DaveFun_shinKick", resourceCulture);
+                return ResourceManager.GetString("DaveFun_shinkick", resourceCulture);
             }
         }
         
