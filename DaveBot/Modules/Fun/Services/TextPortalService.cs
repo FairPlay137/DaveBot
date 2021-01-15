@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿#if !PUBLIC_BUILD
+using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
 using DaveBot.Services;
@@ -231,3 +232,4 @@ namespace DaveBot.Modules.Fun.Services
         }
     }
 }
+#endif

@@ -1050,4 +1050,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="Fun_textportal_error_guildTooNew" xml:space="preserve">
     <value>Sorry, this server is too new to be eligible for the text portals feature yet!</value>
   </data>
+  <data name="err_helpCommandSyntaxChanged" xml:space="preserve">
+    <value>The {0}help command has changed. It no longer accepts any arguments. In the future, this help command will also serve as a way to view command help.</value>
+  </data>
 </root>

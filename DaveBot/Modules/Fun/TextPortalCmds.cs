@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿#if !PUBLIC_BUILD
+using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using DaveBot.Services;
@@ -82,3 +83,4 @@ namespace DaveBot.Modules.Fun
         }
     }
 }
+#endif

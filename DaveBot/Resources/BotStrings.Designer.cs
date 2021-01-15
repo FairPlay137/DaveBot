@@ -1082,6 +1082,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The {0}help command has changed. It no longer accepts any arguments. In the future, this help command will also serve as a way to view command help..
+        /// </summary>
+        public static string err_helpCommandSyntaxChanged {
+            get {
+                return ResourceManager.GetString("err_helpCommandSyntaxChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You can&apos;t have {0} total shard(s)!.
         /// </summary>
         public static string err_invalidShardCount {

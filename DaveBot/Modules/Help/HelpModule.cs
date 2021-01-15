@@ -101,12 +101,12 @@ namespace DaveBot.Modules
                 await ReplyAsync(Context.User.Mention, false, commandseb.Build());
             }
         }
-        /*[Command("help")]
+        [Command("help")]
         [Summary("Shows detailed help for a specific command.")]
         [Alias("h")]
-        public Task CommandHelp([Remainder] string commandName)
+        public async Task CommandHelp([Remainder] string commandName)
         {
-            return Task.FromResult(ExecuteResult.FromError(CommandError.Unsuccessful, StringResourceHandler.GetTextStatic("err", "unimplementedCommand")));
-        }*/
+            await ReplyAsync(StringResourceHandler.GetTextStatic("err", "helpCommandSyntaxChanged", _config.DefaultPrefix));
+        }
     }
 }

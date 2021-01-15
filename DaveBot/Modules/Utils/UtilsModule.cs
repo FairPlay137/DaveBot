@@ -23,13 +23,14 @@ namespace DaveBot.Modules
             "a random server",
             "fairplay137.net",
             "therofl98.co",
-            "2005, to warn them about Windows Vista's then-upcoming release",
+            "2006, to warn them about Windows Vista's then-upcoming release",
             "@everyone",
             "[insert witty ping location here]",
             "davemadson's coffee maker",
             "YouTube",
             "Microsoft Sam",
-            "`undefined`"
+            "`undefined`",
+            "the ROFLCopter"
         };
 
         public UtilsModule(DaveBot bot)
