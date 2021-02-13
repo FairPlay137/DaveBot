@@ -551,6 +551,15 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom reactions are currently disabled for this bot..
+        /// </summary>
+        public static string CustomReactions_disabled {
+            get {
+                return ResourceManager.GetString("CustomReactions_disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Custom Reaction edited!.
         /// </summary>
         public static string CustomReactions_EditCustomReaction {
@@ -2205,7 +2214,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I&apos;ve been waiting ages for the ball to come back!.
+        ///   Looks up a localized string similar to Hello? Is the ball gonna come back any time soon?.
         /// </summary>
         public static string Utils_ping_footer5 {
             get {

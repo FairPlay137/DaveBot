@@ -4,6 +4,7 @@ using Discord;
 using Discord.WebSocket;
 using DaveBot.Services;
 using DaveBot.Common.ModuleBehaviors;
+using NLog;
 
 namespace DaveBot.Modules.CustomReactions.Services
 {
@@ -21,60 +22,64 @@ namespace DaveBot.Modules.CustomReactions.Services
 
         public async Task<bool> TryExecuteEarly(DiscordSocketClient client, IGuild guild, IUserMessage msg)
         {
-            IChannel channel = msg.Channel;
-            foreach (var cr in _config.CustomReactions)
+            if (_config.EnableCustomReactions)
             {
-                string[] key = cr.Key.ToLower().Trim().Split(' ');
-                string[] message = msg.Content.ToLower().Trim().Split(' ');
-                bool matchesKey = true;
-                int index = 0;
-                try
+                IChannel channel = msg.Channel;
+                foreach (var cr in _config.CustomReactions)
                 {
-                    foreach(string kword in key)
+                    string[] key = cr.Key.ToLower().Trim().Split(' ');
+                    string[] message = msg.Content.ToLower().Trim().Split(' ');
+                    bool matchesKey = true;
+                    int index = 0;
+                    try
                     {
-                        string keyw;
-                        switch(kword)
+                        foreach (string kword in key)
                         {
-                            case "%mention%":
-                                keyw = _client.CurrentUser.Mention; break;
-                            case "%user%":
-                                keyw = msg.Author.Mention; break;
-                            default:
-                                keyw = kword; break;
+                            string keyw;
+                            switch (kword)
+                            {
+                                case "%mention%":
+                                    keyw = _client.CurrentUser.Mention; break;
+                                case "%user%":
+                                    keyw = msg.Author.Mention; break;
+                                default:
+                                    keyw = kword; break;
+                            }
+                            if (kword != message[index])
+                                matchesKey = false;
+                            index++;
                         }
-                        if (kword != message[index])
-                            matchesKey = false;
-                        index++;
                     }
-                }
-                catch (Exception)
-                {
-
-                }
-                if (matchesKey)
-                {
-                    string target = "";
-                    for(int x = index; x<message.Length; x++)
-                        target += ' '+message[x];
-                    target = target.TrimStart();
-                    Random random = new Random();
-                    string value = cr.Value[random.Next(cr.Value.Count)]
-                        .Replace("%mention%", _client.CurrentUser.Mention)
-                        .Replace("%user%", msg.Author.Mention)
-                        .Replace("%target%", target);
-                    //TODO: Add "%rng%" for full NadekoBot compatibility
-                    await msg.Channel.SendMessageAsync(value);
-                    return true;
-                    /*LogManager.GetCurrentClassLogger().Info("**Custom Reaction Executed");
-                    LogManager.GetCurrentClassLogger().Info($" Key: \"{cr}\"");
-                    LogManager.GetCurrentClassLogger().Info($" Resp: \"{value}\"");
-                    if (channel.Guild == null)
-                        LogManager.GetCurrentClassLogger().Info(" [Sent in DMs]");
-                    else
+                    catch (Exception e)
                     {
-                        LogManager.GetCurrentClassLogger().Info($" Srvr: \"{channel.Guild.Name}\" ({channel.Guild.Id})");
-                        LogManager.GetCurrentClassLogger().Info($" Chnl: #{channel.Name} ({channel.Id})");
-                    }*/
+                        LogManager.GetCurrentClassLogger().Warn("Exception during custom reaction processing");
+                        LogManager.GetCurrentClassLogger().Warn(e);
+                    }
+                    if (matchesKey)
+                    {
+                        string target = "";
+                        for (int x = index; x < message.Length; x++)
+                            target += ' ' + message[x];
+                        target = target.TrimStart();
+                        Random random = new Random();
+                        string value = cr.Value[random.Next(cr.Value.Count)]
+                            .Replace("%mention%", _client.CurrentUser.Mention)
+                            .Replace("%user%", msg.Author.Mention)
+                            .Replace("%target%", target);
+                        //TODO: Add "%rng%" for full NadekoBot compatibility
+                        await msg.Channel.SendMessageAsync(value);
+                        return true;
+                        /*LogManager.GetCurrentClassLogger().Info("**Custom Reaction Executed");
+                        LogManager.GetCurrentClassLogger().Info($" Key: \"{cr}\"");
+                        LogManager.GetCurrentClassLogger().Info($" Resp: \"{value}\"");
+                        if (channel.Guild == null)
+                            LogManager.GetCurrentClassLogger().Info(" [Sent in DMs]");
+                        else
+                        {
+                            LogManager.GetCurrentClassLogger().Info($" Srvr: \"{channel.Guild.Name}\" ({channel.Guild.Id})");
+                            LogManager.GetCurrentClassLogger().Info($" Chnl: #{channel.Name} ({channel.Id})");
+                        }*/
+                    }
                 }
             }
             return false;

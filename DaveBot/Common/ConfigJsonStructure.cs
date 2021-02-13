@@ -29,6 +29,9 @@ namespace DaveBot.Common
         [JsonProperty("8ballResponses")]
         public string[] EightBallResponses { get; set; }
 
+        [JsonProperty("enableCustomReactions")]
+        public bool EnableCustomReactions { get; set; }
+
         [JsonProperty("customReactions")]
         public Dictionary<string, List<string>> CustomReactions { get; set; }
 

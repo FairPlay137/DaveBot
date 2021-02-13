@@ -17,6 +17,8 @@ namespace DaveBot.Services
 
         string[] EightBallResponses { get; }
 
+        bool EnableCustomReactions { get; set; }
+
         Dictionary<string, List<string>> CustomReactions { get; set; }
 
         bool RotatePlayingStatuses { get; set; }

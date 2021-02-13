@@ -411,7 +411,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>Hmm...seems a bit slow...</value>
   </data>
   <data name="Utils_ping_footer5" xml:space="preserve">
-    <value>I've been waiting ages for the ball to come back!</value>
+    <value>Hello? Is the ball gonna come back any time soon?</value>
   </data>
   <data name="Utils_ping_pingtime" xml:space="preserve">
     <value>Took `{0}ms` to ping **{1}**!</value>
@@ -1052,5 +1052,8 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   </data>
   <data name="err_helpCommandSyntaxChanged" xml:space="preserve">
     <value>The {0}help command has changed. It no longer accepts any arguments. In the future, this help command will also serve as a way to view command help.</value>
+  </data>
+  <data name="CustomReactions_disabled" xml:space="preserve">
+    <value>Custom reactions are currently disabled for this bot.</value>
   </data>
 </root>

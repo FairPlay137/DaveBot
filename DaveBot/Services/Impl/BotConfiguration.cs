@@ -25,6 +25,8 @@ namespace DaveBot.Services.Impl
 
         public string[] EightBallResponses { get; private set; }
 
+        public bool EnableCustomReactions { get; set; }
+
         public Dictionary<string, List<string>> CustomReactions { get; set; }
 
         public string GoogleAPIKey { get; private set; }
@@ -107,6 +109,7 @@ namespace DaveBot.Services.Impl
                 BotOwnerID = cfgjson.OwnerID;
                 BotName = cfgjson.BotName;
                 EightBallResponses = cfgjson.EightBallResponses;
+                EnableCustomReactions = cfgjson.EnableCustomReactions;
                 CustomReactions = cfgjson.CustomReactions;
                 VerboseErrors = cfgjson.VerboseErrors;
                 RotatePlayingStatuses = cfgjson.RotatePlaying;
@@ -191,6 +194,7 @@ namespace DaveBot.Services.Impl
                 if ((BotName == null) || (BotName == ""))
                     BotName = "DaveBot";
                 EightBallResponses = cfgjson.EightBallResponses;
+                EnableCustomReactions = cfgjson.EnableCustomReactions;
                 CustomReactions = cfgjson.CustomReactions;
                 VerboseErrors = cfgjson.VerboseErrors;
                 RotatePlayingStatuses = cfgjson.RotatePlaying;
@@ -229,6 +233,7 @@ namespace DaveBot.Services.Impl
                     BotName = BotName,
                     VerboseErrors = VerboseErrors,
                     EightBallResponses = EightBallResponses,
+                    EnableCustomReactions = EnableCustomReactions,
                     CustomReactions = CustomReactions,
                     RotatePlaying = RotatePlayingStatuses,
                     PlayingStatuses = PlayingStatuses,
