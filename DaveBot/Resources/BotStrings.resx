@@ -522,7 +522,7 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
     <value>{0}, your message hasn't been sent to the other end due to the word blacklist in effect on this server.</value>
   </data>
   <data name="Help_unableToDM" xml:space="preserve">
-    <value>:mailbox: I would've DMed you some helpful information, but I can't seem to DM you! Please enable your DMs and try this command again.</value>
+    <value>:mailbox: I would've DMed you some helpful information, but I can't seem to DM you! **Please enable your DMs and try this command again.**</value>
   </data>
   <data name="Moderation_hackban" xml:space="preserve">
     <value>Successfully hackbanned user ID {0}.</value>

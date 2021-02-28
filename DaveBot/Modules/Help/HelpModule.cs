@@ -41,9 +41,16 @@ namespace DaveBot.Modules
                 dmcontent += StringResourceHandler.GetTextStatic("Help", "DMContentNoBotOwner");
             else
                 dmcontent += StringResourceHandler.GetTextStatic("Help", "DMContentContactBotOwner",Context.Client.GetUser(_config.BotOwnerID).Mention, Context.Client.GetUser(_config.BotOwnerID).Username, Context.Client.GetUser(_config.BotOwnerID).Discriminator);
-            await dmchannel.SendMessageAsync(dmcontent);
-            if(!Context.IsPrivate)
-                await ReplyAsync(StringResourceHandler.GetTextStatic("Help", "DMedHelp"));
+            try
+            {
+                await dmchannel.SendMessageAsync(dmcontent);
+                if (!Context.IsPrivate)
+                    await ReplyAsync(StringResourceHandler.GetTextStatic("Help", "DMedHelp"));
+            }
+            catch (System.Exception)
+            {
+                await ReplyAsync(StringResourceHandler.GetTextStatic("Help", "unableToDM"));
+            }
         }
         [Command("modules")]
         [Summary("Lists all modules.")]

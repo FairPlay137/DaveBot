@@ -1773,7 +1773,7 @@ namespace DaveBot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to :mailbox: I would&apos;ve DMed you some helpful information, but I can&apos;t seem to DM you! Please enable your DMs and try this command again..
+        ///   Looks up a localized string similar to :mailbox: I would&apos;ve DMed you some helpful information, but I can&apos;t seem to DM you! **Please enable your DMs and try this command again.**.
         /// </summary>
         public static string Help_unableToDM {
             get {
