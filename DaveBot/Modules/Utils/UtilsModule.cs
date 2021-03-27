@@ -16,7 +16,7 @@ namespace DaveBot.Modules
 
         private readonly IBotConfiguration _config;
 
-        private readonly string[] defaultPingLocations = { //TODO: Embed this into the config too
+        private readonly string[] defaultPingLocations = { //TODO: move this into the config too
             "127.0.0.1",
             "localhost",
             "Google",
@@ -30,7 +30,13 @@ namespace DaveBot.Modules
             "YouTube",
             "Microsoft Sam",
             "`undefined`",
-            "the ROFLCopter"
+            "the ROFLcopter",
+            "the WB shield",
+            "uh... well, I can't remember at this point",
+            "the Viacom V of Doom",
+            "the \"Television\" text from that blue mountain logo",
+            "the real davemadson",
+            "Radar Overseer Scotty"
         };
 
         public UtilsModule(DaveBot bot)
