@@ -262,3 +262,6 @@ __pycache__/
 
 # DaveBot Configuration file (Don't you go stealing my tokens now!)
 config.json
+/DaveBot.backup
+/log.txt
+/.upgrade-assistant
