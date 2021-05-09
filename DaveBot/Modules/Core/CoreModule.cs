@@ -61,7 +61,7 @@ namespace DaveBot.Modules
         public async Task SetGame(string atype, [Remainder] [Summary("Game to show on status")] string game)
         {
             ActivityType acttype;
-            string acttypestring = "undefined";
+            string acttypestring;
             switch(atype.ToLowerInvariant())
             {
                 case "playing":
@@ -118,7 +118,7 @@ namespace DaveBot.Modules
             _config.VerboseErrors = !_config.VerboseErrors;
             _config.SaveConfig(true);
             _config.ReloadConfig(false);
-            string toCueUp = "verboseErrors_disable";
+            var toCueUp = "verboseErrors_disable";
             if(_config.VerboseErrors)
                 toCueUp = "verboseErrors_enable";
             await ReplyAsync($":ok_hand: `{StringResourceHandler.GetTextStatic("Admin", toCueUp)}`").ConfigureAwait(false);

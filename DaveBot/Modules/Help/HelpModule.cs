@@ -26,7 +26,7 @@ namespace DaveBot.Modules
         [Alias("h")]
         public async Task HelpCmd()
         {
-            var dmchannel = await Context.User.GetOrCreateDMChannelAsync();
+            IDMChannel dmchannel = await Context.User.GetOrCreateDMChannelAsync();
 
             string dmcontent = StringResourceHandler.GetTextStatic("Help", "DMContent",_config.DefaultPrefix,
                 (_config.BotName == "DaveBot")? //I did have some compiler flags to switch out the two strings when it was a PublicRelease build, but they didn't work, so I removed them before I committed this change
@@ -56,13 +56,13 @@ namespace DaveBot.Modules
         [Summary("Lists all modules.")]
         public async Task Modules()
         {
-            var moduleseb = new EmbedBuilder().WithTitle(StringResourceHandler.GetTextStatic("Help", "modules_header")).WithColor(Color.Orange);
-            var moduleList = _cs.Modules;
+            EmbedBuilder moduleseb = new EmbedBuilder().WithTitle(StringResourceHandler.GetTextStatic("Help", "modules_header")).WithColor(Color.Orange);
+            IEnumerable<ModuleInfo> moduleList = _cs.Modules;
             
-            foreach (var module in moduleList)
+            foreach (ModuleInfo module in moduleList)
                 if(!module.IsSubmodule)
-                    moduleseb.AddField("» " + module.Name, (module.Commands.Count > 0)?
-                    StringResourceHandler.GetTextStatic("Help", "modules_commandcount",module.Commands.Count)
+                    moduleseb.AddField("» " + module.Name, (module.Commands.Count > 0) ?
+                    StringResourceHandler.GetTextStatic("Help", "modules_commandcount", module.Commands.Count)
                     :
                     StringResourceHandler.GetTextStatic("Help", "modules_emptymodule"));
             await ReplyAsync(Context.User.Mention, false, moduleseb.Build());
@@ -74,14 +74,14 @@ namespace DaveBot.Modules
         public async Task Commands([Remainder]string modulename)
         {
             ModuleInfo targetmodule = null;
-            foreach (var module in _cs.Modules)
+            foreach (ModuleInfo module in _cs.Modules)
                 if (module.Name.ToLower() == modulename.ToLower())
                     targetmodule = module;
             if((targetmodule == null)|| (targetmodule.IsSubmodule))
                 throw new CommandUnsuccessfulException(StringResourceHandler.GetTextStatic("err", "nonexistentModule"));
             else
             {
-                var commandseb = new EmbedBuilder().WithTitle(StringResourceHandler.GetTextStatic("Help", "commands_header",targetmodule.Name)).WithColor(Color.Orange);
+                EmbedBuilder commandseb = new EmbedBuilder().WithTitle(StringResourceHandler.GetTextStatic("Help", "commands_header", targetmodule.Name)).WithColor(Color.Orange);
                 if (targetmodule.Commands.Count > 0)
                 {
                     foreach (var command in targetmodule.Commands)
@@ -93,7 +93,7 @@ namespace DaveBot.Modules
                     if(targetmodule.Submodules.Count == 0)
                         commandseb.WithDescription(StringResourceHandler.GetTextStatic("Help", "commandListEmpty"));
                 }
-                foreach (var submodule in targetmodule.Submodules)
+                foreach (ModuleInfo submodule in targetmodule.Submodules)
                 {
                     if (submodule.Commands.Count > 0)
                     {

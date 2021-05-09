@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NLog;
 using Discord.Commands;
 using System.Collections.Immutable;
+using System.Diagnostics;
 using DaveBot.Common;
 using DaveBot.Common.ModuleBehaviors;
 
@@ -98,7 +99,7 @@ namespace DaveBot.Services
                     return;
                 if (msg.Author.Equals(_client.CurrentUser) || !_bot.Ready.Task.IsCompleted)
                     return;
-                if (!(msg is SocketUserMessage usrMsg)) // don't execute if it's a system message
+                if (msg is not SocketUserMessage usrMsg) // don't execute if it's a system message
                     return;
 
                 var channel = msg.Channel as ISocketMessageChannel;
@@ -123,41 +124,36 @@ namespace DaveBot.Services
             var client = _client.GetShardFor(guild);
             foreach (var svc in _services)
             {
-                if(svc is IPreXBlocker blocker &&
-                    await blocker.TryBlockEarly(guild, usrMsg).ConfigureAwait(false))
-                {
-                    _log.Info(">>MESSAGE BLOCKED");
-                    _log.Info("User: "+usrMsg.Author);
-                    _log.Info("Message: "+usrMsg.Content);
-                    _log.Info("Service: "+svc.GetType().Name);
-                    return;
-                }
+                if (svc is not IPreXBlocker blocker ||
+                    !await blocker.TryBlockEarly(guild, usrMsg).ConfigureAwait(false)) continue;
+                _log.Info(">>MESSAGE BLOCKED");
+                _log.Info("User: "+usrMsg.Author);
+                _log.Info("Message: "+usrMsg.Content);
+                _log.Info("Service: "+svc.GetType().Name);
+                return;
             }
             
             foreach (var svc in _services)
             {
-                if (svc is IPreXBlockerExecutor exec &&
-                    await exec.TryExecuteEarly(client, guild, usrMsg).ConfigureAwait(false))
-                {
-                    _log.Info(">>REACTION EXECUTED");
-                    _log.Info("User: " + usrMsg.Author);
-                    _log.Info("Message: " + usrMsg.Content);
-                    _log.Info("Service: " + svc.GetType().Name);
-                    return;
-                }
+                if (svc is not IPreXBlockerExecutor exec ||
+                    !await exec.TryExecuteEarly(client, guild, usrMsg).ConfigureAwait(false)) continue;
+                _log.Info(">>REACTION EXECUTED");
+                _log.Info("User: " + usrMsg.Author);
+                _log.Info("Message: " + usrMsg.Content);
+                _log.Info("Service: " + svc.GetType().Name);
+                return;
             }
             
             string messageContent = usrMsg.Content;
             foreach (var svc in _services)
             {
                 string newContent;
-                if (svc is IInputOverrider exec &&
-                    (newContent = await exec.TransformInput(guild, usrMsg.Channel, usrMsg.Author, messageContent).ConfigureAwait(false)) != messageContent.ToLowerInvariant())
-                {
-                    messageContent = newContent;
-                    _log.Debug($"Message content overwritten with [{0}] by service [{1}]",newContent,svc.GetType().Name);
-                    break;
-                }
+                if (svc is not IInputOverrider exec ||
+                    (newContent = await exec.TransformInput(guild, usrMsg.Channel, usrMsg.Author, messageContent)
+                        .ConfigureAwait(false)) == messageContent.ToLowerInvariant()) continue;
+                messageContent = newContent;
+                _log.Debug("Message content overwritten with [{0}] by service [{1}]",newContent,svc.GetType().Name);
+                break;
             }
             
             var prefix = DefaultPrefix; //TODO: Once server prefixes are added, change up this code.
@@ -185,24 +181,20 @@ namespace DaveBot.Services
                     _log.Warn("Message: " + usrMsg.Content);
                     _log.Warn("Error: " + result.ErrorReason);
 
-                    string errtext;
-                    switch (result.Error)
+                    string errtext = result.Error switch
                     {
-                        case CommandError.UnknownCommand: //Unknown command
-                            errtext = StringResourceHandler.GetTextStatic("err", "unknownCommand", prefix);
-                            break;
-                        case CommandError.MultipleMatches: //Multiple command defs found (if configured to throw an error in this scenario)
-                            errtext = StringResourceHandler.GetTextStatic("err", "multipleCommandDefs", result.ErrorReason);
-                            break;
-                        //case CommandError.Exception: //Exception during command processing
-                        //    errtext = StringResourceHandler.GetTextStatic("err", "exception", result.ErrorReason);
-                        //    break;
-                        default:
-                            errtext = result.ErrorReason;
-                            break;
-                    }
+                        CommandError.UnknownCommand => //Unknown command
+                            StringResourceHandler.GetTextStatic("err", "unknownCommand", prefix),
+                        CommandError.MultipleMatches
+                            => //Multiple command defs found (if configured to throw an error in this scenario)
+                            StringResourceHandler.GetTextStatic("err", "multipleCommandDefs", result.ErrorReason),
+                        _ => result.ErrorReason
+                    };
                     if(_config.VerboseErrors)
+                    {
+                        Debug.Assert(channel != null, nameof(channel) + " != null");
                         await channel.SendMessageAsync($":no_entry: `{errtext}`");
+                    }
                 }
             }
             else
@@ -269,7 +261,7 @@ namespace DaveBot.Services
                 parseResultsDict[pair.Key] = parseResult;
             }
             // Calculates the 'score' of a command given a parse result
-            float CalculateScore(CommandMatch match, ParseResult parseResult)
+            static float CalculateScore(CommandMatch match, ParseResult parseResult)
             {
                 float argValuesScore = 0, paramValuesScore = 0;
 
