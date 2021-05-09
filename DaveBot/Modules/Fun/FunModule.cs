@@ -11,12 +11,12 @@ namespace DaveBot.Modules
     [Name("Fun")]
     public partial class FunModule : DaveBotTopModuleBase
     {
-        string[] DefaultEightBallResponses = { "It is certain.", "Without a doubt.", "You may rely on it.", "Most likely.", "Outlook good.",
+        private readonly string[] DefaultEightBallResponses = { "It is certain.", "Without a doubt.", "You may rely on it.", "Most likely.", "Outlook good.",
                                         "Yes.", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.",
                                         "Very doubtful.", "Reply hazy; try again.", "Ask again later.", "Better not tell you now.",
                                         "Cannot predict now.", "Concentrate and ask again."};
 
-        string[] DefaultReviveChatTopics = { "The last video game you played is the world you somehow end up in. How well do you think the experience would go?",
+        private readonly string[] DefaultReviveChatTopics = { "The last video game you played is the world you somehow end up in. How well do you think the experience would go?",
                                         ""};
 
         private readonly IBotConfiguration _config;
@@ -46,9 +46,9 @@ namespace DaveBot.Modules
         public async Task Choose([Remainder] [Summary("Options (seperate with `;`)")] string options)
         {
             await Context.Message.AddReactionAsync(new Emoji("🤔"));
-            DaveRNG random = new DaveRNG();
-            string[] optionsIndiv = options.Split(';');
-            string choice = optionsIndiv[random.Next(optionsIndiv.Length)];
+            var random = new DaveRNG();
+            var optionsIndiv = options.Split(';');
+            var choice = optionsIndiv[random.Next(optionsIndiv.Length)];
             await ReplyAsync("", false, new EmbedBuilder()
                 .AddField(":thinking:", choice)
                 .WithColor(Color.Blue)
@@ -58,14 +58,14 @@ namespace DaveBot.Modules
         [Summary("Checks the compatibility level of two people.")]
         public async Task Ship([Remainder] [Summary("Two targets, separated by `;`")] string targets)
         {
-            string[] args = targets.Split(';');
+            var args = targets.Split(';');
             if (args.Length == 2)
             {
                 await Context.Message.AddReactionAsync(new Emoji("❤"));
                 var msg = await ReplyAsync(StringResourceHandler.GetTextStatic("generic", "PleaseWait")).ConfigureAwait(false);
                 var tstate = Context.Channel.EnterTypingState();
-                int percentage = MatchmakingLogic.CalculateMatchmakingPercentage(args[0], args[1]);
-                string commenttext = percentage == 100
+                var percentage = MatchmakingLogic.CalculateMatchmakingPercentage(args[0], args[1]);
+                var commenttext = percentage == 100
                     ? StringResourceHandler.GetTextStatic("Fun", "ship_result_8")
                     : percentage > 85
                     ? StringResourceHandler.GetTextStatic("Fun", "ship_result_7")
@@ -87,7 +87,7 @@ namespace DaveBot.Modules
                 tstate.Dispose();
                 await msg.DeleteAsync().ConfigureAwait(false);
 
-                string progressbar = MatchmakingLogic.GenerateProgressBar(percentage, 100, 10);
+                var progressbar = MatchmakingLogic.GenerateProgressBar(percentage, 100, 10);
 
                 var resultembed = new EmbedBuilder()
                     .WithColor(Color.Magenta)

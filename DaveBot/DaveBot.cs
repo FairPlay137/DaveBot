@@ -18,13 +18,13 @@ namespace DaveBot
 {
     public class DaveBot : IDisposable
     {
-        private Logger _log;
+        private readonly Logger _log;
 
         public DiscordShardedClient Client { get; }
         public CommandService CommandService { get; }
 
-        public TaskCompletionSource<bool> Ready { get; private set; } = new TaskCompletionSource<bool>();
-        //public TaskCompletionSource<bool> Ready { get; private set; } = new(); //C# 8 compliant syntax
+        //public TaskCompletionSource<bool> Ready { get; private set; } = new TaskCompletionSource<bool>();
+        public TaskCompletionSource<bool> Ready { get; private set; } = new(); //C# 8 compliant syntax
 
         public IDaveBotServiceProvider Services { get; private set; }
 
@@ -100,10 +100,6 @@ namespace DaveBot
                     {
                         // ignored
                     }
-                    finally
-                    {
-
-                    }
                 });
                 return Task.CompletedTask;
             }
@@ -145,11 +141,11 @@ namespace DaveBot
             _log.Info($"Connected in {sw.Elapsed.TotalSeconds:F4} seconds");
 
             var commandHandler = Services.GetService<CommandHandler>();
-            var CommandService = Services.GetService<CommandService>();
+            var commandService = Services.GetService<CommandService>();
 
             await commandHandler.StartHandling().ConfigureAwait(false);
 
-            var _ = await CommandService.AddModulesAsync(GetType().GetTypeInfo().Assembly, Services);
+            var _ = await commandService.AddModulesAsync(GetType().GetTypeInfo().Assembly, Services);
 
             await Client.SetStatusAsync(UserStatus.Online);
             await Client.SetGameAsync(Configuration.DefaultPlayingString);
@@ -158,9 +154,9 @@ namespace DaveBot
             
             ConnectedAtTime = DateTime.Now;
 #if PUBLIC_BUILD
-            int secsOffset = 30;
+            var secsOffset = 30;
 #else
-            int secsOffset = 0;
+            var secsOffset = 0;
 #endif
             _log.Info($"It took {new TimeSpan(ConnectedAtTime.Ticks - StartTime.Ticks).TotalSeconds - secsOffset} second(s) to boot up.");
         }

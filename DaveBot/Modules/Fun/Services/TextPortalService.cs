@@ -9,6 +9,8 @@ using NLog;
 using DaveBot.Common;
 using System.Threading;
 using System;
+using System.Diagnostics;
+using System.Linq;
 
 namespace DaveBot.Modules.Fun.Services
 {
@@ -18,7 +20,7 @@ namespace DaveBot.Modules.Fun.Services
 
         private readonly IBotConfiguration _config;
 
-        public Dictionary<ITextChannel, ITextChannel> textPortals = new Dictionary<ITextChannel, ITextChannel>();
+        public Dictionary<ITextChannel, ITextChannel> textPortals = new();
 
         public int maxTextPortals = 64; //TODO: Make this configurable
         public int timeoutPeriodSecs = 45; //TODO: Make this configurable
@@ -37,54 +39,54 @@ namespace DaveBot.Modules.Fun.Services
 
         private async void TimerTick(object state)
         {
-            int num = 0;
-            if (textPortals != null)
+            var num = 0;
+            if (textPortals == null) return;
+            try
             {
-                try
+                var tpc = textPortals;
+                foreach (var tp in tpc)
                 {
-                    var tpc = textPortals;
-                    foreach (var tp in tpc)
+                    if (tp.Value != null) //make sure we ignore non-paired portals
                     {
-                        if (tp.Value != null) //make sure we ignore non-paired portals
+                        if (tp.Key.Id == tp.Value.Id)
                         {
-                            if (tp.Key.Id == tp.Value.Id)
+                            LogManager.GetCurrentClassLogger().Warn($"Can't have a text portal pointing to the same channel! Deleting text portal {num}...");
+                            textPortals.Remove(tp.Key);
+                        }
+                        else
+                        {
+                            var m1e = await tp.Key.GetMessagesAsync(1).FlattenAsync().ConfigureAwait(false);
+                            var m2e = await tp.Value.GetMessagesAsync(1).FlattenAsync().ConfigureAwait(false);
+                            var m1 = m1e.GetEnumerator(); m1.MoveNext();
+                            var m2 = m2e.GetEnumerator(); m2.MoveNext();
+                            Debug.Assert(m1.Current != null, "m1.Current != null");
+                            Debug.Assert(m2.Current != null, "m2.Current != null");
+                            var mostRecentMessage = (m1.Current.Timestamp.Ticks > m2.Current.Timestamp.Ticks) ?
+                                m1.Current : m2.Current;
+                            m1.Dispose(); m2.Dispose(); //these aren't needed anymore since we're finished comparing them
+                            LogManager.GetCurrentClassLogger().Debug($"{DateTime.UtcNow.Ticks - mostRecentMessage.Timestamp.Ticks} ticks since last message");
+                            if ((DateTime.UtcNow.Ticks - mostRecentMessage.Timestamp.Ticks) > (timeoutPeriodSecs * 10000000))
                             {
-                                LogManager.GetCurrentClassLogger().Warn($"Can't have a text portal pointing to the same channel! Deleting text portal {num}...");
+                                try
+                                {
+                                    await tp.Key.SendMessageAsync($":telephone_receiver: `{StringResourceHandler.GetTextStatic("Fun", "textportal_connectionLost_timeout", timeoutPeriodSecs)}`");
+                                    await tp.Value.SendMessageAsync($":telephone_receiver: `{StringResourceHandler.GetTextStatic("Fun", "textportal_connectionLost_timeout", timeoutPeriodSecs)}`");
+                                }
+                                catch (Exception e)
+                                {
+                                    LogManager.GetCurrentClassLogger().Warn($"Whoa, something happened and I couldn't send the timeout message! (perhaps a lack of permissions?)");
+                                    LogManager.GetCurrentClassLogger().Warn(e);
+                                }
                                 textPortals.Remove(tp.Key);
                             }
-                            else
-                            {
-                                var m1e = await tp.Key.GetMessagesAsync(1).FlattenAsync().ConfigureAwait(false);
-                                var m2e = await tp.Value.GetMessagesAsync(1).FlattenAsync().ConfigureAwait(false);
-                                var m1 = m1e.GetEnumerator(); m1.MoveNext();
-                                var m2 = m2e.GetEnumerator(); m2.MoveNext();
-                                var mostRecentMessage = (m1.Current.Timestamp.Ticks > m2.Current.Timestamp.Ticks) ?
-                                    m1.Current : m2.Current;
-                                m1.Dispose(); m2.Dispose(); //these aren't needed anymore since we're finished comparing them
-                                LogManager.GetCurrentClassLogger().Debug($"{DateTime.UtcNow.Ticks - mostRecentMessage.Timestamp.Ticks} ticks since last message");
-                                if ((DateTime.UtcNow.Ticks - mostRecentMessage.Timestamp.Ticks) > (timeoutPeriodSecs * 10000000))
-                                {
-                                    try
-                                    {
-                                        await tp.Key.SendMessageAsync($":telephone_receiver: `{StringResourceHandler.GetTextStatic("Fun", "textportal_connectionLost_timeout", timeoutPeriodSecs)}`");
-                                        await tp.Value.SendMessageAsync($":telephone_receiver: `{StringResourceHandler.GetTextStatic("Fun", "textportal_connectionLost_timeout", timeoutPeriodSecs)}`");
-                                    }
-                                    catch (Exception e)
-                                    {
-                                        LogManager.GetCurrentClassLogger().Warn($"Whoa, something happened and I couldn't send the timeout message! (perhaps a lack of permissions?)");
-                                        LogManager.GetCurrentClassLogger().Warn(e);
-                                    }
-                                    textPortals.Remove(tp.Key);
-                                }
-                            }
                         }
-                        num++;
                     }
-                }catch(Exception e)
-                {
-                    LogManager.GetCurrentClassLogger().Warn("An error occurred in the timeout routine.");
-                    LogManager.GetCurrentClassLogger().Warn(e);
+                    num++;
                 }
+            }catch(Exception e)
+            {
+                LogManager.GetCurrentClassLogger().Warn("An error occurred in the timeout routine.");
+                LogManager.GetCurrentClassLogger().Warn(e);
             }
         }
 
@@ -93,29 +95,29 @@ namespace DaveBot.Modules.Fun.Services
             if (arg1.IsBot)
                 return;
             ITextChannel targetChannel = null;
-            int foundChannel = 0;
-            int num = 0;
+            var foundChannel = 0;
+            var num = 0;
             if (textPortals != null)
             {
-                foreach (var tp in textPortals)
+                foreach (var (key, value) in textPortals)
                 {
-                    if (tp.Value != null) //make sure we ignore non-paired portals
+                    if (value != null) //make sure we ignore non-paired portals
                     {
-                        if (tp.Key.Id == tp.Value.Id)
+                        if (key.Id == value.Id)
                         {
                             LogManager.GetCurrentClassLogger().Warn($"Can't have a text portal pointing to the same channels! Deleting text portal {num}..");
-                            textPortals.Remove(tp.Key);
+                            textPortals.Remove(key);
                         }
                         else
                         {
-                            if (tp.Key.Id == arg2.Id)
+                            if (key.Id == arg2.Id)
                             {
-                                targetChannel = tp.Value;
+                                targetChannel = value;
                                 foundChannel++;
                             }
-                            if (tp.Value.Id == arg2.Id)
+                            if (value.Id == arg2.Id)
                             {
-                                targetChannel = tp.Key;
+                                targetChannel = key;
                                 foundChannel++;
                             }
                         }
@@ -130,8 +132,8 @@ namespace DaveBot.Modules.Fun.Services
         private async Task ChannelDeleteHandler(SocketChannel arg)
         {
             ITextChannel targetChannel = null;
-            int foundChannel = 0;
-            int num = 0;
+            var foundChannel = 0;
+            var num = 0;
             if (textPortals != null)
             {
                 foreach (var tp in textPortals)
@@ -177,14 +179,12 @@ namespace DaveBot.Modules.Fun.Services
 
         public bool FindAndOccupyOpenSlot(ITextChannel textChannel)
         {
-            foreach (var tp in textPortals)
+            foreach (var tp in textPortals.Where(tp => tp.Value == null))
             {
-                if(tp.Value == null)
-                {
-                    textPortals[tp.Key] = textChannel;
-                    return true;
-                }
+                textPortals[tp.Key] = textChannel;
+                return true;
             }
+
             return false;
         }
 
@@ -193,29 +193,29 @@ namespace DaveBot.Modules.Fun.Services
             if (msg.Author.IsBot)
                 return;
             ITextChannel targetChannel = null;
-            int foundChannel = 0;
-            int num = 0;
+            var foundChannel = 0;
+            var num = 0;
             if (textPortals != null)
             {
-                foreach (var tp in textPortals)
+                foreach (var (key, value) in textPortals)
                 {
-                    if (tp.Value != null) //make sure we ignore non-paired portals
+                    if (value != null) //make sure we ignore non-paired portals
                     {
-                        if (tp.Key.Id == tp.Value.Id)
+                        if (key.Id == value.Id)
                         {
                             LogManager.GetCurrentClassLogger().Warn($"Can't have a text portal pointing to the same channel! Deleting text portal {num}..");
-                            textPortals.Remove(tp.Key);
+                            textPortals.Remove(key);
                         }
                         else
                         {
-                            if (tp.Key.Id == msg.Channel.Id)
+                            if (key.Id == msg.Channel.Id)
                             {
-                                targetChannel = tp.Value;
+                                targetChannel = value;
                                 foundChannel++;
                             }
-                            if (tp.Value.Id == msg.Channel.Id)
+                            if (value.Id == msg.Channel.Id)
                             {
-                                targetChannel = tp.Key;
+                                targetChannel = key;
                                 foundChannel++;
                             }
                         }
@@ -224,7 +224,7 @@ namespace DaveBot.Modules.Fun.Services
                 }
                 if ((foundChannel == 1) && (targetChannel != null) && !msg.Content.StartsWith(_config.DefaultPrefix))
                 {
-                    EmbedBuilder eb = new EmbedBuilder()
+                    var eb = new EmbedBuilder()
                         .WithDescription($"**@{msg.Author.Username}#{msg.Author.Discriminator}** :speech_balloon: {msg.Content}");
                     await targetChannel.SendMessageAsync("", false, eb.Build());
                 }

@@ -1,6 +1,5 @@
 ﻿using Discord.Commands;
 using DaveBot.Services;
-using DaveBot.Common;
 
 namespace DaveBot.Common
 {

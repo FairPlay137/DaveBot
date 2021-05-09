@@ -6,7 +6,7 @@ using DaveBot.Services;
 using DaveBot.Modules.Fun.Services;
 using DaveBot.Common;
 using DaveBot.Common.Attributes;
-using System.Collections.Generic;
+using System.Linq;
 using NLog;
 
 namespace DaveBot.Modules.Fun
@@ -49,9 +49,8 @@ namespace DaveBot.Modules.Fun
                     if (_textportals.textPortals.ContainsValue((ITextChannel)Context.Channel))
                     {
                         ITextChannel channel = null;
-                        foreach (var tp in _textportals.textPortals)
-                            if (tp.Value.Id == Context.Channel.Id)
-                                channel = tp.Key;
+                        foreach (var tp in _textportals.textPortals.Where(tp => tp.Value.Id == Context.Channel.Id))
+                            channel = tp.Key;
                         if (channel != null)
                         {
                             await channel.SendMessageAsync($":telephone_receiver: `{StringResourceHandler.GetTextStatic("Fun", "textportal_connectionLost_otherSideClose")}`");
@@ -64,11 +63,14 @@ namespace DaveBot.Modules.Fun
                         if (_textportals.FindAndOccupyOpenSlot((ITextChannel)Context.Channel))
                         {
                             ITextChannel channel = null;
-                            foreach (var tp in _textportals.textPortals)
-                                if (tp.Value.Id == Context.Channel.Id)
-                                    channel = tp.Key;
+                            foreach (var tp in _textportals.textPortals.Where(tp => tp.Value.Id == Context.Channel.Id))
+                                channel = tp.Key;
                             await ReplyAsync($":telephone_receiver: `{StringResourceHandler.GetTextStatic("Fun", "textportal_connectionEstablished")}`");
-                            await channel.SendMessageAsync($":telephone_receiver: `{StringResourceHandler.GetTextStatic("Fun", "textportal_connectionEstablished")}`");
+                            if (channel != null)
+                                await channel.SendMessageAsync(
+                                    $":telephone_receiver: `{StringResourceHandler.GetTextStatic("Fun", "textportal_connectionEstablished")}`");
+                            else
+                                await ReplyAsync("**UNEXPECTED ERROR - TARGET CHANNEL IS NULL**");
                         }
                         else
                         {

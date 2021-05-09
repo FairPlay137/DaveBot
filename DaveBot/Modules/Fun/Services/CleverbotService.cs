@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
@@ -33,10 +34,7 @@ namespace DaveBot.Modules.Fun.Services
         {
             try
             {
-                foreach (var chnid in _config.CleverbotChannels)
-                    if (channel.Id == chnid)
-                        return true;
-                return false;
+                return _config.CleverbotChannels.Any(chnid => channel.Id == chnid);
             }catch(Exception)
             {
                 return false;

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using System.Diagnostics;
+using System.Linq;
 using DaveBot.Common;
 using DaveBot.Services;
 using DaveBot.Common.Attributes;
@@ -51,14 +52,14 @@ namespace DaveBot.Modules
         {
             await Context.Message.AddReactionAsync(new Emoji("🏓"));
             var pleasewait = Context.Channel.EnterTypingState();
-            string pingwaitmsg = StringResourceHandler.GetTextStatic("Utils", "ping_wait");
+            var pingwaitmsg = StringResourceHandler.GetTextStatic("Utils", "ping_wait");
             var msg = await Context.Channel.SendMessageAsync("🏓 " + pingwaitmsg).ConfigureAwait(false);
             var sw = Stopwatch.StartNew();
             await msg.DeleteAsync();
             sw.Stop();
-            DaveRNG random = new DaveRNG();
-            string subtitleText = StringResourceHandler.GetTextStatic("Utils", "ping_subtitle" + random.Next(1, 5));
-            string footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer1");
+            var random = new DaveRNG();
+            var subtitleText = StringResourceHandler.GetTextStatic("Utils", "ping_subtitle" + random.Next(1, 5));
+            var footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer1");
             if(sw.ElapsedMilliseconds > 150)
                 footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer2");
             if (sw.ElapsedMilliseconds > 300)
@@ -108,18 +109,14 @@ namespace DaveBot.Modules
         [CannotUseInDMs]
         public async Task GuildInfo()
         {
-            string featureList = StringResourceHandler.GetTextStatic("Utils", "sinfo_noFeatures");
+            var featureList = StringResourceHandler.GetTextStatic("Utils", "sinfo_noFeatures");
             if(Context.Guild.Features.Count>0)
             {
-                featureList = "";
-                foreach(string feature in Context.Guild.Features)
-                {
-                    featureList += "• " + feature + '\n';
-                }
+                featureList = Context.Guild.Features.Aggregate("", (current, feature) => current + ("• " + feature + '\n'));
             }
             var inviteLinks = await Context.Guild.GetInvitesAsync().ConfigureAwait(false);
-            int userCount = 0;
-            int botCount = 0;
+            var userCount = 0;
+            var botCount = 0;
             foreach(var user in Context.Guild.Users)
             {
                 if (user.IsBot)
@@ -128,15 +125,14 @@ namespace DaveBot.Modules
                     userCount++;
             }
             var vl = Context.Guild.VerificationLevel;
-            int vli = 0;
-            if (vl == VerificationLevel.Low)
-                vli = 1;
-            else if (vl == VerificationLevel.Medium)
-                vli = 2;
-            else if (vl == VerificationLevel.High)
-                vli = 3;
-            else if (vl == VerificationLevel.Extreme)
-                vli = 4;
+            var vli = vl switch
+            {
+                VerificationLevel.Low => 1,
+                VerificationLevel.Medium => 2,
+                VerificationLevel.High => 3,
+                VerificationLevel.Extreme => 4,
+                _ => 0
+            };
             await ReplyAsync(Context.User.Mention, false, new EmbedBuilder()
                 .WithTitle(Context.Guild.Name)
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_id"),Context.Guild.Id,true)

@@ -4,11 +4,11 @@ using DaveBot.Common;
 
 namespace DaveBot.Modules
 {
-    [Name("DaveBot Fun")]
+    [Name("Davemadson Fun")]
     public class DaveFunModule : DaveBotTopModuleBase
     {
         [Command("fire")]
-        [Summary("(To be written)")]
+        [Summary("Fires someone.")]
         public async Task Fire([Remainder]string target)
         {
             if(target == Context.User.Mention)
@@ -35,7 +35,7 @@ namespace DaveBot.Modules
         }
 
         [Command("crotchkick")]
-        [Summary("(To be written)")]
+        [Summary("Crotch-kicks someone.")]
         public async Task CrotchKick([Remainder]string target)
         {
             await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "crotchkick", target));
@@ -46,7 +46,7 @@ namespace DaveBot.Modules
         }
 
         [Command("clean")]
-        [Summary("(To be written)")]
+        [Summary("Sends someone to God's Country to get cleaned out.")]
         public async Task GodClean([Remainder]string target)
         {
             await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "clean", target));
@@ -57,7 +57,7 @@ namespace DaveBot.Modules
         }
 
         [Command("shinkick")]
-        [Summary("(To be written)")]
+        [Summary("Shin-kicks someone.")]
         public async Task ShinKick([Remainder] string target)
         {
             await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "shinkick", target));
