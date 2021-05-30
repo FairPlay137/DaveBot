@@ -9,7 +9,7 @@ using System;
 
 namespace DaveBot.Modules.Core.Services
 {
-    public class GameRotationService : IDaveBotService
+    public class GameRotationService : IDaveBotService, IDisposable
     {
         private readonly Timer _t;
 
@@ -17,6 +17,8 @@ namespace DaveBot.Modules.Core.Services
         private readonly IBotConfiguration _config;
 
         private readonly DaveRNG _rng;
+
+        private bool disposed = false;
 
         public GameRotationService(DiscordShardedClient client, IBotConfiguration config)
         {
@@ -41,6 +43,26 @@ namespace DaveBot.Modules.Core.Services
         public void SetRotationInterval(int newInterval)
         {
             _t.Change(newInterval, newInterval);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                _t.Dispose();
+                disposed = true;
+                if (disposing)
+                    GC.SuppressFinalize(this);
+            }
+        }
+
+#pragma warning disable CA1063 // Implement IDisposable Correctly
+        public void Dispose()
+#pragma warning restore CA1063 // Implement IDisposable Correctly
+        {
+            if (!disposed)
+                Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

@@ -276,7 +276,9 @@ namespace DaveBot
             }
         }
 
-        public void Dispose()
+#pragma warning disable CA1063 // Implement IDisposable Correctly
+        public void Dispose() // stupid visual studio thinking i didn't implement it correctly
+#pragma warning restore CA1063 // Implement IDisposable Correctly
         {
             if(!disposed)
                 Dispose(true);

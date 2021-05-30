@@ -62,5 +62,12 @@ namespace DaveBot.Modules
         {
             await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "shinkick", target));
         }
+
+        [Command("wedgie")]
+        [Summary("Gives someone a wedgie.")]
+        public async Task Wedgie([Remainder] string target)
+        {
+            await ReplyAsync(StringResourceHandler.GetTextStatic("DaveFun", "wedgie", target));
+        }
     }
 }
