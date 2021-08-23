@@ -2,6 +2,9 @@
 
 This is DaveBot. What is DaveBot, you ask? Well, DaveBot is a Discord chatbot which is generally used for fun. However, the original code was a mess and was generally amateurish. That codebase is referred to as DaveBot Legacy, whose source code *may* be published in the not-too-distant future as an archive of what DaveBot used to be.
 
+DaveBot Central on Discord: [Invite link](https://discord.gg/R236pSm)
+DaveBot Central on Guilded (beta): [Invite link](https://www.guilded.gg/i/MkePNQa2)
+
 ## Changes between this codebase and the Legacy codebase
 
 * The bot is now based off my own [PaletteBot](https://github.com/FairPlay137/Discord-PaletteBot)!
