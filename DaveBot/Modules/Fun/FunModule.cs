@@ -28,14 +28,14 @@ namespace DaveBot.Modules
 
         [Command("8ball")]
         [Summary("Ask the 8ball a question!")]
-        public async Task EightBall([Remainder] [Summary("The question")] string question)
+        public async Task EightBall([Remainder] [Summary("Question")] string question)
         {
-            await Context.Message.AddReactionAsync(new Emoji("🎱"));
+            //await Context.Message.AddReactionAsync(new Emoji("🎱"));
             DaveRNG random = new DaveRNG();
             string answer = (_config.EightBallResponses.Length > 0)?
                 _config.EightBallResponses[random.Next(_config.EightBallResponses.Length)]:
                 DefaultEightBallResponses[random.Next(DefaultEightBallResponses.Length)];
-            await ReplyAsync("", false, new EmbedBuilder()
+            await Context.Message.ReplyAsync("", false, new EmbedBuilder()
                 .AddField($":question: {StringResourceHandler.GetTextStatic("Fun", "8ball_question")}", question)
                 .AddField($":8ball: {StringResourceHandler.GetTextStatic("Fun", "8ball_answer")}", answer)
                 .WithColor(Color.Blue)
@@ -45,11 +45,11 @@ namespace DaveBot.Modules
         [Summary("Choose an option from a given set")]
         public async Task Choose([Remainder] [Summary("Options (seperate with `;`)")] string options)
         {
-            await Context.Message.AddReactionAsync(new Emoji("🤔"));
+            //await Context.Message.AddReactionAsync(new Emoji("🤔"));
             var random = new DaveRNG();
             var optionsIndiv = options.Split(';');
             var choice = optionsIndiv[random.Next(optionsIndiv.Length)];
-            await ReplyAsync("", false, new EmbedBuilder()
+            await Context.Message.ReplyAsync("", false, new EmbedBuilder()
                 .AddField(":thinking:", choice)
                 .WithColor(Color.Blue)
                 .Build());
@@ -61,7 +61,7 @@ namespace DaveBot.Modules
             var args = targets.Split(';');
             if (args.Length == 2)
             {
-                await Context.Message.AddReactionAsync(new Emoji("❤"));
+                //await Context.Message.AddReactionAsync(new Emoji("❤"));
                 var msg = await ReplyAsync(StringResourceHandler.GetTextStatic("generic", "PleaseWait")).ConfigureAwait(false);
                 var tstate = Context.Channel.EnterTypingState();
                 var percentage = MatchmakingLogic.CalculateMatchmakingPercentage(args[0], args[1]);
@@ -93,12 +93,12 @@ namespace DaveBot.Modules
                     .WithColor(Color.Magenta)
                     .AddField(StringResourceHandler.GetTextStatic("Fun", "ship_compatibility"), $"**{percentage}%** `{progressbar}` {commenttext}")
                     .Build();
-                await ReplyAsync($"{StringResourceHandler.GetTextStatic("Fun", "ship_title")}\n{args[0]} :x: {args[1]}", false, resultembed);
+                await Context.Message.ReplyAsync($"{StringResourceHandler.GetTextStatic("Fun", "ship_title")}\n{args[0]} :x: {args[1]}", false, resultembed);
             }
             else
             {
-                await Context.Message.AddReactionAsync(new Emoji("⛔"));
-                await ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("Fun", "ship_incorrectNumOfArgs")}`").ConfigureAwait(false);
+                //await Context.Message.AddReactionAsync(new Emoji("⛔"));
+                await Context.Message.ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("Fun", "ship_incorrectNumOfArgs")}`").ConfigureAwait(false);
             }
         }
 

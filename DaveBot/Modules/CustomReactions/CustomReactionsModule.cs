@@ -51,14 +51,14 @@ namespace DaveBot.Modules.CustomReactions
                     .WithTitle("📃 " + StringResourceHandler.GetTextStatic("CustomReactions", "ListCustomReactions"))
                     .WithDescription(desc)
                     .WithColor(Color.Green);
-                await Context.Message.AddReactionAsync(new Emoji("📃"));
+                //await Context.Message.AddReactionAsync(new Emoji("📃"));
                 pleasewait.Dispose();
-                await ReplyAsync(Context.Message.Author.Mention, false, eb.Build());
+                await Context.Message.ReplyAsync(Context.Message.Author.Mention, false, eb.Build());
             }
             else
             {
-                await Context.Message.AddReactionAsync(new Emoji("⛔"));
-                await ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("CustomReactions", "disabled")}`").ConfigureAwait(false);
+                //await Context.Message.AddReactionAsync(new Emoji("⛔"));
+                await Context.Message.ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("CustomReactions", "disabled")}`").ConfigureAwait(false);
             }
         }
 
@@ -71,7 +71,7 @@ namespace DaveBot.Modules.CustomReactions
                 var pleasewait = Context.Channel.EnterTypingState();
                 int matches = 0;
                 string inputkey = ikey.Trim().ToLower();
-                EmbedBuilder eb = new EmbedBuilder();
+                EmbedBuilder eb = new();
                 foreach (var cr in _config.CustomReactions)
                 {
                     if (cr.Key.Trim().ToLower().Equals(inputkey))
@@ -104,7 +104,7 @@ namespace DaveBot.Modules.CustomReactions
                         eb.WithTitle("🚫 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_noResults"))
                             .WithDescription(StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_noResults_desc", ikey))
                             .WithColor(Color.Red);
-                        await Context.Message.AddReactionAsync(new Emoji("🚫"));
+                        //await Context.Message.AddReactionAsync(new Emoji("🚫"));
                     }
                     else
                     {
@@ -113,7 +113,7 @@ namespace DaveBot.Modules.CustomReactions
                             eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction_multipleResults"));
                         else
                             eb.WithTitle("📂 " + StringResourceHandler.GetTextStatic("CustomReactions", "ShowCustomReaction"));
-                        await Context.Message.AddReactionAsync(new Emoji("📂"));
+                        //await Context.Message.AddReactionAsync(new Emoji("📂"));
                     }
                 }
                 catch (Exception)
@@ -122,12 +122,12 @@ namespace DaveBot.Modules.CustomReactions
                     throw;
                 }
                 pleasewait.Dispose();
-                await ReplyAsync(Context.Message.Author.Mention, false, eb.Build());
+                await Context.Message.ReplyAsync(Context.Message.Author.Mention, false, eb.Build());
             }
             else
             {
-                await Context.Message.AddReactionAsync(new Emoji("⛔"));
-                await ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("CustomReactions", "disabled")}`").ConfigureAwait(false);
+                //await Context.Message.AddReactionAsync(new Emoji("⛔"));
+                await Context.Message.ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("CustomReactions", "disabled")}`").ConfigureAwait(false);
             }
         }
         //TODO: Add pal:acr (add custom reaction), pal:dcr (delete custom reaction), and pal:ecr (edit custom reaction)
@@ -164,15 +164,15 @@ namespace DaveBot.Modules.CustomReactions
                     .AddField(StringResourceHandler.GetTextStatic("CustomReactions", "trigger"), trigger)
                     .AddField(StringResourceHandler.GetTextStatic("CustomReactions", "response", respnum), response)
                     .Build();
-                await Context.Message.AddReactionAsync(new Emoji("✨"));
+                //await Context.Message.AddReactionAsync(new Emoji("✨"));
                 pleasewait.Dispose();
-                await ReplyAsync(Context.User.Mention, false, replyEmbed);
+                await Context.Message.ReplyAsync(Context.User.Mention, false, replyEmbed);
 
             }
             else
             {
-                await Context.Message.AddReactionAsync(new Emoji("⛔"));
-                await ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("CustomReactions", "disabled")}`").ConfigureAwait(false);
+                //await Context.Message.AddReactionAsync(new Emoji("⛔"));
+                await Context.Message.ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("CustomReactions", "disabled")}`").ConfigureAwait(false);
             }
         }
     }

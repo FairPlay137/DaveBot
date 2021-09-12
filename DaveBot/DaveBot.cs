@@ -9,10 +9,14 @@ using NLog.Config;
 using NLog.Targets;
 using System.Reflection;
 using DaveBot.Services;
-using Discord.Net.Providers.WS4Net;
+//using Discord.Net.Providers.WS4Net;
 using DaveBot.Services.Impl;
 using System.Diagnostics;
 using DaveBot.Common;
+using AkiNet;
+using Discord.Net;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace DaveBot
 {
@@ -50,7 +54,7 @@ namespace DaveBot
             Configuration = new BotConfiguration();
             Client = new DiscordShardedClient(new DiscordSocketConfig()
             {
-                WebSocketProvider = WS4NetProvider.Instance,
+//                WebSocketProvider = WS4NetProvider.Instance,
                 LogLevel = LogSeverity.Info,
                 ConnectionTimeout = int.MaxValue,
                 MessageCacheSize = 10,
@@ -263,6 +267,28 @@ namespace DaveBot
             if (Configuration.TotalShards != recShard)
                 _log.Warn($"It is recommended that you use {recShard} shard(s) instead of {Configuration.TotalShards}. "
                     + $"Please use \"{Configuration.DefaultPrefix}setshards {recShard}\" to change config.json accordingly.");
+
+            List<ApplicationCommandProperties> applicationCommandProperties = new();
+            try
+            {
+                // TODO: this should be phased out once the Slash Command service is implemented into Discord.NET Labs
+                SlashCommandBuilder globalCommandTest = new();
+                globalCommandTest.WithName("test");
+                globalCommandTest.WithDescription("A test command for testing Slash Command functionality");
+                applicationCommandProperties.Add(globalCommandTest.Build());
+
+                SlashCommandBuilder globalCommandPing = new();
+                globalCommandPing.WithName("ping");
+                globalCommandPing.WithDescription("Gets the API ping time");
+                applicationCommandProperties.Add(globalCommandPing.Build());
+
+                await client.BulkOverwriteGlobalApplicationCommandsAsync(applicationCommandProperties.ToArray());
+            }
+            catch (ApplicationCommandException exception)
+            {
+                var json = JsonConvert.SerializeObject(exception.Error, Formatting.Indented);
+                Console.WriteLine(json);
+            }
         }
 
         protected virtual void Dispose(bool disposing)

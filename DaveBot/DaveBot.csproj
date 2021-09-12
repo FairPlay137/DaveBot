@@ -80,22 +80,21 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AkiNet" Version="1.0.1.3" />
-    <PackageReference Include="Discord.Net.Labs" Version="2.3.4" />
-    <PackageReference Include="Discord.Net.Labs.Commands" Version="2.3.2" />
-    <PackageReference Include="Discord.Net.Labs.Core" Version="2.3.5" />
-    <PackageReference Include="Discord.Net.Labs.Rest" Version="2.3.6" />
-    <PackageReference Include="Discord.Net.Labs.Webhook" Version="2.3.1" />
-    <PackageReference Include="Discord.Net.Labs.WebSocket" Version="2.3.5" />
-    <PackageReference Include="Discord.Net.Providers.WS4Net" Version="2.4.0" />
+    <PackageReference Include="Discord.Net.Labs" Version="3.0.2" />
+    <PackageReference Include="Discord.Net.Labs.Commands" Version="3.0.0" />
+    <PackageReference Include="Discord.Net.Labs.Core" Version="3.0.1" />
+    <PackageReference Include="Discord.Net.Labs.Rest" Version="3.0.1" />
+    <PackageReference Include="Discord.Net.Labs.Webhook" Version="3.0.0" />
+    <PackageReference Include="Discord.Net.Labs.WebSocket" Version="3.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OAuth" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="5.0.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Design" Version="1.1.6" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
     <PackageReference Include="Microsoft.Net.Http.Headers" Version="2.2.8" />
     <PackageReference Include="Microsoft.NETCore.Platforms" Version="5.0.2" />
     <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
@@ -103,7 +102,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NIdenticon" Version="1.4.0" />
     <PackageReference Include="NLog" Version="5.0.0-beta11" />
-    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.0.4" />
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.0.6" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.linux" Version="1.1.14" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.osx" Version="1.1.14" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.v110_xp" Version="1.1.14" />
@@ -136,7 +135,7 @@
     <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.1" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.1" />
     <PackageReference Include="System.ServiceModel.Federation" Version="4.8.1" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.2.227701">
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.242703">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>

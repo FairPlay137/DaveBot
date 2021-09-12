@@ -17,7 +17,7 @@ namespace DaveBot.Modules
 
         private readonly IBotConfiguration _config;
 
-        private readonly string[] defaultPingLocations = { //TODO: move this into the config too
+        public static readonly string[] defaultPingLocations = { //TODO: move this into the config too
             "127.0.0.1",
             "localhost",
             "Google",
@@ -50,7 +50,7 @@ namespace DaveBot.Modules
         [Summary("Checks the bot's ping time.")]
         public async Task Ping()
         {
-            await Context.Message.AddReactionAsync(new Emoji("🏓"));
+            //await Context.Message.AddReactionAsync(new Emoji("🏓"));
             var pleasewait = Context.Channel.EnterTypingState();
             var pingwaitmsg = StringResourceHandler.GetTextStatic("Utils", "ping_wait");
             var msg = await Context.Channel.SendMessageAsync("🏓 " + pingwaitmsg).ConfigureAwait(false);
@@ -74,21 +74,21 @@ namespace DaveBot.Modules
                 .WithDescription(subtitleText+'\n'+StringResourceHandler.GetTextStatic("Utils", "ping_pingtime", sw.ElapsedMilliseconds, defaultPingLocations[random.Next(defaultPingLocations.Length)]))
                 .WithFooter(footerText)
                 .WithColor(Color.Blue)
-                .Build());
+                .Build(), messageReference: Context.Message.Reference);
         }
         [Command("invite")]
         [Summary("Gets the invite link for this bot.")]
         public async Task Invite()
         {
-            await Context.Message.AddReactionAsync(new Emoji("👌"));
-            await ReplyAsync($"{Context.User.Mention} - {StringResourceHandler.GetTextStatic("Utils", "invite")} https://discordapp.com/oauth2/authorize?client_id={Context.Client.CurrentUser.Id}&permissions=8&scope=bot%20applications.commands");
+            //await Context.Message.AddReactionAsync(new Emoji("👌"));
+            await Context.Message.ReplyAsync($"{StringResourceHandler.GetTextStatic("Utils", "invite")} https://discordapp.com/oauth2/authorize?client_id={Context.Client.CurrentUser.Id}&permissions=8&scope=bot%20applications.commands");
         }
         [Command("stats")]
         [Summary("Gets this bot's stats.")]
         public async Task Stats()
         {
-            await Context.Message.AddReactionAsync(new Emoji("👌"));
-            TimeSpan uptime = new TimeSpan(DateTime.Now.Ticks - _bot.StartTime.Ticks);
+            //await Context.Message.AddReactionAsync(new Emoji("👌"));
+            TimeSpan uptime = new(DateTime.Now.Ticks - _bot.StartTime.Ticks);
             await ReplyAsync(Context.User.Mention, false, new EmbedBuilder()
                 .WithTitle(StringResourceHandler.GetTextStatic("Utils", "stats_title", _config.BotName))
                 .WithDescription((_config.BotName == "DaveBot") ?
@@ -149,7 +149,7 @@ namespace DaveBot.Modules
                 .AddField(StringResourceHandler.GetTextStatic("Utils", "sinfo_customemotes"), Context.Guild.Emotes.Count, true)
                 .WithThumbnailUrl(Context.Guild.IconUrl)
                 .WithColor(Color.Blue)
-                .Build());
+                .Build(), messageReference: Context.Message.Reference);
         }
 
 

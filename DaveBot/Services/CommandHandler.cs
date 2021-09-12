@@ -9,6 +9,7 @@ using System.Collections.Immutable;
 using System.Diagnostics;
 using DaveBot.Common;
 using DaveBot.Common.ModuleBehaviors;
+using Discord;
 
 namespace DaveBot.Services
 {
@@ -102,7 +103,7 @@ namespace DaveBot.Services
                 if (msg is not SocketUserMessage usrMsg) // don't execute if it's a system message
                     return;
 
-                var channel = msg.Channel as ISocketMessageChannel;
+                var channel = msg.Channel;
                 var guild = (msg.Channel as SocketTextChannel)?.Guild;
 
                 await TryExecuteCommand(guild, channel, usrMsg);
@@ -116,6 +117,49 @@ namespace DaveBot.Services
                     _log.Warn("Inner Exception:");
                     _log.Warn(ex.InnerException);
                 }
+            }
+        }
+
+        private static async Task InteractionCreatedHandler(SocketInteraction interaction)
+        {
+            // TODO: Split me into SlashCommandHandler.cs once SlashCommandService is available
+            if (interaction is SocketSlashCommand command)
+            {
+                switch(command.Data.Name)
+                {
+                    case "test":
+                        await command.RespondAsync("Ayy, it works! Anyways, the DaveBot codebase currently can't fully slash commands, as it relies on the Command Service, rather than the original sloppy handling of commands. (these commands have to be hardcoded currently!)");
+                        break;
+                    case "ping":
+                        var pingwaitmsg = StringResourceHandler.GetTextStatic("Utils", "ping_wait");
+                        var msg = await command.Channel.SendMessageAsync("🏓 " + pingwaitmsg).ConfigureAwait(false);
+                        var sw = Stopwatch.StartNew();
+                        await msg.DeleteAsync();
+                        sw.Stop();
+                        var random = new DaveRNG();
+                        var subtitleText = StringResourceHandler.GetTextStatic("Utils", "ping_subtitle" + random.Next(1, 5));
+                        var footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer1");
+                        if (sw.ElapsedMilliseconds > 150)
+                            footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer2");
+                        if (sw.ElapsedMilliseconds > 300)
+                            footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer3");
+                        if (sw.ElapsedMilliseconds > 800)
+                            footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer4");
+                        if (sw.ElapsedMilliseconds > 3000)
+                            footerText = StringResourceHandler.GetTextStatic("Utils", "ping_footer5");
+                        var embed = new EmbedBuilder()
+                            .WithTitle("🏓 " + StringResourceHandler.GetTextStatic("Utils", "ping_title"))
+                            .WithDescription(subtitleText + '\n' + StringResourceHandler.GetTextStatic("Utils", "ping_pingtime", sw.ElapsedMilliseconds, Modules.UtilsModule.defaultPingLocations[random.Next(Modules.UtilsModule.defaultPingLocations.Length)]))
+                            .WithFooter(footerText)
+                            .WithColor(Color.Blue)
+                            .Build();
+                        await command.RespondAsync("", new Embed[] { embed });
+                        break;
+                    default:
+                        await command.RespondAsync($":no_entry_sign: **`{command.Data.Name}` does not have any defined behavior at the moment.**", ephemeral: true);
+                        break;
+                }
+                
             }
         }
 
@@ -137,10 +181,12 @@ namespace DaveBot.Services
             {
                 if (svc is not IPreXBlockerExecutor exec ||
                     !await exec.TryExecuteEarly(client, guild, usrMsg).ConfigureAwait(false)) continue;
+#if !PUBLIC_BUILD
                 _log.Info(">>REACTION EXECUTED");
                 _log.Info("User: " + usrMsg.Author);
                 _log.Info("Message: " + usrMsg.Content);
                 _log.Info("Service: " + svc.GetType().Name);
+#endif
                 return;
             }
             
@@ -163,12 +209,14 @@ namespace DaveBot.Services
                 var result = await ExecuteCommandAsync(new SocketCommandContext(client, usrMsg), messageContent, prefix.Length, _services, ErrorOnMultipleCommandMatches?MultiMatchHandling.Exception:MultiMatchHandling.Best);
                 if(result.IsSuccess)
                 {
+#if !PUBLIC_BUILD
                     _log.Info(">>COMMAND EXECUTED");
                     _log.Info("User: " + usrMsg.Author + " ("+usrMsg.Author.Id+")");
                     _log.Info("Server: " + (channel == null ? "[Direct]" : guild.Name + " (" + guild.Id + ")"));
                     if(channel != null)
                         _log.Info("Channel: " + channel.Name + " (" + channel.Id + ")");
                     _log.Info("Message: " + usrMsg.Content);
+#endif
                     return;
                 }
                 else if(result.Error != null)
@@ -193,13 +241,9 @@ namespace DaveBot.Services
                     if(_config.VerboseErrors)
                     {
                         Debug.Assert(channel != null, nameof(channel) + " != null");
-                        await channel.SendMessageAsync($":no_entry: `{errtext}`");
+                        await channel.SendMessageAsync($":no_entry: `{errtext}`", messageReference: new MessageReference(usrMsg.Id));
                     }
                 }
-            }
-            else
-            {
-                // ignore
             }
 
             foreach (var svc in _services)
@@ -306,6 +350,7 @@ namespace DaveBot.Services
         public Task StartHandling()
         {
             _client.MessageReceived += (msg) => { var _ = Task.Run(() => MessageReceivedHandler(msg)); return Task.CompletedTask; };
+            _client.InteractionCreated += (interaction) => { var _ = Task.Run(() => InteractionCreatedHandler(interaction)); return Task.CompletedTask; };
             return Task.CompletedTask;
         }
     }

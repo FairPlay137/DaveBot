@@ -33,7 +33,7 @@ namespace DaveBot.Modules.Fun.Services
             _client = client;
             _config = config;
             _client.ChannelDestroyed += ChannelDeleteHandler;
-            _client.UserIsTyping += TypingHandler;
+            //_client.UserIsTyping += TypingHandler;
             _t = new Timer(TimerTick, null, 1000, 1000);
         }
 

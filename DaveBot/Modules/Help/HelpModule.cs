@@ -26,6 +26,8 @@ namespace DaveBot.Modules
         [Alias("h")]
         public async Task HelpCmd()
         {
+            await Context.Message.ReplyAsync("This command is temporarily disabled due to changes in Discord.NET Labs' functions");
+            /*
             IDMChannel dmchannel = await Context.User.GetOrCreateDMChannelAsync();
 
             string dmcontent = StringResourceHandler.GetTextStatic("Help", "DMContent",_config.DefaultPrefix,
@@ -45,12 +47,12 @@ namespace DaveBot.Modules
             {
                 await dmchannel.SendMessageAsync(dmcontent);
                 if (!Context.IsPrivate)
-                    await ReplyAsync(StringResourceHandler.GetTextStatic("Help", "DMedHelp"));
+                    await Context.Message.ReplyAsync(StringResourceHandler.GetTextStatic("Help", "DMedHelp"));
             }
             catch (System.Exception)
             {
-                await ReplyAsync(StringResourceHandler.GetTextStatic("Help", "unableToDM"));
-            }
+                await Context.Message.ReplyAsync(StringResourceHandler.GetTextStatic("Help", "unableToDM"));
+            }*/
         }
         [Command("modules")]
         [Summary("Lists all modules.")]
@@ -65,7 +67,7 @@ namespace DaveBot.Modules
                     StringResourceHandler.GetTextStatic("Help", "modules_commandcount", module.Commands.Count)
                     :
                     StringResourceHandler.GetTextStatic("Help", "modules_emptymodule"));
-            await ReplyAsync(Context.User.Mention, false, moduleseb.Build());
+            await Context.Message.ReplyAsync("", false, moduleseb.Build());
             await ReplyAsync("", false, new EmbedBuilder().WithDescription(StringResourceHandler.GetTextStatic("Help", "modules_moreInfo", _config.DefaultPrefix)).WithColor(Color.Orange).Build());
         }
         [Command("commands")]
@@ -105,7 +107,7 @@ namespace DaveBot.Modules
                         commandseb.WithDescription(StringResourceHandler.GetTextStatic("Help", "commandListEmpty"));
                     }
                 }
-                await ReplyAsync(Context.User.Mention, false, commandseb.Build());
+                await Context.Message.ReplyAsync(Context.User.Mention, false, commandseb.Build());
             }
         }
         [Command("help")]
@@ -113,7 +115,7 @@ namespace DaveBot.Modules
         [Alias("h")]
         public async Task CommandHelp([Remainder] string commandName)
         {
-            await ReplyAsync(StringResourceHandler.GetTextStatic("err", "helpCommandSyntaxChanged", _config.DefaultPrefix));
+            await Context.Message.ReplyAsync(StringResourceHandler.GetTextStatic("err", "helpCommandSyntaxChanged", _config.DefaultPrefix));
         }
     }
 }
