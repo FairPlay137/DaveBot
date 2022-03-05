@@ -110,10 +110,12 @@ namespace DaveBot.Modules
         public async Task GuildInfo()
         {
             var featureList = StringResourceHandler.GetTextStatic("Utils", "sinfo_noFeatures");
-            if(Context.Guild.Features.Count>0)
+            // old code which doesn't work with D.NET 3
+            /*if(Context.Guild.Features.Count > 0)
             {
                 featureList = Context.Guild.Features.Aggregate("", (current, feature) => current + ("• " + feature + '\n'));
-            }
+            }*/
+            featureList = "NOT YET IMPLEMENTED";
             var inviteLinks = await Context.Guild.GetInvitesAsync().ConfigureAwait(false);
             var userCount = 0;
             var botCount = 0;

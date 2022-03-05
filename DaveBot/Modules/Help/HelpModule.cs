@@ -26,7 +26,7 @@ namespace DaveBot.Modules
         [Alias("h")]
         public async Task HelpCmd()
         {
-            IDMChannel dmchannel = await Context.User.GetOrCreateDMChannelAsync();
+            IDMChannel dmchannel = await Context.User.CreateDMChannelAsync();
 
             string dmcontent = StringResourceHandler.GetTextStatic("Help", "DMContent",_config.DefaultPrefix,
                 (_config.BotName == "DaveBot")? //I did have some compiler flags to switch out the two strings when it was a PublicRelease build, but they didn't work, so I removed them before I committed this change

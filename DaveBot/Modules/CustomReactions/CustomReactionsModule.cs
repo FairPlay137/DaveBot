@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿#if !PUBLIC_BUILD
+using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using DaveBot.Common;
@@ -177,3 +178,4 @@ namespace DaveBot.Modules.CustomReactions
         }
     }
 }
+#endif

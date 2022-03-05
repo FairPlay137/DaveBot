@@ -26,7 +26,7 @@ namespace DaveBot.Modules
             }
             try
             {
-                var userdm = await target.GetOrCreateDMChannelAsync();
+                var userdm = await target.CreateDMChannelAsync();
                 var dmembed = new EmbedBuilder()
                     .WithColor(Color.Red)
                     .WithTitle(StringResourceHandler.GetTextStatic("Moderation", "dm_reason"))
@@ -59,7 +59,7 @@ namespace DaveBot.Modules
             }
             try
             {
-                var userdm = await target.GetOrCreateDMChannelAsync();
+                var userdm = await target.CreateDMChannelAsync();
                 var dmembed = new EmbedBuilder()
                     .WithColor(Color.Red)
                     .WithTitle(StringResourceHandler.GetTextStatic("Moderation", "dm_reason"))

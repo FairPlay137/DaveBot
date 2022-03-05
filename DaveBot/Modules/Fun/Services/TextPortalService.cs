@@ -33,7 +33,7 @@ namespace DaveBot.Modules.Fun.Services
             _client = client;
             _config = config;
             _client.ChannelDestroyed += ChannelDeleteHandler;
-            _client.UserIsTyping += TypingHandler;
+            //_client.UserIsTyping += TypingHandler;
             _t = new Timer(TimerTick, null, 1000, 1000);
         }
 
@@ -90,6 +90,7 @@ namespace DaveBot.Modules.Fun.Services
             }
         }
 
+        // TODO: refactor this for Discord.NET 3
         private async Task TypingHandler(SocketUser arg1, ISocketMessageChannel arg2)
         {
             if (arg1.IsBot)

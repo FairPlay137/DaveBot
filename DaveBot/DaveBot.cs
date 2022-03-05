@@ -225,6 +225,7 @@ namespace DaveBot
             {
                 _log.Error("DaveBot cannot start, either due to not having permission to save in the program folder, or there being insufficient disk space.\n"+
                     "Please make sure DaveBot is running as an administrator, and that you have at least *some* free space on the drive DaveBot is on.");
+                Console.WriteLine("Strike any key to quit...");
                 Console.ReadKey();
                 Environment.Exit(2);
             }
@@ -277,7 +278,7 @@ namespace DaveBot
         }
 
 #pragma warning disable CA1063 // Implement IDisposable Correctly
-        public void Dispose() // stupid visual studio thinking i didn't implement it correctly
+        public void Dispose() //  microsoft moment required me to use this stupid workaround D:
 #pragma warning restore CA1063 // Implement IDisposable Correctly
         {
             if(!disposed)
