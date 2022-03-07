@@ -91,7 +91,7 @@
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NIdenticon" Version="1.4.0" />
-    <PackageReference Include="NLog" Version="5.0.0-beta11" />
+    <PackageReference Include="NLog" Version="5.0.0-rc2" />
     <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.0.7" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.linux" Version="1.1.14" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.osx" Version="1.1.14" />
