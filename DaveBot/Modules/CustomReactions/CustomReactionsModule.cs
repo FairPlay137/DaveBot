@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using DaveBot.Common.Attributes;
 using System;
 
+// This module is not enabled on the public instance due to its reliance on the Message Content intent, which DaveBot has not been granted.
+
 namespace DaveBot.Modules.CustomReactions
 {
     [Name("Custom Reactions")]
@@ -29,8 +31,8 @@ namespace DaveBot.Modules.CustomReactions
             if (_config.EnableCustomReactions)
             {
                 var pleasewait = Context.Channel.EnterTypingState();
-                string desc = "";
-                int crcount = 1;
+                var desc = "";
+                var crcount = 1;
                 foreach (var cr in _config.CustomReactions)
                 {
                     if (desc.Length < 800)
@@ -42,13 +44,15 @@ namespace DaveBot.Modules.CustomReactions
                     }
                     crcount++;
                 }
-                if (_config.CustomReactions.Count == 0)
-                    desc += StringResourceHandler.GetTextStatic("CustomReactions", "lcr_noCustomReactions");
-                else if (_config.CustomReactions.Count == 1)
-                    desc += StringResourceHandler.GetTextStatic("CustomReactions", "lcr_TotalCountOne");
-                else
-                    desc += StringResourceHandler.GetTextStatic("CustomReactions", "lcr_TotalCountMultiple", _config.CustomReactions.Count);
-                EmbedBuilder eb = new EmbedBuilder()
+
+                desc += _config.CustomReactions.Count switch
+                {
+                    0 => StringResourceHandler.GetTextStatic("CustomReactions", "lcr_noCustomReactions"),
+                    1 => StringResourceHandler.GetTextStatic("CustomReactions", "lcr_TotalCountOne"),
+                    _ => StringResourceHandler.GetTextStatic("CustomReactions", "lcr_TotalCountMultiple",
+                        _config.CustomReactions.Count)
+                };
+                var eb = new EmbedBuilder()
                     .WithTitle("📃 " + StringResourceHandler.GetTextStatic("CustomReactions", "ListCustomReactions"))
                     .WithDescription(desc)
                     .WithColor(Color.Green);
@@ -131,7 +135,7 @@ namespace DaveBot.Modules.CustomReactions
                 await ReplyAsync($":no_entry: `{StringResourceHandler.GetTextStatic("CustomReactions", "disabled")}`").ConfigureAwait(false);
             }
         }
-        //TODO: Add pal:acr (add custom reaction), pal:dcr (delete custom reaction), and pal:ecr (edit custom reaction)
+
         [Command("acr")]
         [Summary("Adds a custom reaction")]
         [OwnerOnly]

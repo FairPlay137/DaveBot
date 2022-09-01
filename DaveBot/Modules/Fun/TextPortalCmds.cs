@@ -9,6 +9,8 @@ using DaveBot.Common.Attributes;
 using System.Linq;
 using NLog;
 
+// This module is not enabled on the public instance due to its reliance on the Message Content intent, which DaveBot has not been granted.
+
 namespace DaveBot.Modules.Fun
 {
     public partial class FunModule

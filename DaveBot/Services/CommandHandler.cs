@@ -7,11 +7,13 @@ using NLog;
 using Discord.Commands;
 using System.Collections.Immutable;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using DaveBot.Common;
 using DaveBot.Common.ModuleBehaviors;
 
 namespace DaveBot.Services
 {
+    [Obsolete("This service has been deprecated. Please use InteractionHandler instead.")]
     public class CommandHandler : IDaveBotService
     {
         private readonly DiscordShardedClient _client;
