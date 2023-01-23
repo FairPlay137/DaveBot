@@ -463,10 +463,10 @@ This DaveBot rewrite is a work-in-progress, so expect missing features, along wi
   <data name="Utils_ping_subtitle5" xml:space="preserve">
     <value>I love doing this!</value>
   </data>
-  <data name="Utils_verboseErrors_off" xml:space="preserve">
+  <data name="Admin_verboseErrors_off" xml:space="preserve">
     <value>Alright, incorrectly used commands will no longer show errors.</value>
   </data>
-  <data name="Utils_verboseErrors_on" xml:space="preserve">
+  <data name="Admin_verboseErrors_on" xml:space="preserve">
     <value>Okay, incorrectly used commands will now show errors.</value>
   </data>
   <data name="CustomReactions_ShowCustomReaction_noResults_desc" xml:space="preserve">
