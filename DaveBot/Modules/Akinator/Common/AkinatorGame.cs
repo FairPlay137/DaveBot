@@ -1,4 +1,4 @@
-﻿#if !PUBLIC_BUILD
+﻿#if !PUBLIC_BUILD && !RELEASE
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace DaveBot.Modules.Akinator.Common
         {
 
         }
-        #region IDisposable Support
+#region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 
         void Dispose(bool disposing)
@@ -51,7 +51,7 @@ namespace DaveBot.Modules.Akinator.Common
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
-        #endregion
+#endregion
 
     }
 }

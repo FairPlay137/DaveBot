@@ -1,8 +1,10 @@
-﻿#if !PUBLIC_BUILD
+﻿#if !PUBLIC_BUILD && !RELEASE
 using System.Threading.Tasks;
 using Discord.Commands;
 using DaveBot.Common;
 using DaveBot.Modules.Akinator.Services;
+
+// This module is super-early in development, and as such is only available in debug builds of DaveBot.
 
 namespace DaveBot.Modules
 {

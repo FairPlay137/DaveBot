@@ -1,4 +1,4 @@
-﻿#if !PUBLIC_BUILD
+﻿#if !PUBLIC_BUILD && !RELEASE
 using System;
 using System.Threading.Tasks;
 using Discord;

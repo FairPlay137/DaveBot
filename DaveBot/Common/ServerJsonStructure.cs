@@ -29,7 +29,7 @@ namespace DaveBot.Common
         [JsonProperty("enableDaveNotifications")]
         public bool EnableDaveNotifs { get; set; }
 
-        [JsonProperty("daveNotifcationChannel")]
+        [JsonProperty("daveNotificationChannel")]
         public uint DaveNotifsChannelID { get; set; }
     }
 }
